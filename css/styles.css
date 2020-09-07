@@ -1,17 +1,18 @@
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
@@ -21,80 +22,79 @@ body {
   background-color: #282828;
 }
 
-.section{
+/* Section */
+
+.section {
   padding-top: 30px;
   padding-bottom: 50px;
 }
 
-.container{
+/* Container */
+
+.container {
   max-width: 1200px;
   padding-left: 60px;
   padding-right: 60px;
   margin: 0 auto;
 }
 
-.container.header{
+.container.header {
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #444444;
 }
 
-.container.footer{
+.container.footer {
   display: flex;
   justify-content: center;
-  border-top: 1px solid #444444
+  border-top: 1px solid #444444;
+}
+
+b {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  color: thistle;
 }
 
 /*----- Page Header -----*/
 
-.page-header{
+.page-header {
   width: 100%;
 }
 
-.logo-link{
+.logo-link {
   color: #666666;
-  text-decoration: none
+  text-decoration: none;
 }
 
 /*----- Page Main -----*/
 
-.page-main{
+.page-main {
   min-height: 65vh;
 }
 
-.title.main{
+.title.main {
   color: #444444;
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
-.content{
+.content {
   padding-left: 30px;
   padding-right: 30px;
-  color: white
+  color: white;
 }
 
-.page-link{
+.page-link {
   text-decoration: none;
   color: skyblue;
 }
 
 /*----- Page Footer -----*/
 
-.title.footer{
+.title.footer {
   color: #444444;
   font-size: 26px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
