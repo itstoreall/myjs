@@ -1,0 +1,100 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.72;
+  letter-spacing: 0.03em;
+  color: #757575;
+  background-color: #282828;
+}
+
+.section{
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.container{
+  max-width: 1200px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin: 0 auto;
+}
+
+.container.header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444444;
+}
+
+.container.footer{
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #444444
+}
+
+/*----- Page Header -----*/
+
+.page-header{
+  width: 100%;
+}
+
+.logo-link{
+  color: #666666;
+  text-decoration: none
+}
+
+/*----- Page Main -----*/
+
+.page-main{
+  min-height: 65vh;
+}
+
+.title.main{
+  color: #444444;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 60px;
+}
+
+.content{
+  padding-left: 30px;
+  padding-right: 30px;
+  color: white
+}
+
+.page-link{
+  text-decoration: none;
+  color: skyblue;
+}
+
+/*----- Page Footer -----*/
+
+.title.footer{
+  color: #444444;
+  font-size: 26px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
