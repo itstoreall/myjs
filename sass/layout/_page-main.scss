@@ -1,0 +1,101 @@
+// ---------- Page Main ----------
+
+.title.main {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  color: $secondary-text-color;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 60px;
+    font-size: 22px;
+  }
+}
+
+// Content
+
+.content-list {
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-left: 80px;
+    margin-bottom: 60px;
+  }
+
+  // Item
+
+  .content-item {
+    // Theme
+
+    .theme {
+      margin-right: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      color: $content-theme-color;
+
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        font-size: 20px;
+      }
+    }
+
+    // Text
+
+    &.text {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 400;
+      color: $content-text-color;
+
+      // ...
+
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// Page Link
+
+.page-link {
+  color: $page-link-color;
+}
+
+// Source Link
+
+.sourсe-link {
+  font-size: 18px;
+  color: $page-link-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+    padding-left: 80px;
+  }
+}

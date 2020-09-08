@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
   </head>
   <body>
     <!-- Page Header -->
@@ -27,15 +27,63 @@
       <section class="section">
         <div class="container main">
           <h2 class="title main">First module</h2>
-          <div class="content">
-            <b>alert</b>
-            <b>confirm</b>
-            <b>prompt</b>
-            <b>parseInt</b>
-            <b>parseFloat</b>
-            <b>toFixed</b>
-            <b>матрешки</b>
-          </div>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">alert</span>до и после
+            </li>
+            <li class="content-item text">
+              <span class="theme">confirm</span>подписка
+            </li>
+            <li class="content-item text">
+              <span class="theme">prompt</span>запрашивает ввод, возвращает
+              только строку
+            </li>
+            <li class="content-item text">
+              <span class="theme">parseInt</span>останавливается на первом
+              НЕ-числе (от 0-9)
+            </li>
+            <li class="content-item text">
+              <span class="theme">parseFloat</span>то же самое --^, но включает
+              точку в поиск
+            </li>
+            <li class="content-item text">
+              <span class="theme">toFixed</span>отсекает после точки (но выдает,
+              как строку)
+            </li>
+            <li class="content-item text">
+              <span class="theme">матрешки</span>упрощение
+            </li>
+            <li class="content-item text">
+              <span class="theme">Number</span>конструктор - выражение
+              присваиваия числа
+            </li>
+            <li class="content-item text">
+              <span class="theme">Math</span>объект
+            </li>
+            <li class="content-item text">
+              <span class="theme">pow</span>возведение в степень
+            </li>
+            <li class="content-item text">
+              <span class="theme">**</span>оператор экспонента
+            </li>
+            <li class="content-item text">
+              <span class="theme">sqrt</span>квадратный корень
+            </li>
+            <li class="content-item text">
+              <span class="theme">random</span>генерит псевдослучайные числа
+            </li>
+            <li class="content-item text">
+              <span class="theme">round</span>метод - сокращает число
+            </li>
+          </ul>
+
+          <!-- JS source on GitHub-->
+
+          <a
+            class="sourсe-link link"
+            href="https://github.com/itstoreall/myjs/blob/master/js/001.js"
+            >source</a
+          >
         </div>
       </section>
     </main>

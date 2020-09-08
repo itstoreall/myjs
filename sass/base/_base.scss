@@ -1,0 +1,42 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: $primary-text-color;
+  background-color: $body-background-color;
+}
+
+// List
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// Link
+
+.link {
+  text-decoration: none;
+}
+
+/* Title */
+
+.title {
+  margin: 0;
+}

@@ -1,0 +1,28 @@
+/*----- Page Header -----*/
+
+.page-header {
+  width: 100%;
+}
+
+.logo-link {
+  color: $logo-color;
+  text-decoration: none;
+}
+
+.title.header {
+  font-size: 42px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 64px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 48px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
