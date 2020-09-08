@@ -1,0 +1,46 @@
+// Landscape
+
+@media all and (orientation: landscape) {
+  @media all and (max-width: 767px) {
+    .page-main {
+      .title.main {
+        margin-bottom: 20px;
+      }
+    }
+
+    .content-list {
+      .content-item {
+        // Theme
+
+        .theme {
+          margin-right: 15px;
+          font-size: 16px;
+        }
+
+        // Text
+
+        &.text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    .content-list {
+      .content-item {
+        // Theme
+
+        .theme {
+          margin-right: 15px;
+        }
+
+        // Text
+
+        &.text {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

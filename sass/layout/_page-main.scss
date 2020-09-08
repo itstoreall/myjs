@@ -1,17 +1,21 @@
 // ---------- Page Main ----------
 
+// Title
+
 .title.main {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  font-size: 20px;
+  margin-bottom: 25px;
+  font-size: 22px;
   font-weight: 400;
   color: $secondary-text-color;
 
+  // Circle
+
   &::before {
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     margin-right: 20px;
     border-radius: 50%;
     background-color: $logo-color;
@@ -48,8 +52,8 @@
     // Theme
 
     .theme {
-      margin-right: 30px;
-      font-size: 18px;
+      margin-right: 20px;
+      font-size: 20px;
       font-weight: 500;
       color: $content-theme-color;
 
