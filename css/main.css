@@ -205,7 +205,7 @@ body {
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: 400;
-  color: #f8e060;
+  color: rgba(247, 227, 173, 0.8);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
