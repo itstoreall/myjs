@@ -131,7 +131,7 @@
 // const result = Math.round(Math.random() * (max - min) + min); // Рандомное число в диапазоне 30-50
 // console.log(result);
 
-// Сайт меняет цвет фона при каждом заходе
+// * Сайт меняет цвет фона при каждом заходе
 
 // const colors = ["tomato", "teal", "orange", "dippink"];
 // const max = colors.length - 1;
@@ -140,3 +140,103 @@
 // const color = colors[index];
 // console.log(color);
 // document.body.style.backgroundColor = color;
+
+// * length * количество символов в строке
+
+// const message = "в этой строке 26 симвлов, ";
+// console.log(message.length); // обращение к свойству (не вызов с пузатыми скобками)
+
+// * - конкотенация строк
+
+// console.log("qwe" + "asd" + " zxc"); // - сшивание строк
+
+// const firstName = "Chelsy";
+// const lastName = "Emerald";
+// const fullName = firstName + " " + lastName; // - сшивание с пробелом - (" ")
+// console.log(fullName);
+
+/* Задание - вывести строку в формате:
+ * "Гость x y поселятся в z номер q",
+ * подставив вместо x y z q знечения переменных
+ */
+
+/*// Решение №1 - (Old School)
+
+const firstName = "Chelsy";
+const lastName = "Emerald";
+const room = 716;
+const type = "VIP";
+
+const welcomeMsg =
+  "Гость" +
+  " " +
+  firstName +
+  " " +
+  lastName +
+  " " +
+  "поселился в" +
+  " " +
+  type +
+  " " +
+  "номер" +
+  " " +
+  room;
+console.log(welcomeMsg);*/
+
+/*// Другой пример - подставляем внутрь строки переменные
+
+const quantity = 5;
+const orderMsg = `Вы заказываете ${quantity} холодильников.` // - косые ковычки `` - это шаблонная строка
+console.log(orderMsg);*/
+
+/*// Решение №2 - шаблонная строка с подставленными внутрь значениями
+
+const firstName = "Chelsy";
+const lastName = "Emerald";
+const room = 716;
+const type = "VIP";
+
+const welcomeMsg = `Гость ${firstName} ${lastName} поселятся в ${type} номер ${room}`;
+console.log(welcomeMsg); */
+
+/*// * toLowerCase() - приводит к нижнему регистру
+
+const brand = "Sansung";
+const normalizedBrand = brand.toLowerCase(); // приводит к нижнему регистру
+console.log(normalizedBrand); */
+
+/*// - этот же пример, но иначе
+
+let brand = prompt("Давай бренд");
+brand = brand.toLowerCase();
+console.log(brand); */
+
+/*// * slice() - обращение к любому символу строки
+
+let brand = "SamSUnG";
+console.log(brand[4]); // строка индексируется - в [] вставляют индекс начиная с 0
+console.log(brand.slice(3).toLowerCase()); // slice - метод отрезает по индекс включительно начиная с 1, и потом вызываем еще один метод toLowerCase
+
+brand = brand[0] + brand.slice(1).toLowerCase(); // ченнинг - цепочка вызовов
+console.log(brand); */
+
+/*// * includes() - метод, поиск в строке
+
+const blacklistedWord1 = "спам";
+const blacklistedWord2 = "распродажа";
+
+const string1 = "Привет я принц, это не спам, предлагаю миллион";
+const string2 = "Самая большая РАСПРОДАЖА этой недели";
+const string3 = "Рекламная кампания #fatlivesmatter";
+
+console.log(string1.includes(blacklistedWord1)); // проверяем первую строку, возвращае true (слово - спам)
+console.log(string1.includes(blacklistedWord2)); // в первой строке слово (спам) не найдено
+
+console.log(string2.includes(blacklistedWord1)); // false
+console.log(string2.includes(blacklistedWord2)); // false - потому что верхний регистр
+console.log(string2.toLowerCase().includes(blacklistedWord2)); // - тогда применяем метод toLowerCase, а потом includes - и имеем true
+const normalizedString2 = string2.toLowerCase(); // - или нормализуем строку2 и потом includes
+console.log(normalizedString2.includes(blacklistedWord2)); // - в итоге true
+
+console.log(string3.includes(blacklistedWord1)); // false
+console.log(string3.includes(blacklistedWord2)); // false */

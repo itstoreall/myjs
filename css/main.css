@@ -129,10 +129,25 @@ body {
 }
 
 .title.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 30px;
   font-size: 20px;
   font-weight: 400;
   color: #444444;
+}
+
+.title.main::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background-color: #666666;
 }
 
 @media screen and (min-width: 768px) {
@@ -215,6 +230,7 @@ body {
 
 .sourсe-link {
   font-size: 18px;
+  font-weight: 500;
   color: #87ceeb;
 }
 

@@ -1,10 +1,21 @@
 // ---------- Page Main ----------
 
 .title.main {
+  display: flex;
+  align-items: center;
   margin-bottom: 30px;
   font-size: 20px;
   font-weight: 400;
   color: $secondary-text-color;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: $logo-color;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 50px;
@@ -88,6 +99,7 @@
 
 .sourсe-link {
   font-size: 18px;
+  font-weight: 500;
   color: $page-link-color;
 
   @media screen and (min-width: 768px) {
