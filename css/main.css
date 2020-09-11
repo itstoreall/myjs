@@ -97,8 +97,6 @@ body {
 }
 
 .input {
-  position: relative;
-  top: -10;
   width: 100%;
   max-width: 350px;
   background-color: transparent;
@@ -117,6 +115,7 @@ button {
   border: none;
   border-radius: 4px;
   background-color: thistle;
+  cursor: pointer;
 }
 
 /*----- Page Header -----*/

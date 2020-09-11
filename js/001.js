@@ -790,35 +790,35 @@ console.log("$" + price); */
 // - document - объект который хранит ссылку на весь HTML документ
 // - querySelector() - метод. В () передаем аргумент - CSS селектор нашего элемента
 
-// const btnAdd = document.querySelector("button[data-add]"); // получение доступа к элементу c селектором атрибута data-add
-// const resetBtn = document.querySelector("button[data-reset]");
-// console.log(btnAdd); // - выводит элемент
-// const valueInput = document.querySelector("input[data-value]");
-// const outputEl = document.querySelector(".js-output span"); // - вывод суммы в HTML - в спан
+const btnAdd = document.querySelector("button[data-add]"); // получение доступа к элементу c селектором атрибута data-add
+const resetBtn = document.querySelector("button[data-reset]");
+console.log(btnAdd); // - выводит элемент
+const valueInput = document.querySelector("input[data-value]");
+const outputEl = document.querySelector(".js-output span"); // - вывод суммы в HTML - в спан
 
-// // * .textContent
-// console.log(btnAdd.textContent); // - выводит текстовый контент элемента
-// btnAdd.textContent = "qweqweqwe"; // - изменяем текст. конт. элемента с помощью JS
+// * .textContent
+console.log(btnAdd.textContent); // - выводит текстовый контент элемента
+btnAdd.textContent = "qweqweqwe"; // - изменяем текст. конт. элемента с помощью JS
 
-// // * .addEventListener - метод - слушатель события
-// // - в () передается два аргумента. Первый - тип события (как строка) - "click", а второе - функция.
-// // - в {} функции пишем код, который будет выполняться при клике - получаем "click hehehehe"
+// * .addEventListener - метод - слушатель события
+// - в () передается два аргумента. Первый - тип события (как строка) - "click", а второе - функция.
+// - в {} функции пишем код, который будет выполняться при клике - получаем "click hehehehe"
 
-// let total = 0;
+let total = 0;
 
-// btnAdd.addEventListener("click", function () {
-//   console.log("click hehehehe");
+btnAdd.addEventListener("click", function () {
+  console.log("click hehehehe");
 
-//   // - приобразовываем полученное значение в число и записываем в переменную
-//   const value = Number(valueInput.value); // .value - значение - получаем значение во время клика
-//   console.log(value); // - выводит полученное число
+  // - приобразовываем полученное значение в число и записываем в переменную
+  const value = Number(valueInput.value); // .value - значение - получаем значение во время клика
+  console.log(value); // - выводит полученное число
 
-//   total += value; // - сумируем кажное полученное число
-//   outputEl.textContent = total;
-//   valueInput.value = ""; // - очищаем значение в инпуте после каждого клика
-// });
+  total += value; // - сумируем кажное полученное число
+  outputEl.textContent = total;
+  valueInput.value = ""; // - очищаем значение в инпуте после каждого клика
+});
 
-// resetBtn.addEventListener("click", function () {
-//   total = 0;
-//   outputEl.textContent = total;
-// });
+resetBtn.addEventListener("click", function () {
+  total = 0;
+  outputEl.textContent = total;
+});
