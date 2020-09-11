@@ -1,0 +1,23 @@
+// Form
+
+.input {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  background-color: transparent;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: thistle;
+}
