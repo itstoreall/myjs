@@ -247,6 +247,8 @@ button {
 }
 
 .page-link {
+  display: block;
+  margin-bottom: 15px;
   color: #87ceeb;
 }
 
