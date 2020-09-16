@@ -26,7 +26,7 @@
     <main class="page-main">
       <section class="section">
         <div class="container main">
-          <h2 class="title main">First module</h2>
+          <h2 class="title main">Second module</h2>
           <ul class="content-list list">
             <li class="content-item text">
               <span class="theme">array</span>массив - набор ячеек памяти.
@@ -53,9 +53,19 @@
               узнать есть или нет элемент в масиве - возвр true/false
             </li>
             <li class="content-item text">
-              <span class="theme">.join(", ")</span>метод массива, сшивает
-              каждый эллемент в одну строку, а в скобках ("") передается
-              разделитель
+              <span class="theme">.join(", ")</span>недеструктивный метод
+              массива, сшивает каждый эллемент в одну строку, возвращает строку
+            </li>
+            <li class="content-item text">
+              <span class="theme">.split(" ")</span>недеструктивный метод
+              строки, разбивает строку по разделителю, допустим пробел
+            </li>
+            <li class="content-item text">
+              <span class="theme">.concat(array2)</span>недеструктивный метод
+            </li>
+            <li class="content-item text">
+              <span class="theme">.splice()</span>деструктивный метод - удаляет
+              и добавляет элементы в массиве
             </li>
           </ul>
 

@@ -313,3 +313,191 @@
 
 // const string = friends.join(", "); // разделитель всегда строка
 // console.log(string); // Должно получиться "Mango, Poly, Kiwi, Ajax"
+
+// * Задача
+// ** Изменение регистра
+
+/*
+ * Напиши скрипт который изменяет регистр каждого символа в строке на противоположный
+ * Например, если строка "JavaScript", то на выходе должно быть строка "jAVAsCRIPT"
+ */
+
+// // Решение c .split() Old School
+// // .split() - метод строки который разбивает строку по разделителю
+
+// const string = "JavaScript";
+// const letters = string.split(""); // разбиваем массив посимвольно
+// let invertedString = ""; // указать "", иначе будет undefinde
+
+// console.log(letters);
+
+// for (const letter of letters) {
+//   console.log(letter); // перебрали масссив побуквенно
+
+//   // Используем if else
+
+//   //   if (letter === letter.toLowerCase()) {
+//   //     // сравниваем каждую букву, определяем регистр
+//   //     console.log("Эта буква в нижнем регистре!!! - ", letter);
+
+//   //     invertedString += letter.toUpperCase();
+//   //   } else {
+//   //     console.log("Эта буква в верхнем регистре!!! - ", letter);
+//   //     invertedString += letter.toLowerCase();
+//   //   }
+
+//   // Используем тернарный оператор
+
+//   const isEqual = letter === letter.toLowerCase(); // isEqual (равны ли эти два значения?) - истользуем тернарный оператор
+//   invertedString += isEqual ? letter.toUpperCase() : letter.toLowerCase();
+// }
+// console.log("invertedString:", invertedString);
+
+// * Задача
+// ** Делаем из строки слаг (slug)
+
+/*
+ * Делаем slug в URL из названия статьи (например на dev.to)
+ * Заголовок состоит только из букв и пробелов
+ *
+ * - Нормализуем строку
+ * - Разбиваем по словам
+ * - Сшиваем в строку и разделяем
+ */
+
+//  Должно получиться top-10-benefits-of-React-framework
+
+// // Решение Old School
+
+// const title = "Top 10 benefits of React framework";
+// const normalizedTitle = title.toLowerCase(); // приводим к нижнему регистру
+
+// const words = normalizedTitle.split(" "); // разбили в массив по словам при помощи .split(" ")
+// console.log(normalizedTitle);
+// console.log(words);
+
+// const slug = words.join("-"); // сшили в строку с раздиление тире при помощи .join("-")
+// console.log(slug);
+
+// // Решение с chaning (цепочки вызовов) - (абстракции)
+// // Исключаем промежуточные переменные
+
+// const title = "Top 10 benefits of React framework";
+
+// const slug = title.toLowerCase().split(" ").join("-"); // вызываем каждый следующий метод на результате предидущего (абстракции)
+// // - вызовы одут последовательно - это синхронный код
+// console.log(slug);
+
+// * Задача
+// ** Два массива
+// *** Concat
+
+/*
+ * Напиши скрипт который считает сумму элементов двух массивом
+ */
+
+// // Решение Old School
+// // Перебираем два массива по очереди (самый плохой вариант)
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+// for (let i = 0; i < array1.length; i += 1) {
+//   total += array1[i];
+//   console.log(total);
+// }
+
+// for (let i = 0; i < array2.length; i += 1) {
+//   total += array2[i];
+//   console.log(array2[i]);
+// }
+
+// console.log("Total: ", total);
+
+// // Решение с .concat()
+// // Из двух массивов делаем один
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+// const numbers = array1.concat(array2); // сшиваем два массива методом .concat()
+// // в concat можно передавать любое кол-во массивов .concat(array2, [1, 2, 3], [90, 70, 45])
+// for (const number of numbers) {
+//   total += number;
+// }
+
+// console.log(total);
+
+// * Задача
+// *** Splice (деструктивный метод)
+
+/*
+ * Работаем с коллекцией карточек в Trello
+ * - Метод splice()
+ * - Удалить
+ * - Добавить
+ * - Обновить
+ */
+
+// const cards = [
+//   "Карточка-1",
+//   "Карточка-2",
+//   "Карточка-3",
+//   "Карточка-4",
+//   "Карточка-5",
+// ];
+
+// console.table(cards);
+
+/*
+ * Удаление [по индексу], метод indeOf()
+ */
+
+// // Решение с splice()
+
+// const cardToRemove = "Карточка-3";
+// const index = cards.indexOf(cardToRemove); // метод indexOf позволяет найти индекс элемента в массиве. Если элемента нету он вернет -1
+// console.log(index); // выводим индекс элемента
+// cards.splice(index, 1); // метод splice() удаляет элемент массива. В скобках (индекс с какого удалять, и кол-во элементов)
+
+// console.table(cards);
+
+/*
+ * Добавление карточки [по индексу]
+ */
+
+// //  Решение с splice
+
+// const cardToInsert = "Карточка-6";
+
+// cards.splice(4, 0, cardToInsert); // расшифровка в скобках (4 - в четвертый индекс, 0 - ничего не удаляй, а поставь cardToInsert)
+
+// console.table(cards);
+
+/*
+ * Добавление произвольных элементов [по индексу]
+ */
+
+// //  Решение с splice
+
+// const cardToInsert = "Карточка-6";
+
+// cards.splice(1, 0, 5, 10, 20); // расшифровка в скобках (1 - в первый индекс, 0 - ничего не удаляй, но поставь три элемента: 5, 10, 20)
+// cards.splice(7, 0, 6); // добавляем в элемент в другое место массива
+
+// console.table(cards);
+
+/*
+ * Обновление [по индексу]
+ */
+
+// //  Решение с splice
+
+// const cardToUpdate = "Карточка-4";
+// const index = cards.indexOf(cardToUpdate); // находим индекс карточки-4
+// console.log(index);
+
+// cards.splice(index, 1, "eee"); // удаляем карточку и заменяем на "еее"
+// console.table(cards);
