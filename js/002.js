@@ -1,5 +1,5 @@
 // // * Array
-// // ** массива
+// // ** массивы
 
 // const friends = ["Mango", "Kiwi", "Poly", "Ajax"];
 // console.table(friends); // Выводить масивы при помощи .table
@@ -195,3 +195,66 @@
 // }
 
 // console.log("Total: ", total);
+
+// * Задача
+
+// ** Поиск логинов
+// Напиши скрипт поиска логина
+// - Если логина нет, вывести "Пользователь [логин] не найден"
+// - Если нали логин, вывести "Пользователь [логин] найден"
+
+// - Снвачала через for
+// - Потом через for...of
+// - Логика break
+// - Метод includes() с тернарным оператором
+
+// // Решение с for
+
+// const logins = ["n4ngoDoge", "k1widab3st", "poly1scute", "aj4xth3m4n"];
+// const loginToFind = "poly1scute";
+// let message = `Пользователь ${loginToFind} не найден`; // изначально устанавливаем значение (пользователь НЕ найден) - логика от обратного
+
+// for (let i = 0; i < logins.length; i += 1) {
+//   const login = logins[i]; // в переменную login сохранил значение logins[i]
+//   console.log(login); // получил доступ к саждому
+//   console.log(`${login} = ${loginToFind}: `, login === loginToFind); // сравниваем внутри цикла и выводим результат до момента нахождения
+
+//   if (login === loginToFind) {
+//     message = `Пользователь ${loginToFind} найден`;
+//     break; // обязательно прирвать в случае успеха, иначе for пойдет до конца и выдаст последний результат
+//   }
+// }
+
+// console.log(message);
+
+// // Решение c for...of
+
+// const logins = ["n4ngoDoge", "k1widab3st", "poly1scute", "aj4xth3m4n"];
+// const loginToFind = "poly1scute";
+// let message = `Пользователь ${loginToFind} не найден`; // изначально устанавливаем значение (пользователь НЕ найден) - логика от обратного
+
+// for (const login of logins) {
+//   console.log(login); // получил доступ к саждому
+//   console.log(`${login} = ${loginToFind}: `, login === loginToFind); // сравниваем внутри цикла и выводим результат до момента нахождения
+
+//   if (login === loginToFind) {
+//     message = `Пользователь ${loginToFind} найден`;
+//     break; // обязательно прирвать в случае успеха, иначе for пойдет до конца и выдаст последний результат
+//   }
+// }
+
+// console.log(message);
+
+// // Решение с includes
+// // includes - (абстракция) - метод масивов который скрывает под капотом передор, проверку на вхождение и на место вызова - logins.includes(loginToFind) возвращает true или false
+// // Декларативный код
+// // использовать только если нужно просто узнать есть значение в массиве или нет
+
+// const logins = ["n4ngoDoge", "k1widab3st", "poly1scute", "aj4xth3m4n"];
+// const loginToFind = "poly1scute";
+// // let message = `Пользователь ${loginToFind} не найден`; // изначально устанавливаем значение (пользователь НЕ найден) - логика от обратного
+// // const a = 15 > 10 ? "ага" : "нет";
+// const message = logins.includes(loginToFind)
+//   ? `Пользователь ${loginToFind} найден`
+//   : `Пользователь ${loginToFind} не найден`;
+// console.log(message); // true
