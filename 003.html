@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модуль 3 - Объекты</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
+  <body>
+    <!-- Page Header -->
+
+    <header class="page-header">
+      <div class="container header">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title header">JS</h1>
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Main -->
+
+    <main class="page-main">
+      <section class="section">
+        <div class="container main">
+          <h2 class="title main">Second module</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">const hotel = {}</span>объекты - структура
+              данных, хранит характеристики одной сущности
+            </li>
+          </ul>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">hotel.name</span>доступ к свойствам объекта
+            </li>
+          </ul>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">hotel[key]</span>доступ к свойствам переменной
+              объекта - ставим [] и в скобках имя переменной
+            </li>
+          </ul>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">hotel.guests = []</span>добавить свойство
+              заранее, в объете создастся пустой масив
+            </li>
+          </ul>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <span class="theme">this</span>this.name = newName - внутри метода
+              объета обращаться к свойству оъета
+            </li>
+            <li class="content-item text">
+              <span class="theme">for...in</span>получаем список ключей
+            </li>
+            <li class="content-item text">
+              <span class="theme">"good" in feedback</span>in отдельно, без for
+              возвращает true если свойство с таким ключем ("good") в объекте
+              есть
+            </li>
+            <li class="content-item text">
+              <span class="theme">Object.keys(feedback)</span>конструктор для
+              создания обектов - создает массив с ключами из объекта feedback
+            </li>
+            <li class="content-item text">
+              <span class="theme">Object.values(feedback);</span>получаем массив
+              всех значений
+            </li>
+          </ul>
+
+          <!-- Source on GitHub-->
+
+          <a
+            class="sourсe-link link"
+            href="https://github.com/itstoreall/myjs/blob/master/js/003.js"
+            >source</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Page Footer -->
+
+    <footer class="page-footer">
+      <div class="container footer">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title footer">JS</h1>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="./js/003.js" type="module"></script>
+  </body>
+</html>
