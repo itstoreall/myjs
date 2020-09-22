@@ -330,3 +330,156 @@ for (const value of values) {
 console.log("Total:", totalFeedback); // выв Total: 18
 
 */
+/*
+
+// Массив Массивов
+
+const feedback = {
+  good: 5,
+  neutral: 10,
+  bad: 3,
+};
+
+console.log(Object.entries(feedback)); // получаем три массива и по два свойства в каждом (один их них - 0: (2) ["good", 5])
+
+*/
+/*
+
+// * Перебор массива с объектами в цикле
+
+const friends = [
+  { name: "Mango", online: false },
+  { name: "Kiwi", online: true },
+  { name: "Poly", online: true },
+  { name: "Ajax", online: false },
+];
+
+console.table(friends); // выводится массив с тремя объектами (по два своиства в каждом)
+console.log(friends[2]); // лог {name: "Poly", online: true}
+
+const nameToFind = "Poly";
+
+for (const friend of friends) {
+  // friend это ссылка на объект
+  console.log("1:", friend); // на каждой итерации я получаю доступ к отдельному объекту
+  console.log("2:", friend.name); // лог имена на каждой итерации
+  console.log("3:", friend.online); // лог online на каждой итерации
+}
+
+*/
+/*
+
+// * Находит имя друга
+
+const friends = [
+  { name: "Mango", online: false },
+  { name: "Kiwi", online: true },
+  { name: "Poly", online: true },
+  { name: "Ajax", online: false },
+];
+
+console.table(friends); //
+
+const nameToFind = "Poly";
+
+for (const friend of friends) {
+  console.log(friend); //
+
+  if (friend.name === "Poly") {
+    console.log(`Нашли ${friend.name}!!!`);
+    break;
+  }
+}
+
+*/
+/*
+
+// * Найти друга по имени (функция)
+
+const friends = [
+  { name: "Mango", online: false },
+  { name: "Kiwi", online: true },
+  { name: "Poly", online: true },
+  { name: "Ajax", online: false },
+];
+
+console.table(friends); //
+
+const nameToFind = "Poly";
+
+const findFreandByName = function (allFriends, name) {
+  for (const friend of allFriends) {
+    console.log(friend);
+
+    if (friend.name === name) {
+      return `Нашли ${friend.name}!!!`;
+    }
+  }
+
+  return `Не нашли 8(`;
+};
+
+console.log(findFreandByName(friends, "Poly"));
+console.log(findFreandByName(friends, "Chelsy"));
+console.log(findFreandByName(friends, "Kiwi"));
+
+*/
+/*
+
+// * Получаем имена всех друзей (функция)
+
+const friends = [
+  { name: "Mango", online: false },
+  { name: "Kiwi", online: true },
+  { name: "Poly", online: true },
+  { name: "Ajax", online: false },
+];
+
+console.table(friends);
+
+const getAllNames = function (allFriends) {
+  const names = []; // создаю пустой массив names
+
+  for (const friend of allFriends) {
+    console.log(friend); // перебираю массив friends
+    names.push(friend.name);
+  }
+  return names;
+};
+
+console.log(getAllNames(friends));
+
+*/
+/*
+
+// * Получаем имена только друзей которые online (функция)
+
+const friends = [
+  { name: "Mango", online: false },
+  { name: "Kiwi", online: true },
+  { name: "Poly", online: true },
+  { name: "Ajax", online: false },
+];
+
+console.table(friends);
+
+const getOnlineFriends = function (allFriends) {
+  const names = []; // создаю пустой массив names
+
+  for (const friend of allFriends) {
+    console.log(friend); // перебираю массив friends
+
+    if (friend.online) {
+      // friend.online === true писать не нужно. Если значение будет true - и запушится имя друга
+      // если будет false, этот if не выполнится и пойдет следующая итерация фора
+      // Если нужне НЕ онлайн тогда if (!friend.online)
+
+      names.push(friend.name); // пушим имена друзей онлайн
+    }
+  }
+  return names;
+};
+
+console.log(getOnlineFriends(friends));
+
+*/
