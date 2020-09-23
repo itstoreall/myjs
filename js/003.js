@@ -31,7 +31,7 @@ console.log(hotel);
 
 console.log(hotel.name, hotel.stars, hotel.capasity); // посли точки пишем имя значения, выв Sunset resort 5 200
 
-* /
+*/
 /*
 
 // - Способ 2.
@@ -111,7 +111,7 @@ arr.hello = ";)";
 
 console.log(arr); // выв (3) ["a", "b", "c", hello: ";)"]
 
- */
+*/
 /*
 
 // Тоже самое с функцией
@@ -154,7 +154,7 @@ hotel.updateName("Lagoon"); // меняем свойство updateName выв {
 
 console.log(hotel);
 
- */
+*/
 /*
 
 // * This
@@ -177,7 +177,7 @@ hotel.updateName("Lagoon"); // меняем свойство updateName выв {
 
 console.log(hotel);
 
- */
+*/
 /*
 
 // * This
@@ -256,6 +256,7 @@ console.log("Total:", totalFeedback); // выв Total: 18
 /*
 
 /*
+ *
  * Object.keys
  *
  * Конструктор для создания обектов
@@ -481,5 +482,634 @@ const getOnlineFriends = function (allFriends) {
 };
 
 console.log(getOnlineFriends(friends));
+
+*/
+
+/*
+ *
+ * ======== Корзина товаров=========
+ *
+ * Работаем с коллекцией товваров в корзине
+ * - getItems() - метод получить все елементы которые в ней лежат
+ * - add(products) - метод добавляет продукт в корзину
+ * - remove(productName) - метод удаляет продукт из корзины
+ * - clear() - метод полной очистки корзины
+ * - countTotalPrice() - метод подсчета общей цены в корзине товаров
+ * - increaseQuantity(productName)
+ * - decreaseQuantity(productName)
+ *
+ * { name: "🍎", price: 50 }
+ * { name: "🍇", price: 70 }
+ * { name: "🍋", price: 60 }
+ * { name: "🍓", price: 110 }
+ *
+ */
+
+/*
+
+// * Товары в корзине
+// * Добавление и Удаление туваров в корзину
+
+// API (интерфейс) - набор данных, которые открываются разработчику, чтобы их использовать
+// cart - корзина (объект)
+// items - свойство в котором лежит массив (в массив добавляются товары при нажатии "Добавить в корзину")
+
+const cart = {
+  items: [],
+  getItems() {
+    return this.items; // возвращает ссылку на свойство items (для получения доступа во внешнем коде)
+  },
+  add(product) {
+    product.quantity = 1; // в table добавляется quantity 1
+    this.items.push(product);
+  },
+  remove(productName) {
+    console.log(productName);
+
+    // для удаления перебираем массив с добавленными объектами
+    for (let i = 0; i < this.items.length; i += 1) {
+      // сравниваем свойство name на наличие необходимого
+      // обращаемся к объекту this.items, берем с таким индксом элемент [i] (это будет такой объект { name: "🍎", price: 50 }) и у этог объекта берем .name свойство
+      // для лучшей читабкльности кода объявляем переменную item и присваиваем ей this.items[i]
+
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        console.log("Ншли", item.name, ", теперь удаляем"); // нашли
+
+        // чтобы вызвать метод splice нам нужен индекс объекта
+        console.log("Индекс для удаления", i); // индекс объекта
+
+        this.items.splice(i, 1); // на текущем индексе мы один вырезаем
+
+        break;
+      }
+    }
+  },
+};
+
+console.table(cart.getItems()); // getItems - метод достучаться
+
+cart.add({ name: "🍎", price: 50 }); // добавляем объект в корзину
+cart.add({ name: "🍋", price: 60 });
+
+console.table(cart.getItems()); // см объект добавлет в корзину лог [{…}]
+
+cart.remove("🍎"); // удаляем объект из корзины
+console.table(cart.getItems()); // результат удаления
+
+*/
+/*
+
+// * Очистка корзины - метод clear()
+
+const cart = {
+  items: [],
+  getItems() {
+    return this.items;
+  },
+  add(product) {
+    product.quantity = 1;
+    this.items.push(product);
+  },
+  remove(productName) {
+    console.log(productName);
+
+    for (let i = 0; i < this.items.length; i += 1) {
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        console.log("Ншли", item.name, ", теперь удаляем");
+
+        console.log("Индекс для удаления", i);
+
+        this.items.splice(i, 1);
+
+        break;
+      }
+    }
+  },
+  clear() {
+    // this.items.length = 0; // <- первый способ, но так лучше не делать
+    this.items = []; // <- второй вариант, лучше просто записать пустой массив []
+    // как только вы записали другой массив, создается новое место в памяти, а тот массив исчезает, как будто никогда не существовало
+  },
+};
+
+console.table(cart.getItems());
+
+cart.add({ name: "🍎", price: 50 });
+cart.add({ name: "🍋", price: 60 });
+
+console.table(cart.getItems());
+
+cart.clear(); // полностью очищаем корзину
+console.table(cart.getItems()); // результат очистки
+
+*/
+/*
+
+// * Подсчет общей цены в корзине товаров - метод countTotalPrice()
+
+const cart = {
+  items: [],
+  getItems() {
+    return this.items;
+  },
+  add(product) {
+    product.quantity = 1;
+    this.items.push(product);
+  },
+  remove(productName) {
+    console.log(productName);
+
+    for (let i = 0; i < this.items.length; i += 1) {
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        console.log("Ншли", item.name, ", теперь удаляем");
+
+        console.log("Индекс для удаления", i);
+
+        this.items.splice(i, 1);
+
+        break;
+      }
+    }
+  },
+  clear() {
+    this.items = [];
+  },
+  countTotalPrice() {
+    let total = 0; // объявляем переменную тотал со значением 0
+
+    // проходимся циклом по items, у каждого из них берем price умножаем на quantity и возвращаем значение
+    for (const item of this.items) {
+      console.log(item); // получаем доступ к объкту item у которого есть цена за штуку - price, и количество штук в корзине - quantity
+      total += item.price * item.quantity; // умножаем цену за одну штуку на кол-во в корзине и плюсуем к тоталу - лог Total: 110
+    }
+
+    return total; // возвращаем результат подсчета
+  },
+};
+
+console.table(cart.getItems());
+
+cart.add({ name: "🍎", price: 50 });
+cart.add({ name: "🍋", price: 60 });
+
+console.table(cart.getItems());
+
+console.log("Total:", cart.countTotalPrice()); //
+
+*/
+/*
+
+// * Добавление нескольких одинаковых товаров к корзину
+
+const cart = {
+  items: [],
+  getItems() {
+    return this.items;
+  },
+  add(product) {
+    for (const item of this.items) {
+      // console.log(item); // перебрали корзину
+
+      if (item.name === product.name) {
+        console.log(item.name, "уже есть, увеличиваем кол-во!!!"); // нашли такой же продукт
+        item.quantity += 1; // увеличили quantity на 1
+        return;
+      }
+    }
+
+    console.log(product.name, "- новый продукт, добавляем в корзину!!!");
+    product.quantity = 1;
+    this.items.push(product);
+  },
+  remove(productName) {
+    console.log(productName);
+
+    for (let i = 0; i < this.items.length; i += 1) {
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        console.log("Ншли", item.name, ", теперь удаляем");
+
+        console.log("Индекс для удаления", i);
+
+        this.items.splice(i, 1);
+
+        break;
+      }
+    }
+  },
+  clear() {
+    this.items = [];
+  },
+  countTotalPrice() {
+    let total = 0;
+
+    for (const item of this.items) {
+      // console.log(item);
+      total += item.price * item.quantity;
+    }
+
+    return total;
+  },
+};
+
+console.table(cart.getItems());
+
+cart.add({ name: "🍎", price: 50 });
+cart.add({ name: "🍎", price: 50 });
+cart.add({ name: "🍋", price: 60 });
+cart.add({ name: "🍋", price: 60 });
+
+console.table(cart.getItems());
+
+console.log("Total:", cart.countTotalPrice());
+
+*/
+/*
+
+// * Увеличиваем и уменьшаем кол-во продуктов кнопками
+// - increaseQuantity(productName)
+// - decreaseQuantity(productName)
+
+const cart = {
+  items: [{ name: "🍎", price: 50, quantity: 1 }],
+  getItems() {
+    return this.items;
+  },
+  add(product) {
+    for (const item of this.items) {
+      // console.log(item); // перебрали корзину
+
+      if (item.name === product.name) {
+        console.log(item.name, "уже есть, увеличиваем кол-во!!!"); // нашли такой же продукт
+        item.quantity += 1; // увеличили quantity на 1
+        return;
+      }
+    }
+
+    console.log(product.name, "- новый продукт, добавляем в корзину!!!");
+    product.quantity = 1;
+    this.items.push(product);
+  },
+  remove(productName) {
+    console.log(productName);
+
+    for (let i = 0; i < this.items.length; i += 1) {
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        console.log("Ншли", item.name, ", теперь удаляем");
+
+        console.log("Индекс для удаления", i);
+
+        this.items.splice(i, 1);
+
+        break;
+      }
+    }
+  },
+  clear() {
+    this.items = [];
+  },
+  countTotalPrice() {
+    let total = 0;
+
+    for (const item of this.items) {
+      // console.log(item);
+      total += item.price * item.quantity;
+    }
+
+    return total;
+  },
+  increaseQuantity(productName) {
+    // находим продукт в массиве и у него увеличиваем quantity
+    for (const item of this.items) {
+      if (item.name === productName) {
+        item.quantity += 1;
+      }
+    }
+  },
+  decreaseQuantity(productName) {
+    // находим продукт в массиве и у него уменьшаем quantity
+    for (const item of this.items) {
+      if (item.name === productName) {
+        if (item.quantity - 1 === 0) {
+          this.remove(productName);
+          return;
+        }
+
+        item.quantity -= 1;
+      }
+    }
+  },
+};
+
+console.table(cart.getItems());
+
+cart.add({ name: "🍎", price: 50 });
+cart.add({ name: "🍋", price: 60 });
+cart.add({ name: "🍋", price: 60 });
+console.table(cart.getItems());
+
+cart.increaseQuantity("🍎"); // Добавляем срелочкой еще 1 продукт
+console.table(cart.getItems()); // результат добавления лог quantity 3
+
+cart.decreaseQuantity("🍋"); // Уменьшаем срелочкой на 1 продукт
+console.table(cart.getItems()); // результат уменьшения лог quantity 1
+
+cart.decreaseQuantity("🍋"); // Уменьшаем срелочкой на 1 продукт при остатке 1
+console.table(cart.getItems()); // результат уменьшения - объект удаляется из массива при помощи метода remove
+
+console.log("Total:", cart.countTotalPrice());
+
+*/
+/*
+
+// * Корзине товаров (готовый код)
+
+const cart = {
+  items: [
+    { name: "🍎", price: 50, quantity: 0 },
+    { name: "🍋", price: 60, quantity: 0 },
+    { name: "🍇", price: 70, quantity: 0 },
+  ],
+  getItems() {
+    return this.items;
+  },
+  add(product) {
+    for (const item of this.items) {
+      if (item.name === product.name) {
+        item.quantity += 1;
+        return;
+      }
+    }
+
+    product.quantity = 1;
+    this.items.push(product);
+  },
+  remove(productName) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      const item = this.items[i];
+
+      if (productName === item.name) {
+        this.items.splice(i, 1);
+        break;
+      }
+    }
+  },
+  clear() {
+    this.items = [];
+  },
+  countTotalPrice() {
+    let total = 0;
+
+    for (const item of this.items) {
+      total += item.price * item.quantity;
+    }
+
+    return total;
+  },
+  increaseQuantity(productName) {
+    for (const item of this.items) {
+      if (item.name === productName) {
+        item.quantity += 1;
+      }
+    }
+  },
+  decreaseQuantity(productName) {
+    for (const item of this.items) {
+      if (item.name === productName) {
+        if (item.quantity - 1 === 0) {
+          this.remove(productName);
+          return;
+        }
+
+        item.quantity -= 1;
+      }
+    }
+  },
+};
+
+console.table(cart.getItems()); // Пустая корзина
+
+cart.add({ name: "🍇" }); // добавили 1 объект в корзину
+cart.add({ name: "🍎" }); // добавили 1 объект в корзину
+cart.add({ name: "🍎" }); // добавили 1 объект в корзину
+cart.add({ name: "🍎" }); // добавили 1 объект в корзину
+cart.add({ name: "🍋" }); // добавили 1 объект в корзину
+cart.add({ name: "🍋" }); // добавили 1 объект в корзину
+cart.add({ name: "🍋" }); // добавили 1 объект в корзину
+console.table(cart.getItems()); // результат добавления
+
+cart.increaseQuantity("🍎"); // Добавляем срелочкой еще 1 продукт
+cart.increaseQuantity("🍎"); // Добавляем срелочкой еще 1 продукт
+console.table(cart.getItems()); // результат добавления лог quantity 3
+
+cart.decreaseQuantity("🍋"); // Уменьшаем срелочкой на 1 продукт
+cart.decreaseQuantity("🍋"); // Уменьшаем срелочкой на 1 продукт
+console.table(cart.getItems()); // результат уменьшения лог quantity 1
+
+cart.decreaseQuantity("🍋"); // Уменьшаем срелочкой на 1 продукт при остатке 1
+console.table(cart.getItems()); // результат уменьшения - объект удаляется из массива при помощи метода remove
+
+cart.remove("🍎"); // удаляем объект из корзины
+console.table(cart.getItems()); // результат удаления
+
+console.log("Total:", cart.countTotalPrice()); // Total
+
+cart.clear();
+console.log(cart.getItems()); // полностью очистили корзину
+
+*/
+
+/*
+ * Алтернативный современный синтаксис в JS
+ */
+
+/*
+
+// * ... Spread - операция распыление
+// используется когда на базе текущего массива нужно сделать новый
+
+// * Найти самое маленькое чисдло
+
+const temperatures = [18, 14, 12, 21, 17, 29]; // абъявил переменную с массивом чисел 
+
+console.log(Math.min(18, 14, 12, 21, 17, 29)); // Math.min высчитывает самое маленькое число среди чисел, но у нас массив
+
+console.log(Math.min(temperatures)); // масси мас.мин не понимает. Он видит один елемент, начинает его сравнивать, а он еще и не число... и все сломалось
+
+console.log(Math.min(...temperatures)); // правильно использовать spread - ... (три точки, распыление)
+
+*/
+/*
+
+// * Сделать из массива новый массив и добавить в него элемент
+
+const temperatures = [18, 14, 12, 21, 17, 29];
+
+// const nextTemps = temperatures.concat([1, 2, 3]); // соединяем и добавляем при помощи .concat()
+// console.log(nextTemps);
+
+const nextTemps = [...temperatures, 1, 2, 3]; // соеденяем и добавляем при помощи ... - распыления
+console.log(nextTemps);
+
+*/
+/*
+
+// * Составляем общий масив температур за три недели
+
+const temperatures = [18, 14, 12, 21, 17, 29];
+
+const lastWeekTemps = [1, 2, 3];
+const currentTemps = [6, 1, 8];
+const nextWeekTemps = [12, 14, 8];
+
+// const temps = lastWeekTemps.concat(currentTemps, nextWeekTemps); // делаем при помощи concat
+// console.log(temps);
+
+const temps = [
+  ...lastWeekTemps,
+  "xD",
+  ...currentTemps,
+  "hello",
+  ...nextWeekTemps,
+]; // далаем при помощи ... и добавляем 2 сторонних елемента
+console.log(temps);
+
+*/
+/*
+
+// * Распыление объектов
+
+const a = { x: 1, y: 2 };
+const b = { x: 0, z: 3 };
+
+// const c = Object.assign({}, a, b, { z: 5, x: 8, g: 1 }); // значения одинаковых ключей заменяются справа на лево
+
+const c = { t: 5, ...a, ...b, ...{ z: 5, x: 8, g: 1 }, x: 100 }; // то же самое и еще два дополнительных элемента с операцией распыление
+
+console.log(c);
+
+*/
+
+/*
+ *
+ * Правило:
+ * - слева всегда rest = справа всегда spread
+ *
+ */
+
+/*
+
+// Rest - операция сбор
+// - использовать когда нужно собрать группу элементов в другую группу элементов
+
+const fn = function (a, b, c, ...args) {
+  console.log(args);
+};
+
+fn(1, 2, 3, 4, 5, 6, 7);
+
+*/
+/*
+
+// * Деструктуризация объектов
+// - особый синтаксис присваивания, при котором можно присвоить массив или объект сразу нескольким переменным, разбив его на части
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  capacity: 100,
+};
+
+// Старый синтаксис
+
+// console.log("Name:", hotel.name);
+// console.log("Stars:", hotel.stars);
+// console.log("Capacity:", hotel.capacity);
+
+// Новый синтаксис
+
+const { name, stars, capacity } = hotel; // справа то что нужно деструктуризировать, слева в скобках {} переменные по имени ключа (иначе будет undefined)
+
+console.log("Name:", name);
+console.log("Stars:", stars);
+console.log("Capacity:", capacity);
+
+*/
+/*
+
+// * Дефолтные значения
+// - значения по умолчанию (указывать НЕ обязательно)
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  // capacity: 100, // отсутствует свойство
+};
+
+// на место пустого значения возвращается undefined,
+// - чтобы вызвращалсь хоть что то вместо undefined указывают дефолтное значение
+
+const { name = "Hotel 1", stars = 1, capacity = 0 } = hotel; // дефолтное значение указал после =
+
+console.log("Name:", name);
+console.log("Stars:", stars);
+console.log("Capacity:", capacity);
+
+*/
+/*
+
+// * Деструктуризация внутри функции
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  capacity: 100,
+};
+
+const showHotelInfo = function (hotelStats) {
+  console.log(hotelStats);
+
+  const { name, stars, capacity } = hotelStats; // деструктуризация
+
+  console.log("Name:", name);
+  console.log("Stars:", stars);
+  console.log("Capacity:", capacity);
+};
+
+showHotelInfo(hotel);
+
+*/
+/*
+
+// * Деструктуризация при получении аргумента
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  capacity: 100,
+};
+
+// деструктуризация прямо в подписи функции
+// можно добавлять дополнительные элементы
+
+const showHotelInfo = function ({ name, stars, capacity }, a, b, c) {
+  console.log("Name:", name);
+  console.log("Stars:", stars);
+  console.log("Capacity:", capacity);
+  console.log("a:", a);
+  console.log("b:", b);
+  console.log("c:", b);
+};
+
+showHotelInfo(hotel, 1, 2, 3);
 
 */
