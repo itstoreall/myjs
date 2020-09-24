@@ -97,14 +97,14 @@
             </li>
 
             <li class="content-item text">
-              <span class="theme">const { name, stars, capacity } = hotel;</span
+              <span class="theme">const { name, stars, capacity } = hotel</span
               >деструктуризация объектов
             </li>
 
             <li class="content-item text">
               <span class="theme"
                 >const { name = "Hotel 1", stars = 1, capacity = 0 } =
-                hotel;</span
+                hotel</span
               >дефолтные значения
             </li>
 
@@ -113,6 +113,28 @@
                 >const showHotelInfo = function ({ name, stars, capacity }, a,
                 b, c) {</span
               >деструктуризация при получении аргумента
+            </li>
+
+            <li class="content-item text">
+              <span class="theme"
+                >const { name: hotelName, stars, capacity } = hotel</span
+              >деструктуризация с переименованием - к имени ключа добавляем : и
+              новое имя
+            </li>
+
+            <li class="content-item text">
+              <span class="theme">stats: { folowers, views, likes }</span
+              >глубокая деструктуризация - ставим : и деструктуризируем
+            </li>
+
+            <li class="content-item text">
+              <span class="theme">const [red, green, blue] = rgb</span
+              >деструктуризация массива
+            </li>
+
+            <li class="content-item text">
+              <span class="theme">exemple: { a: { x: 1, y: 2 } }</span
+              >деструктуризация только некоторых свойств
             </li>
           </ul>
 

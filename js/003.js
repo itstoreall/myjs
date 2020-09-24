@@ -1002,7 +1002,11 @@ console.log(c);
 /*
  *
  * Правило:
- * - слева всегда rest = справа всегда spread
+ * - слева от равно всегда rest = справа от равно всегда spread
+ *
+ * пример:
+ * const { name, tag, location, ...restProps } = profile; - это Rest
+ * const a = {...{x:1}, ...{y:3}}; - это Spread
  *
  */
 
@@ -1111,5 +1115,250 @@ const showHotelInfo = function ({ name, stars, capacity }, a, b, c) {
 };
 
 showHotelInfo(hotel, 1, 2, 3);
+
+*/
+/*
+
+// * Деструктуризация с переименованием
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  capacity: 100,
+};
+
+// для переименовании при деструктуризации к имени ключа добавляем : и новое имя
+const { name: hotelName, stars, capacity } = hotel;
+console.log(hotelName); // лог Resort Hotel
+
+*/
+/*
+
+// * Глубокая деструктуризация
+// - как достать до свойств stats
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  location: "Ocho Rios, Jamaica",
+  avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  stats: {
+    folowers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+};
+
+// - первый способ
+const { name, tag, location, avatar, stats } = profile;
+const { folowers, views, likes } = stats; // еще раз деструктуризирую stats
+console.log(name, tag, location, avatar, stats, folowers, views, likes);
+
+*/
+/*
+
+// - второй способ
+// Это глубокая деструктуризация
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  location: "Ocho Rios, Jamaica",
+  avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  stats: {
+    folowers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+  exemple: { a: { x: 1, y: 2 } },
+};
+
+const {
+  name,
+  tag,
+  location,
+  avatar,
+  stats: { folowers, views, likes }, // ставим : и деструктуризируем
+  exemple: {
+    a: { x, y }, // еще более глубокая деструктуризация
+  },
+} = profile;
+
+console.log(name, tag, location, avatar, folowers, views, likes);
+
+console.log(x, y);
+
+*/
+/*
+
+// * Деструктуризация массива
+// - если объекты деструктуризиру/тся по имени переменной (ключа), то массивы дест. по очереди (поиндексно)
+// - имена переменных могут быть произвольными
+
+const rgb = [255, 100, 80];
+
+const [red, green, blue] = rgb;
+
+console.log(red, green, blue);
+
+*/
+/*
+
+// * Деструктуризация только синего цвета в массиве
+
+const rgb = [255, 100, 80, 33];
+
+const [, , blue] = rgb; // ставим две запятые вместо цветов которые пропускаем и потом нужный цвет
+
+console.log(blue);
+
+*/
+/*
+
+// * Деструктуризация только некоторых свойств
+// - но остальные свойства хочу собрать в локальную переменную (в объект)
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  location: "Ocho Rios, Jamaica",
+  avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  stats: {
+    folowers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+  exemple: { a: { x: 1, y: 2 } },
+};
+
+// для этого после деструктуризируемых свойств добавляем переменную с произвольным именем ...restProps
+const { name, tag, location, ...restProps } = profile;
+
+console.log(name, tag, location);
+console.log(restProps);
+console.log(profile);
+
+*/
+/*
+
+// * Где все это используется
+// - Вариант без деструктуризации (шаблон)
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  location: "Ocho Rios, Jamaica",
+  avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  stats: {
+    folowers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+};
+
+const makeProfileMarkup = function (profile) {
+  return `<div>
+  <img src="${profile.avatar}" alt="user avatar">
+  <p>${profile.name}<span>@${profile.tag}</span></p>
+  <p>Location: ${profile.location}</p>
+  <ul>
+    <li>Followers: ${profile.stats.folowers}</li>
+    <li>Views: ${profile.stats.views}</li>
+    <li>Likes: ${profile.stats.likes}</li>
+  </ul>
+  </div>`;
+};
+
+const markup = makeProfileMarkup(profile);
+console.log(markup);
+
+document.body.insertAdjacentHTML("afterbegin", markup);
+
+*/
+/*
+
+// - Вариант с деструктуризацией (шаблон)
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  location: "Ocho Rios, Jamaica",
+  avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  stats: {
+    followers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+};
+
+// пишем в подписи функции вместо profile - { name, tag, location, avatar, stats }
+// и удаляем везде в теле фуннкции profile. Кот становится чище
+const makeProfileMarkup = function ({
+  name,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) {
+  return `<div>
+  <img src="${avatar}" alt="user avatar">
+  <p>${name}<span>@${tag}</span></p>
+  <p>Location: ${location}</p>
+  <ul>
+    <li>Followers: ${followers}</li>
+    <li>Views: ${views}</li>
+    <li>Likes: ${likes}</li>
+  </ul>
+  </div>`;
+};
+
+const markup = makeProfileMarkup(profile);
+console.log(markup);
+
+document.body.insertAdjacentHTML("afterbegin", markup);
+
+*/
+/*
+
+// А что если пользователь не указал локацию и аватар?
+// - указываем дефолтные значения
+
+const profile = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  // location: "Ocho Rios, Jamaica",
+  location: undefined,
+  // avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg",
+  avatar: undefined,
+  stats: {
+    followers: 5603,
+    views: 5603,
+    likes: 1308,
+  },
+};
+
+const makeProfileMarkup = function ({
+  name,
+  tag,
+  location = "Planet Earth",
+  avatar = "https://i.pravatar.cc/400?img=6",
+  stats: { followers, views, likes },
+}) {
+  return `<div>
+  <img src="${avatar}" alt="user avatar">
+  <p>${name}<span>@${tag}</span></p>
+  <p>Location: ${location}</p>
+  <ul>
+    <li>Followers: ${followers}</li>
+    <li>Views: ${views}</li>
+    <li>Likes: ${likes}</li>
+  </ul>
+  </div>`;
+};
+
+const markup = makeProfileMarkup(profile);
+console.log(markup);
+
+document.body.insertAdjacentHTML("afterbegin", markup);
 
 */
