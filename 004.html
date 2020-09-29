@@ -30,6 +30,14 @@
 
           <!-- Content List -->
 
+          <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px">
+            Включить мозг
+          </button>
+
+          <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px" class="js-show-items">
+            Show items
+          </button>
+
           <ul class="content-list list">
             <li class="content-item text">
               <span class="theme">Callback</span>функция обратного вызова,
@@ -82,11 +90,37 @@
             <li class="content-item text">
               <span class="theme">const res = fnA()();</span>() сначала вызывается fnA. На место вызова подставляется первый return
             </li>
+            <li class="content-item text">
+              <span class="theme">function</span>Функция это частный случай объекта -> ссылочный тип
+            </li>
+            <li class="content-item text">
+              <span class="theme">контекст this</span>где и как была объявлена функция не имеет никакого влияния на контекст
+            </li>
+            <li class="content-item text">
+              <span class="theme">user.showTag()</span>вызов в контексте объекта. This получит ссылка на объект user
+            </li>
+            <li class="content-item text">
+              <span class="theme">foo()</span>если функция без контекста то this будет undefined
+            </li>
+            <li class="content-item text">
+              <span class="theme">user.x()</span>user.x = showTag; // в свойство x записывается ссылка на функцию showTag
+            </li>
+            <li class="content-item text">
+              <span class="theme">fn.method();</span>функция это объект
+            </li>
+            <li class="content-item text">
+              <span class="theme">invokeAction(user.showTag)</span>методы объекта не знают про то, что они методы обекта
+            </li>
+            <li class="content-item text">
+              <span class="theme">Call</span>showTag.call(mango, 1, 2, 3);
+            </li>
+            <li class="content-item text">
+              <span class="theme">Apply</span>showTag.apply(poly, [4, 5, 6])
+            </li>
+            <li class="content-item text">
+              <span class="theme">Bind</span>const showMangoTag = showTag.bind(mango)
+            </li>
           </ul>
-
-          <button type="button" style="display: block; margin-bottom: 30px">
-            Войти
-          </button>
 
           <!-- Source on GitHub-->
 
