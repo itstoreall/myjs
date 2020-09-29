@@ -1,150 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Модуль 4 - Callback-функции и замыкания</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
-    />
-    <link rel="stylesheet" href="css/main.min.css" />
-  </head>
-  <body>
-    <!-- Page Header -->
 
-    <header class="page-header">
-      <div class="container header">
-        <a class="logo-link" href="./index.html">
-          <h1 class="title header">JS</h1>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Модуль 4 - Callback-функции и замыкания</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css" />
+  <link rel="stylesheet" href="css/main.min.css" />
+</head>
+
+<body>
+  <!-- Page Header -->
+
+  <header class="page-header">
+    <div class="container header">
+      <a class="logo-link" href="./index.html">
+        <h1 class="title header">JS</h1>
+      </a>
+    </div>
+  </header>
+
+  <!-- Page Main -->
+
+  <main class="page-main">
+    <section class="section">
+      <div class="container main">
+        <h2 class="title main">Fourth module</h2>
+
+        <!-- Content List -->
+
+        <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px">
+          Включить мозг
+        </button>
+
+        <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px" class="js-show-items">
+          Show items
+        </button>
+
+        <ul class="content-list list">
+          <li class="content-item text">
+            <span class="theme">Callback</span>функция обратного вызова,
+            которая передается в другую функцию
+          </li>
+          <li class="content-item text">
+            <span class="theme">hof</span>функция высшего порядка
+          </li>
+          <li class="content-item text">
+            <span class="theme">Click</span>отложенный вызов: регистрация
+            события
+          </li>
+          <li class="content-item text">
+            <span class="theme">3000!</span>отложенный вызов: интервал
+          </li>
+          <li class="content-item text">
+            <span class="theme">fetch</span>отложенный вызов: HTTP запрос
+          </li>
+          <li class="content-item text">
+            <span class="theme">[[Environment]]</span>область видимости -
+            лексическое окружение, создается в момент вызова функции, а не его
+            объявления
+          </li>
+          <li class="content-item text">
+            <span class="theme">Global env</span>создается при исполнении
+            файла скрипта, записывается в момент объявления функции
+          </li>
+          <li class="content-item text">
+            <span class="theme">Foo env</span>создается в момент вызова
+            функции
+          </li>
+          <li class="content-item text">
+            <span class="theme">Record:</span>{} - {x: 10, y: 20, foo: <function>}
+          </li>
+          <li class="content-item text">
+            <span class="theme">Parent:</span>null
+          </li>
+          <li class="content-item text">
+            <span class="theme">замыкание</span>возможность функции запомнить то лексическое окружение, тот набор
+            переменных, который был в момент ее создания
+          </li>
+          <li class="content-item text">
+            <span class="theme">каррирование</span>(функциональное программирование)
+          </li>
+          <li class="content-item text">
+            <span class="theme">console.dir()</span>показывает функцию в первозданном виде (проверяем функцию Замыкание)
+          </li>
+          <li class="content-item text">
+            <span class="theme">Clousure</span>в консоле - означает на этой функции замкнулись console.dir(mango);
+          </li>
+          <li class="content-item text">
+            <span class="theme">const res = fnA()();</span>() сначала вызывается fnA. На место вызова подставляется
+            первый return
+          </li>
+          <li class="content-item text">
+            <span class="theme">function</span>Функция это частный случай объекта -> ссылочный тип
+          </li>
+          <li class="content-item text">
+            <span class="theme">контекст this</span>где и как была объявлена функция не имеет никакого влияния на
+            контекст
+          </li>
+          <li class="content-item text">
+            <span class="theme">user.showTag()</span>вызов в контексте объекта. This получит ссылка на объект user
+          </li>
+          <li class="content-item text">
+            <span class="theme">foo()</span>если функция без контекста то this будет undefined
+          </li>
+          <li class="content-item text">
+            <span class="theme">user.x()</span>user.x = showTag; // в свойство x записывается ссылка на функцию showTag
+          </li>
+          <li class="content-item text">
+            <span class="theme">fn.method();</span>функция это объект
+          </li>
+          <li class="content-item text">
+            <span class="theme">invokeAction(user.showTag)</span>методы объекта не знают про то, что они методы обекта
+          </li>
+          <li class="content-item text">
+            <span class="theme">Call</span>showTag.call(mango, 1, 2, 3);
+          </li>
+          <li class="content-item text">
+            <span class="theme">Apply</span>showTag.apply(poly, [4, 5, 6])
+          </li>
+          <li class="content-item text">
+            <span class="theme">Bind</span>const showMangoTag = showTag.bind(mango)
+          </li>
+        </ul>
+
+        <!-- Source on GitHub-->
+
+        <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/004.js">source</a>
       </div>
-    </header>
+    </section>
+  </main>
 
-    <!-- Page Main -->
+  <!-- Page Footer -->
 
-    <main class="page-main">
-      <section class="section">
-        <div class="container main">
-          <h2 class="title main">Fourth module</h2>
+  <footer class="page-footer">
+    <div class="container footer">
+      <a class="logo-link" href="./index.html">
+        <h1 class="title footer">JS</h1>
+      </a>
+    </div>
+  </footer>
 
-          <!-- Content List -->
+  <!-- Scripts -->
 
-          <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px">
-            Включить мозг
-          </button>
+  <script src="./js/004.js" type="module"></script>
+</body>
 
-          <button type="button" style="display: block; margin-bottom: 30px; font-size: 18px" class="js-show-items">
-            Show items
-          </button>
-
-          <ul class="content-list list">
-            <li class="content-item text">
-              <span class="theme">Callback</span>функция обратного вызова,
-              которая передается в другую функцию
-            </li>
-            <li class="content-item text">
-              <span class="theme">hof</span>функция высшего порядка
-            </li>
-            <li class="content-item text">
-              <span class="theme">Click</span>отложенный вызов: регистрация
-              события
-            </li>
-            <li class="content-item text">
-              <span class="theme">3000!</span>отложенный вызов: интервал
-            </li>
-            <li class="content-item text">
-              <span class="theme">fetch</span>отложенный вызов: HTTP запрос
-            </li>
-            <li class="content-item text">
-              <span class="theme">[[Environment]]</span>область видимости -
-              лексическое окружение, создается в момент вызова функции, а не его
-              объявления
-            </li>
-            <li class="content-item text">
-              <span class="theme">Global env</span>создается при исполнении
-              файла скрипта, записывается в момент объявления функции
-            </li>
-            <li class="content-item text">
-              <span class="theme">Foo env</span>создается в момент вызова
-              функции
-            </li>
-            <li class="content-item text">
-              <span class="theme">Record:</span>{} - {x: 10, y: 20, foo: <function>}
-            </li>
-            <li class="content-item text">
-              <span class="theme">Parent:</span>null
-            </li>
-            <li class="content-item text">
-              <span class="theme">замыкание</span>возможность функции запомнить то лексическое окружение, тот набор переменных, который был в момент ее создания
-            </li>
-            <li class="content-item text">
-              <span class="theme">каррирование</span>(функциональное программирование)
-            </li>
-            <li class="content-item text">
-              <span class="theme">console.dir()</span>показывает функцию в первозданном виде (проверяем функцию Замыкание)
-            </li>
-            <li class="content-item text">
-              <span class="theme">Clousure</span>в консоле - означает на этой функции замкнулись console.dir(mango);
-            </li>
-            <li class="content-item text">
-              <span class="theme">const res = fnA()();</span>() сначала вызывается fnA. На место вызова подставляется первый return
-            </li>
-            <li class="content-item text">
-              <span class="theme">function</span>Функция это частный случай объекта -> ссылочный тип
-            </li>
-            <li class="content-item text">
-              <span class="theme">контекст this</span>где и как была объявлена функция не имеет никакого влияния на контекст
-            </li>
-            <li class="content-item text">
-              <span class="theme">user.showTag()</span>вызов в контексте объекта. This получит ссылка на объект user
-            </li>
-            <li class="content-item text">
-              <span class="theme">foo()</span>если функция без контекста то this будет undefined
-            </li>
-            <li class="content-item text">
-              <span class="theme">user.x()</span>user.x = showTag; // в свойство x записывается ссылка на функцию showTag
-            </li>
-            <li class="content-item text">
-              <span class="theme">fn.method();</span>функция это объект
-            </li>
-            <li class="content-item text">
-              <span class="theme">invokeAction(user.showTag)</span>методы объекта не знают про то, что они методы обекта
-            </li>
-            <li class="content-item text">
-              <span class="theme">Call</span>showTag.call(mango, 1, 2, 3);
-            </li>
-            <li class="content-item text">
-              <span class="theme">Apply</span>showTag.apply(poly, [4, 5, 6])
-            </li>
-            <li class="content-item text">
-              <span class="theme">Bind</span>const showMangoTag = showTag.bind(mango)
-            </li>
-          </ul>
-
-          <!-- Source on GitHub-->
-
-          <a
-            class="sourсe-link link"
-            href="https://github.com/itstoreall/myjs/blob/master/js/003.js"
-            >source</a
-          >
-        </div>
-      </section>
-    </main>
-
-    <!-- Page Footer -->
-
-    <footer class="page-footer">
-      <div class="container footer">
-        <a class="logo-link" href="./index.html">
-          <h1 class="title footer">JS</h1>
-        </a>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-
-    <script src="./js/004.js" type="module"></script>
-  </body>
 </html>
