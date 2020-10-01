@@ -763,3 +763,305 @@ const showPolyTag = mango.showTag.bind(poly);
 showPolyTag();
 
 */
+
+/*
+ *
+ * This
+ * Конспект:
+ *
+ * Значение контекста внутри функции определятся не в момент
+ * ее создания, а в момент вызова. То есть значение this
+ * определяется тем, как вызывается функция, а не где
+ * она была объявлена.
+ *
+ */
+
+/*
+
+// Петя бежит быстро, потому что Петя пытается поймать поезд
+
+const petya = {
+  name: "Petya",
+  showName() {
+    console.log(petya.name);
+  },
+};
+
+petya.showName();
+
+*/
+/*
+
+// Петя бежит быстро, потому что он (this) пытается поймать поезд.
+
+const petya = {
+  name: "Petya",
+  showName() {
+    console.log(this.name);
+  },
+};
+
+petya.showName();
+
+*/
+
+/*
+ *
+ * This в глобальной области видимости
+ *
+ */
+
+/*
+
+function fn() {
+  console.log(this);
+}
+
+fn(); // window без "use strict" и udefined с "use strict"
+
+ */
+
+/*
+ *
+ * This в методе объекта
+ *
+ */
+
+/*
+
+const petya = {
+  name: "Petya",
+  showThis() {
+    console.log(this);
+  },
+  showName() {
+    console.log(this.name);
+  },
+};
+
+petya.showThis(); // {name: "Petya", showThis: ƒ, showName: ƒ}
+petya.showName(); // 'Petya'
+
+*/
+
+// - Более сложный пример
+
+/*
+
+function showThis() {
+  console.log("this in showThis: ", this);
+}
+
+// Вызываем в глобальном контексте
+showThis(); // this in showThis: Window
+
+const user = { name: "Mango" };
+
+// Записываем ссылку на функцию в свойство объекта
+// Обратите внимание, что это не вызов - нет ()
+
+user.showContext = showThis;
+
+// Вызываем функцию в контексте объекта
+// this будет указывать на текущий объект, в контексте
+// которого осуществляется вызов, а не на глобальный объект.
+
+user.showContext(); // log this in showThis: {name: "Mango", showContext: ƒ}
+
+*/
+
+/*
+ *
+ * This в функциях обратного вызова
+ *
+ */
+
+/*
+
+const hotel = {
+  name: "Resort Hotel",
+  showThis() {
+    console.log(this);
+  },
+};
+
+const fn = function (callback) {
+  // Во время вызова fn, callback будет ссылкой
+  // на функцию showThis объекта hotel.
+  // Ее вызов происходит в глобальном контексте,
+  // про hotel она ничего не знает.
+  // Соответственно this не будет ссылаться на hotel
+
+  callback();
+};
+
+// Передается ссылка на функцию а нее ее вызов
+fn(hotel.showThis); // window или undefined
+
+*/
+
+/*
+ *
+ * This в стрелочных функциях
+ *
+ * Стрелочные функции не имеют своего this. В отличии
+ * от обычных функций, изменить значение this внутри
+ * стрелки после ее объявления нельзя.
+ *
+ * Контекст внутри стрелки определяется местом ее
+ * объявления, а не вызова, и ссылается на контекст
+ * родительской функции.
+ *
+ * Стрелочные функции также игнорируют наличие
+ * строгого режима. Если стрелка запомнила глобальный
+ * контекст, то this в ней будет содержать ссылку
+ * на window вне зависимости выполняется ли скрипт
+ * в строгом режиме или нет.
+ *
+ */
+
+/*
+
+const showThis = () => {
+  console.log("this in showThis: ", this);
+};
+
+showThis(); // this in showThis: window (log this in showThis:  undefined)
+
+const user = {
+  name: "Mango",
+};
+user.showContext = showThis;
+
+user.showContext(); // this in showThis: window
+
+*/
+/*
+
+// Значение контекста берется из родительской области видимости.
+
+const hotel = {
+  name: "Resort hotel",
+  showThis() {
+    const fn = () => {
+      // Стрелки запоминают контекст во время объявления, из родительской области видимости
+
+      console.log("this in fn: ", this); // this in fn: {name: 'Resort hotel', showThis: ƒ}
+    };
+
+    fn();
+    console.log("this in showThis: ", this); // this in showThis: {name: 'Resort hotel',showThis: ƒ}
+  },
+};
+
+hotel.showThis();
+
+*/
+/*
+
+// Если привести этот код к ES5, получится следующее.
+
+const hotel = {
+  name: "Rsort hotel",
+  showThis: function showThis() {
+    // Контекст для стрелки сохраняется и передается из внешней области видимости
+
+    const context = this;
+
+    const fn = function fn() {
+      console.log("this in fn: ", context); // this in fn: {name: 'Resort hotel', showThis: ƒ}
+    };
+
+    fn();
+    console.log("this in showThis: ", this); // this in showThis: {name: 'Resort hotel',showThis: ƒ}
+  },
+};
+
+hotel.showThis();
+
+*/
+
+/*
+ *
+ * Bind
+ *
+ * В случае функции обратного вызова, когда необходимо
+ * не вызвать функцию на месте, а передать ссылку на
+ * эту функцию, причем с привязанным контекстом,
+ * call и apply не подходят. Метод bind позволяет
+ * решить эту задачу.
+ *
+ * const boundFn = fn.bind(obj, arg1, arg2, ...)
+ *
+ * Метод bind создает копию функции fn с привязанным
+ * контекстом obj и аргументами arg1, arg2 и так
+ * дале, после чего возвращает ее как результат своей
+ * работы. В результате мы получаем копию функции
+ * с привязанным контекстом, которую можно передать
+ * куда угодно и вызвать когда угодно.
+ *
+ */
+
+/*
+
+const greet = function (guest) {
+  return `${guest}, welcome to ${this.name}!`;
+};
+
+const hotel = { name: "Resort Hotel" };
+
+const hotelGreeter = greet.bind(hotel, "Mango");
+
+hotelGreeter(); 
+
+*/
+/*
+
+const hotel = {
+  name: "Resort Hotel",
+  showThis() {
+    console.log(this);
+  },
+};
+
+const fn = function (callback) {
+  callback();
+};
+
+// Передаем копию метода showThis с контекстом привязанным к hotel
+fn(hotel.showThis.bind(hotel)); // log {name: "Resort Hotel", showThis: ƒ}
+
+*/
+
+/*
+ *
+ * Стек вызовов
+ *
+ * LIFO - Last In, First Out
+ * Представьте стек как массив у которого есть только
+ * методы pop и push, то есть мы можем добавить или
+ * удалить только элемент в конце коллекции.
+ *
+ * Контекст выполнения (execution context) - внутренняя
+ * конструкция языка для отслеживания выполнения
+ * функции, содержит метаинформацию о ее вызове.
+ *
+ * Глобальный контекст выполнения (global execution
+ * context) - это контекст есть по умолчанию, сам
+ * файл скрипта это функция которая запускается на
+ * выполнение.
+ *
+ * Контекст выполнения функции (functional execution
+ * context) - создается каждый раз при вызове функции.
+ *
+ * Стек вызовов (Execution Context stack, call stack)
+ * - внутреняя констуркция движка, которая содержит
+ * все контексты выполнения.
+ *
+ * Stack frame (кадр стека, запись стека) - структура
+ * которая добавляется на стек при вызове функции.
+ * Хранит некоторую метаинформацию: имя функции,
+ * аргументы которые были переданы во время вызова
+ * и номер строки в которой произошел вызов.
+ *
+ */
