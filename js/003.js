@@ -144,7 +144,7 @@ const hotel = {
   stars: 5,
   capasity: 200,
   updateName: function (newName) {
-    this.name = newName; // называется - контекст вызова функции. Внутри метода объета обращаться к свойству оъета через this, а потом имя свойства (this.name)
+    this.name = newName; // называется - контекст вызова c. Внутри метода объета обращаться к свойству оъета через this, а потом имя свойства (this.name)
   },
 };
 
@@ -1360,5 +1360,470 @@ const markup = makeProfileMarkup(profile);
 console.log(markup);
 
 document.body.insertAdjacentHTML("afterbegin", markup);
+
+*/
+
+// =========== Geri ============
+
+/*
+ *
+ * Объекты
+ *
+ */
+
+// Объект (концепция)
+
+/*
+
+const obj = {
+  name: "Bobby", // string
+  eyes: "green",
+  age: 15, // number
+  legs: ["left", "right"], // Array
+  hands: ["left", "right"],
+  hair: true, // boolean
+  children: {
+    boys: [],
+    girls: [],
+  },
+};
+
+console.log(obj); // log {name: "Bobby", eyes: "green", age: 15, legs: Array(2), hands: Array(2), …}
+
+*/
+
+// Из базы данных чаще всего приходит массив объектов
+
+/*
+
+const users = [
+  {
+    name: "Bobby", // string
+    eyes: "green",
+    age: 15, // number
+    legs: ["left", "right"], // Array
+    hands: ["left", "right"],
+    hair: true, // boolean
+    children: {
+      boys: [],
+      girls: [],
+    },
+  },
+  {
+    name: "Chris", // string
+    eyes: "green",
+    age: 20, // number
+    legs: ["left", "right"], // Array
+    hands: ["left", "right"],
+    hair: true, // boolean
+    children: {
+      boys: [],
+      girls: [],
+    },
+  },
+];
+
+console.log(users); // log (2) [{…}, {…}]
+console.log(users[0]); // log {name: "Bobby", eyes: "green", age: 15, legs: Array(2), hands: Array(2), …}
+console.log(users[1]); // log {name: "Chris", eyes: "green", age: 15, legs: Array(2), hands: Array(2), …}
+
+for (let i = 0; i < users.length; i += 1) {
+  const user = users[i];
+  console.log(user.name, user.age); // log Bobby 15 и Chris 20
+}
+
+*/
+/*
+
+// Перезаписать в объекте
+
+const obj = {
+  name: "Bobby", // string
+  eyes: "green",
+  age: 15, // number
+  legs: ["left", "right"], // Array
+  hands: ["left", "right"],
+  hair: true, // boolean
+  children: {
+    boys: [],
+    girls: [],
+  },
+  innerObject: {
+    innerKey: 456,
+  },
+};
+
+// перезаписываем значение свойства age
+
+obj.age = 16;
+console.log(obj.age); // log 16
+
+// доступ по ключу к значению свойства
+
+const key = "eyes";
+console.log(obj["eyes"]); // log green
+console.log(obj[key]); // log green
+
+// Удаление свойств
+
+delete obj.children;
+console.log(obj); // log {name: "Bobby", eyes: "green", age: 16, legs: Array(2), hands: Array(2), …}
+
+// Отсутствующие свойства
+
+console.log(obj.hdfhhfophqwuh); // log undefined
+console.log(obj.age + 14 + obj.hdfhhfophqwuh); // log NaN
+
+// Доступ к свойству в свойстве
+
+console.log(obj.innerObject.innerKey); // log 456
+
+// Проверка на существование ключа
+
+console.log(obj.innerObject && obj.innerObject.vdytrdvy); // log undefined
+
+// Проверка на существование ключа прямо в коде (Оператор опциональной последователности)
+
+console.log(obj?.innerObject?.innerKey); // log 456
+console.log(obj?.innerObject); // log {innerKey: 456}
+console.log(obj?.innerObject?.vdytrdvy); // log undefined
+
+// Короткие свойства
+
+const name = "Peter";
+const human = {
+  name: name,
+};
+console.log(human); // log {name: "Peter"}
+
+// если ключ совпадает с именем переменной тогда можно просто написать имя
+
+const name2 = "Peter2";
+const age2 = "14";
+const eyes2 = "blue";
+const human2 = { name2, age2, eyes2 };
+console.log(human2); // log {name2: "Peter2", age2: "14", eyes2: "blue"}
+
+*/
+/*
+
+// Вычисляемые свойства
+
+const getValue = (obj, key) => {
+  return obj[key];
+};
+
+const cat = {
+  name: "Kit-Kat",
+  age: 2,
+};
+
+const dog = {
+  name: "Chappy",
+  age: 4,
+};
+
+console.log(cat); // log {name: "Kit-Kat", age: 2}
+
+console.log(getValue(cat, "name")); // "Kit-Kat"
+console.log(getValue(cat, "age")); // "2"
+
+console.log(getValue(dog, "name")); // "Chappy"
+console.log(getValue(dog, "age")); // "4"
+
+*/
+/*
+
+// Добавление ключей в объект
+
+// создаем пустой объект
+const human3 = {};
+
+// добавляем в него ключи
+human3.iuhpihpuihiu = 456;
+human3.name = "Chris";
+human3.age = 30;
+
+console.log(human3); // log {iuhpihpuihiu: 456, name: "Chris", age: 30}
+
+*/
+/*
+
+// Добавление ключей в объект (динамика)
+
+// приходит ключ динамикой
+const key = "eyes";
+
+// создаем пустой объект
+const human3 = {};
+
+// добавляем в него ключи
+
+human3.iuhpihpuihiu = 456;
+human3.name = "Chris";
+human3.age = 30;
+human3[key] = true;
+
+console.log(human3); // log {iuhpihpuihiu: 456, name: "Chris", age: 30, eyes: true}
+
+*/
+/*
+
+// Методы обекта
+
+const human4 = {
+  name: "Bobby",
+  age: 15,
+
+  // синтаксис олд-скул
+  work: function () {
+    console.log("I'm working"); // log I'm working
+  },
+
+  // синтаксис модерн
+  wolk() {
+    console.log("I'm wolking"); // log I'm wolking
+  },
+};
+
+console.log(human4); // log {name: "Bobby", age: 15, work: ƒ}
+human4.work();
+human4.wolk();
+
+*/
+/*
+
+// Доступ к объекту через this
+
+const human4 = {
+  name: "Bobby",
+  age: 15,
+
+  work: function () {
+    console.log("I'm working");
+  },
+
+  wolk() {
+    console.log("I'm wolking");
+  },
+
+  // доступ к объекту через this
+  sayHello() {
+    console.log(`Hello my name is ${this.name}`);
+  },
+
+  // случается день рождения
+  birthdayHappened() {
+    this.age += 1;
+  },
+};
+
+console.log(human4);
+human4.work();
+human4.wolk();
+
+// доступ к объекту через htis
+console.log(human4); // log {name: "Bobby", age: 15, work: ƒ, wolk: ƒ, birthdayHappened: ƒ}
+
+human4.birthdayHappened();
+console.log(human4); // log {name: "Bobby", age: 16, work: ƒ, wolk: ƒ, birthdayHappened: ƒ}
+
+human4.birthdayHappened();
+console.log(human4); // log {name: "Bobby", age: 17, work: ƒ, wolk: ƒ, birthdayHappened: ƒ}
+
+human4.sayHello();
+
+// доступ к объекту через htis (меняем имя)
+human4.name = "Peter";
+human4.sayHello();
+
+*/
+/*
+
+// Перебор объектов
+
+const obj = {
+  name: "Bobby", // string
+  eyes: "green",
+  age: 15, // number
+  hair: true, // boolean
+};
+
+// получаем ключи из объекта
+const keys = Object.keys(obj);
+console.log(keys);
+
+// получаем значения из объекта
+const values = Object.values(obj);
+console.log(values);
+
+// получаем массив из массивов
+const entries = Object.entries(obj);
+console.log(entries);
+
+*/
+/*
+
+Цикл for...in
+
+const hotel = {
+  name: "Resort Hotel",
+  stars: 5,
+  capacity: 100,
+};
+
+// Перебор ключей объекта hotel
+for (const key in hotel) {
+  console.log("key:", key);
+}
+
+*/
+/*
+
+// exemple
+
+// Задача: посчитать сумму всех чисел
+const obj = {
+  name: "Bobby",
+  eyes: "green",
+  age: 15,
+  hair: true,
+  salary: 1000,
+  sdfg: 98,
+};
+
+// получаем массив значений
+const values = Object.values(obj);
+console.log(values);
+
+let sum = 0; // total 0
+
+// вариант №1
+// for (const value of values) {
+//   console.log(value); // получаем каждое значение отдельно
+
+//   // если значение равно числу
+//   if (typeof value === "number") {
+
+//     // суммируем все числа
+//     sum += value;
+//   }
+// }
+
+// вариант №2
+for (const key in obj) {
+  console.log("key:", key);
+  const value = obj[key];
+
+  // если значение равно числу
+  if (typeof value === "number") {
+    // суммируем все числа
+    sum += value;
+  }
+}
+
+console.log("sum:", sum);
+
+*/
+/*
+
+// exemple
+
+const phone = {
+  model: "iPhone",
+  battery: 100,
+  isOn: false,
+
+  // включить телефон
+  turnOn() {
+    this.isOn = true;
+  },
+
+  // расход батареи
+  work(time) {
+    this.battery -= time;
+  },
+
+  charge(time) {
+    // если заряд больше 100 тогда = 100
+    if (this.battery + time > 100) {
+      this.battery = 100;
+    } else {
+      // в противном случае прибавить значение
+      this.battery += time;
+    }
+  },
+};
+
+console.log(phone); // isOn: false
+
+// включаем телефон
+phone.turnOn();
+console.log(phone); // isOn: true
+
+// используем батарею
+phone.work(80);
+console.log(phone);
+
+// phone.charge(80); // 130
+// console.log(phone); // 100
+
+phone.charge(30); // 50
+console.log(phone); // 50
+
+*/
+/*
+
+// Задача
+
+// мы это не видим (приходит с сервера)
+const obj = {
+  name: "sdgf",
+};
+
+// просят дать значение по ключу (тоже не видно)
+const key = "name";
+
+// для решения мы емеем только obj и key
+console.log(obj[key]); // просто используем скобки []
+
+*/
+/*
+
+// У массивом и объектов ссылочный тип данных
+
+// Массивы
+const arr1 = [1, 1, 1];
+const arr2 = arr1;
+
+// это две разные ссылки
+console.log(arr1); // log (3) [1, 1, 1]
+console.log(arr2); // log (3) [1, 1, 1]
+
+// меняем значение свойства в массиве
+arr1[0] = 100000;
+console.log(arr1); // log (3) [100000, 1, 1]
+console.log(arr2); // leg (3) [100000, 1, 1]
+
+// создаем копию массива (spread)
+const arr3 = [...arr2];
+console.log("copy:", arr3);
+
+// Объекты
+const obj1 = { name: "Bobby", age: 20 };
+const obj2 = obj1;
+
+// две разные ссылки
+console.log(obj1); // log {name: "Bobby", age: 20}
+console.log(obj2); // log {name: "Bobby", age: 20}
+
+// меняем значение объекта
+obj1.age = 35;
+console.log(obj1); // log {name: "Bobby", age: 35}
+console.log(obj2); // log {name: "Bobby", age: 35}
+
+// создаем копию объекта (spread)
+const obj3 = { ...obj2 };
+console.log("copy:", obj3);
 
 */

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модуль 5 - Прототипы</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
+
+  <body>
+    <!-- Page Header -->
+
+    <header class="page-header">
+      <div class="container header">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title header">JS</h1>
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Main -->
+
+    <main class="page-main">
+      <section class="section">
+        <div class="container main">
+          <h2 class="title main">Fifth module</h2>
+
+          <!-- Content List -->
+
+          <div class="js-add-method">
+            <button
+              type="button"
+              style="display: block; margin-bottom: 30px; font-size: 18px"
+            >
+              Add new method
+            </button>
+          </div>
+
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme">Object.create()</code>метод создаёт новый
+              объект с указанным прототипом и свойствами
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">__proto__</code>свойство есть абсолютно у всех
+              массивов, объектов, функций
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">[[Prototype]]</code>в спецификации
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">Objekt</code>последний в конце цепочки
+              прототипов лежит родительский объект Objekt со всеми методами
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">Function.prototype</code>функция-конструктор
+              обзывается с большой буквы (какие свойства хотим запихнуть в
+              будущий объект)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">Manager.prototype.sell</code>ложим методы
+              которые потом по ссылке будут доступны каждому экземпляру
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">new</code>оператор new создает пустой объект,
+              возвращает новосозданный объект
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">mango.__proto__ === Manager.prototype</code
+              >true
+            </li>
+
+            <li class="content-item text">
+              <code class="theme">000</code>000000
+            </li>
+          </ul>
+
+          <!-- Source on GitHub-->
+
+          <a
+            class="sourсe-link link"
+            href="https://github.com/itstoreall/myjs/blob/master/js/005.js"
+            >source</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Page Footer -->
+
+    <footer class="page-footer">
+      <div class="container footer">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title footer">JS</h1>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="./js/005.js" type="module"></script>
+  </body>
+</html>
