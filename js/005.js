@@ -349,12 +349,13 @@ console.log(mango);
 Hero.showStats(mango);
 
 */
-// /*
+/*
 
 // Геттеры и Сеттеры
 // имя свойства и имя геттера должны быть разные иначе все зациклится
 // по-этому перед именем свойства ставят подчеркивание _name
 // пара get и set должна называться одинаково
+// также можно использовать в объектах
 
 class Hero {
   static description = "labsivaivavaiuv";
@@ -404,3 +405,154 @@ console.log(mango.name); // log Mangocooldog
 // console.log(mango);
 
 // Hero.showStats(mango);
+
+*/
+
+// ============= Hero =============
+
+// Наследование и конструкторы
+
+/*
+ *
+ * - Super Constructor
+ *
+ * Для того чтобы получить доступ к this - нужно
+ * внутри конструктора у наследуемого класса
+ * вызвать super() родителя
+ *
+ * Когда создается новый кземпляр Варриора и мы
+ * class наследуется от Героя:
+ * 1. вызывается конструктор
+ * 2. вызввается супер
+ * 3. в объект который создается запихиваются свойства из Героя, xp и name
+ * 4. выполняется this из Варриора
+ *
+ * Hero (родитель)
+ *
+ * Warrior (ребенок)
+ *
+ * У нас есть Hero, в котором есть Hero.prototype
+ * Мы делаем наследование от него
+ * Объект создается через new (new создает пустой объект)
+ * Когда Warrior extends Hero, на Warrior.prototype в его свойство __proto__ записывается ссылка на Hero.prototype
+ * Warrior вызывается в контексте этого объекта
+ * this внутри конструктора получает ссылку на этот объект
+ * во врямя вызова super(), this из Hero тоже получает ссылку на этот объект
+ * вызвваем супер и на этот же объект запихивается name и xp
+ * потом на него запихивается weapon
+ *
+ * У нас есть объект mango
+ * в mango __proto__ лежит ссылка на Warrior.prototype
+ * а в Warrior.prototype __proto__ лежит ссылка на Hero.prototype
+ * a e Hero.prototype в свойстве __proto__ лежит ссылка на Object.prototype
+ * Это называется прототипное наследование или делегирование, и динамическая диспетчеризация
+ *
+ */
+
+/*
+
+class Hero {
+  constructor(name, xp) {
+    this._name = name;
+    this.xp = xp;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+
+  gainXp(amount) {
+    console.log(`${this.name} получил ${amount} опыта`);
+    this.xp += amount;
+  }
+}
+
+// extends - расширяет
+class Warrior extends Hero {
+  constructor(name, xp, weapon) {
+    super(name, xp); // 1.1 вызвали супер, передали xp
+    this.weapon = weapon;
+  }
+
+  // 1.2 attack
+  attack() {
+    console.log(`${this.name} атакует испоьзуя ${this.weapon}`); // 2.1 log Mango атакует испоьзуя Алибарда
+  }
+}
+
+// 1. создаем Warrior
+// const mango = new Warrior("Mango", 1000, "Алибарда");
+// console.log(mango);
+
+// 2. вызвываем mango
+// mango.attack();
+
+// 3 - это мы сделали первое наследование
+// мы после имени класса Варриор поставили ключевое слово extends
+// указали кого мы наследуем - Hero (родителя)
+// в конструкторе ребенка вызвали конструктор родителя с помощью метода super
+// вызывается конструктор родителя, на объект добавляются все свойства
+
+// 4.
+// mango.gainXp(2000); // log Mango получил 2000 опыта
+
+// 5.
+class Paladin extends Warrior {
+  // сюда мы получаем
+  constructor(name, xp, weapon, spell) {
+    // 6.1 вызываем super
+    super(name, xp, weapon);
+
+    this.spell = spell;
+  }
+
+  // 6.2
+  cast() {
+    console.log(`${this.name} кастует ${this.spell}`);
+  }
+}
+
+// 6. И тогда у нас манго резко превращается в Паладина --^
+const mango = new Paladin("Mango", 1000, "Алибарда", "Cleanse");
+console.log(mango);
+mango.attack();
+mango.gainXp(2000);
+console.log(mango.name);
+mango.cast();
+
+// 6.3 получается следующая цепочка:
+// Варриор наследует Хиро, а Паладин наследует Варриор
+// и экземпляру mango доступны все эти методы, потому что в __proto__ mango
+// лежит ссылка на Paladin.prototype
+// в Paladin.prototype.__proto__ лежит ссылка на Warrior.prototyp
+// а в Warrior.prototyp.__proto__ лежит ссылка на Hero.prototype
+// ну и в Hero.prototype.__proto__ лежит ссылка на Object.prototype
+
+*/
+/*
+
+// - Текст который написан в HTML файле
+
+document.querySelector(".js-title");
+console.log(document.querySelector(".js-title"));
+console.dir(document.querySelector(".js-title"));
+
+// меняем этот текст
+const titleRef = document.querySelector(".js-title");
+titleRef.textContent = "Работа с DOM это ерунда";
+
+// titleRef - объект
+// textContent - свойство объекта
+// = - операция присваивания
+// "Работа с DOM это ерунда" - строчный литерал
+
+// добавляем клик
+titleRef.addEventListener("click", function () {
+  console.log("Хватит меня кликать ;0");
+});
+
+*/
