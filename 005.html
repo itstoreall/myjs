@@ -42,47 +42,84 @@
 
           <ul class="content-list list">
             <li class="content-item text">
-              <code class="theme">Object.create()</code>метод создаёт новый
+              <code class="theme-code">Object.create()</code>метод создаёт новый
               объект с указанным прототипом и свойствами
             </li>
 
             <li class="content-item text">
-              <code class="theme">__proto__</code>свойство есть абсолютно у всех
-              массивов, объектов, функций
+              <code class="theme-code">__proto__</code>свойство есть абсолютно у
+              всех массивов, объектов, функций
             </li>
 
             <li class="content-item text">
-              <code class="theme">[[Prototype]]</code>в спецификации
+              <code class="theme-code">[[Prototype]]</code>в спецификации
             </li>
 
             <li class="content-item text">
-              <code class="theme">Objekt</code>последний в конце цепочки
+              <code class="theme-code">Objekt</code>последний в конце цепочки
               прототипов лежит родительский объект Objekt со всеми методами
             </li>
 
             <li class="content-item text">
-              <code class="theme">Function.prototype</code>функция-конструктор
-              обзывается с большой буквы (какие свойства хотим запихнуть в
-              будущий объект)
+              <code class="theme-code">hasOwnProperty()</code>метод возвращает
+              логическое значение, указывающее, содержит ли объект указанное
+              свойство
             </li>
 
             <li class="content-item text">
-              <code class="theme">Manager.prototype.sell</code>ложим методы
+              <code class="theme-code">Function.prototype</code
+              >функция-конструктор обзывается с большой буквы (какие свойства
+              хотим запихнуть в будущий объект)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">Manager.prototype.sell</code>ложим методы
               которые потом по ссылке будут доступны каждому экземпляру
             </li>
 
             <li class="content-item text">
-              <code class="theme">new</code>оператор new создает пустой объект,
-              возвращает новосозданный объект
+              <code class="theme-code">new</code>оператор new создает пустой
+              объект, возвращает новосозданный объект
             </li>
 
             <li class="content-item text">
-              <code class="theme">mango.__proto__ === Manager.prototype</code
+              <code class="theme-code"
+                >mango.__proto__ === Manager.prototype</code
               >true
             </li>
 
             <li class="content-item text">
-              <code class="theme">000</code>000000
+              <code class="theme-code">hasOwnProperty</code>метод можно
+              использовать для определения собственное свойство или нет
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">class</code>зарезервированное слово,
+              методы класса записываются в его свойство prototyp
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">static description = "labsivc"</code>это
+              новый синтаксис статических свойств
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">static showStats(hero)</code>это новый
+              синтаксис статических метадов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">get name()</code>геттер - имя свойства и
+              имя геттера должны быть разные иначе все зациклится
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">set name(newName)</code>сеттер, пара get
+              и set должна называться одинаково
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">000</code>000000
             </li>
           </ul>
 

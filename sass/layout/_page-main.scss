@@ -74,6 +74,21 @@
       }
     }
 
+    .theme-code {
+      margin-right: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $content-theme-color;
+
+      @media screen and (min-width: 768px) {
+        font-size: 20px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 20px;
+      }
+    }
+
     // Text
 
     &.text {

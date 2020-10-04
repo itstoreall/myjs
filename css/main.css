@@ -228,6 +228,25 @@ button {
   }
 }
 
+.content-list .content-item .theme-code {
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #d8bfd8;
+}
+
+@media screen and (min-width: 768px) {
+  .content-list .content-item .theme-code {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content-list .content-item .theme-code {
+    font-size: 20px;
+  }
+}
+
 .content-list .content-item.text {
   margin-top: 0;
   margin-bottom: 10px;
