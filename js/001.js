@@ -790,6 +790,8 @@ console.log("$" + price); */
 // - document - объект который хранит ссылку на весь HTML документ
 // - querySelector() - метод. В () передаем аргумент - CSS селектор нашего элемента
 
+/*
+
 const btnAdd = document.querySelector("button[data-add]"); // получение доступа к элементу c селектором атрибута data-add
 const resetBtn = document.querySelector("button[data-reset]");
 console.log(btnAdd); // - выводит элемент
@@ -822,3 +824,262 @@ resetBtn.addEventListener("click", function () {
   total = 0;
   outputEl.textContent = total;
 });
+
+*/
+
+/*
+ *
+ * Geri
+ *
+ */
+
+/*
+
+// Проверка typeof typeof null
+
+console.log(typeof typeof null); // log string
+
+// Объекты массивы и null возвращаются как объекты
+
+console.log(typeof []); // log object
+console.log(typeof {}); // log object
+console.log(typeof null); // log object
+
+// Остаток от деления
+
+console.log(13 % 5); // 10 на 5 это 2 и остаток 3
+console.log(2 % 2); // log 0
+console.log(3 % 2); // log 1
+
+// Четные и не четные числа
+
+for (let i = 0; i < 3; i += 1) {
+  if (i % 2 === 0) {
+    console.log(i, "Четное");
+  } else {
+    console.log(i, "Не четное");
+  }
+}
+
+// ++
+
+let x = 3;
+console.log(x); // log 3
+
+x++; // x = x + 1 (return x + 1)
+console.log(x); // log 4
+
+++x; // (+ 1 return x)
+console.log(x); // log 5
+
+*/
+/*
+
+// while do...
+
+let x = 1;
+
+while (x <= 10) {
+  console.log(x);
+  x += 1;
+}
+
+// Проверки (широко используются)
+
+const z = 2;
+
+// если у нас есть любое значение (не 0) - Hurray! - NUMBER
+if (z) {
+  console.log("Hurray! - NUMBER");
+}
+
+const text = " ";
+
+// если у нас есть текстовые символы - Hurray! - TEXT
+if (text) {
+  console.log("Hurray! - TEXT");
+}
+
+// Приобразование
+
+console.log(Number("456")); // число log 456
+console.log(String(456)); // строка log 456
+console.log(Boolean(456)); // log true
+console.log(Boolean(0)); // log false
+
+// Проверка на число
+
+console.log(null === null); // объект log true
+console.log({} === {}); // ссылки на разные объекты log false
+console.log(Number.isNaN(345)); // не не чило log false
+console.log(Number.isNaN("a" - "b")); // результат не число // log true
+
+// Math (библиотека интегрированная в js)
+
+// генер случ чисел
+console.log(Math.random()); // log 0.2390927802605749
+
+// округление
+console.log(Math.round(23.4343)); // log 23
+
+*/
+
+// Строки
+
+/*
+
+// обращение к букве по индексу
+console.log("JavaScript"[6]); // log r
+
+// посчитать сумму всех чисел
+
+// числа перебирать нельзя, но можно перебирать строки
+const x = 1234567; // 1 + 2 + 3 ... 7
+const text = String(x);
+
+console.log(text); // числа стали строкой log 1234567
+console.log(text[5]); // под индексом 5 у нас 6 // log 6
+
+let sum = 0;
+for (let i = 0; i < text.length; i += 1) {
+  console.log(text[i], typeof text[i]); // получили каждый символ log 1 string
+
+  const num = Number(text[i]);
+  console.log(num, typeof num); // log 1 "number"
+
+  console.log((sum += num)); // log 28
+}
+
+*/
+/*
+
+// посчитать сумму всех чисел через функцию
+
+// числа перебирать нельзя, но можно перебирать строки
+
+function getSum(x) {
+  const text = String(x);
+  console.log(x); // число // log 1234567
+  console.log(text); // сторока // log 1234567
+
+  let sum = 0;
+  for (let i = 0; i < text.length; i += 1) {
+    const num = Number(text[i]);
+
+    sum += num;
+  }
+
+  return sum;
+}
+
+console.log(getSum(1234567)); // число log 28
+
+*/
+/*
+
+// Конкатанеция строк с числами
+
+// когда js конкатенирует две строки "4" и "8" получается строка "48"
+// но когда встречает число "48" - 6, то приобразовует строку к чилу
+console.log("4" + "8" - 6); // log 42
+
+// indexOf()
+
+const message = "Welcome to Bahamas";
+console.log("to находится на индексе:", message.indexOf("to")); // to находится на индексе: 8
+console.log(message.indexOf("new")); // log -1
+
+// includes()
+
+// Метод includes() определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false
+
+const pets = ["cat", "dog", "bat"];
+
+console.log("cat:", pets.includes("cat")); // log true
+console.log("at:", pets.includes("at")); // log false
+
+// switch case  в функции
+
+const day = 2;
+
+function getDay(day) {
+  switch (day) {
+    case 1:
+      // console.log("Monday");
+      // break;
+      return "Monday";
+    case 2:
+      // console.log("Tuesday");
+      // break;
+      return "Tuesday";
+    case 3:
+      // console.log("Wednesday");
+      // break;
+      return "Wednesday";
+    case 6:
+    case 7:
+      return "Weekend";
+    default:
+      // console.log("unknown");
+      return "unknown";
+  }
+}
+
+console.log(getDay(7));
+console.log(getDay(1));
+console.log(getDay(4));
+
+// Тернарный оператор (ternary)
+
+const x = -1;
+
+//  вместо вот такого выражения можно записать тернарник
+// смотрим, что у них общего - console.log();
+
+// if (x > 0) {
+//   console.log("Big");
+// } else {
+//   console.log("Small");
+// }
+
+// читается так: x больше ноля, если true тогда Big, иначе Small
+console.log(x > 0 ? "Big" : "Small");
+
+// Итератор за пределами цикла c var
+
+for (var i = 1; i < 10; i += 1) {
+  console.log(i); // log 1 ... 9
+}
+
+console.log(i); // log 10
+
+*/
+/*
+
+// Игра с рандомными числами
+
+// Окрeгление рандомного числа
+const x = Math.round(Math.random() * 10) + 1;
+console.log(x);
+
+let userNumber;
+
+// do...while
+// делать что-то пока userNumber не равно x
+do {
+  const userInput = prompt("Enter number"); // просим ввести число
+  // после ввода числа приходи строка, нужно приобразовать в число
+  userNumber = Number(userInput);
+
+  if (x < userNumber) {
+    console.log("<", userNumber);
+  }
+
+  if (x > userNumber) {
+    console.log(">", userNumber);
+  }
+} while (userNumber !== x);
+
+console.log("Win!");
+
+*/
