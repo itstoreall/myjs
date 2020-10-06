@@ -980,3 +980,253 @@ console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15)); // [30, 15]
 console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64)); // [200]
 
 */
+
+/*
+ *
+ * Geri
+ *
+ */
+
+/*
+
+// Массив
+const arr = [1, 2, 3, 4, 5];
+
+// Объект
+const obj = {
+  0: 1,
+  1: 2,
+  2: 3,
+  3: 4,
+  length: 4,
+};
+
+// Проверка и там и там показывает object
+console.log(typeof arr, arr); // log object
+console.log(typeof obj, obj); // log object
+
+// Правильная проверка массива
+console.log(Array.isArray(arr)); // log true
+console.log(Array.isArray(obj)); // log false
+
+// Переопределение значения массива
+console.log((arr[2] = 33)); // log 33
+console.log(arr); // log (5) [1, 2, 33, 4, 5]
+
+// Перебор массива в цикле for
+for (let i = 0; i < arr.length; i += 1) {
+  console.log(arr[i]);
+  arr[2] = 345; // изменяем значение элемента
+}
+
+console.log(arr);
+
+// Перебер массива в цикле forEach
+arr.forEach(function (value) {
+  console.log(value);
+});
+
+*/
+/*
+
+// Continue
+// получаем четные и не четные числа
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let value of arr) {
+  // получаем четные
+  if (value % 2 !== 0) {
+    continue;
+  }
+
+  console.log(value);
+}
+
+// Массив массивов
+console.log(Object.entries({ name: "Bobby", age: "15" })); // log (2) [Array(2), Array(2)]
+
+// Получение значения из массива массивов и добавление в {}
+const arr2 = Object.entries({ name: "Bobby", age: "15" });
+const obj = {};
+
+// перебираем первый уровень
+for (const keyValue of arr2) {
+  // console.log(keyValue[0], keyValue[1]); // log name Bobby и age 15
+  obj[keyValue[0]] = keyValue[1];
+}
+
+console.log(obj); // {name: "Bobby", age: "15"}
+
+*/
+/*
+
+// Копия массива
+
+// Деструктуризация
+const arr = [1, 2, 3];
+const arr2 = [...arr];
+console.log("arr:", arr, "arr2:", arr2); // log arr: (3) [1, 2, 3] arr2: (3) [1, 2, 3]
+
+// Split и Join
+
+const text = "Hello World";
+console.log(text);
+
+// разбиваем по буквам, разделитель ("")
+const characters = text.split("");
+console.log(characters); // log (12) ["H", "e", "l", "l", "o", " ", " ", "W", "o", "r", "l", "d"]
+
+// разбиваем по словам, разделитель (" ")
+const words = text.split(" ");
+console.log(words); // log (2) ["Hello", "World"]
+
+// Повернуть текст задом на перед
+
+const text2 = "Hello World";
+
+// разбиваем по буквам
+const arr5 = text2.split("");
+
+// поворачиваем массив
+arr5.reverse();
+
+// объединяем в строку
+const arrRev = arr5.join("");
+
+console.log(arrRev); // log dlroW olleH
+
+// Повернуть текст задом на перед (код в одну строку)
+
+console.log("I love you".split("").reverse().join("")); // log uoy evol I
+
+*/
+/*
+
+// Проверка множественных условий с includes()
+const userRole1 = "ADMIN";
+const userRole2 = "USER";
+
+const superRoles = ["ADMIN", "MANAGER", "SUPERVISOR"];
+
+// Old School
+// if (
+//   userRole1 === "ADMIN" ||
+//   userRole1 === "MANAGER" ||
+//   userRole1 === "SUPERVISOR"
+// ) {
+//   console.log("Welcome Admin!");
+// }
+
+if (superRoles.includes(userRole1)) {
+  console.log("Welcome Admin!");
+}
+
+function checkUser(role) {
+  if (superRoles.includes(role)) {
+    console.log("Welcome Admin!");
+  } else {
+    console.log("Welcome User!");
+  }
+}
+
+checkUser(userRole1); // log Welcome Admin!
+checkUser(userRole2); // log Welcome User!
+
+*/
+/*
+
+// Объединение двух массивов
+
+const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];
+const newClients = ["Monkong", "Singu"];
+
+// Old School
+const allClients = oldClients.concat(newClients);
+console.log(allClients); // log (6) ["Mango", "Ajax", "Poly", "Kiwi", "Monkong", "Singu"]
+
+// Modern
+let newClients2 = [...oldClients, ...newClients];
+console.log(newClients2); // log (6) ["Mango", "Ajax", "Poly", "Kiwi", "Monkong", "Singu"]
+
+// внутрь можно добавлять элементы
+let newClients3 = [...oldClients, 3, 4, 6, ...newClients];
+console.log(newClients3); // log (9) ["Mango", "Ajax", "Poly", "Kiwi", 3, 4, 6, "Monkong", "Singu"]
+
+*/
+/*
+
+// function
+
+// варик 1
+fn1(1, 2, 3, 4);
+function fn1(a, s, d, f) {
+  console.log(a, s, d, f); // log 1 2 3 4
+}
+
+// варик 2
+const fn2 = function () {
+  console.log(...arguments); // log 1 2 5
+};
+
+fn2(1, 2, 5);
+
+// варик 3
+const fn3 = () => {};
+const fn4 = () => console.log();
+
+*/
+/*
+
+// Array.from
+
+// приобразование объекта в массив
+
+const obj = {
+  0: 1,
+  1: 2,
+  2: 3,
+  3: 4,
+  length: 4,
+};
+console.log(obj); // log {0: 1, 1: 2, 2: 3, 3: 4, length: 4}
+
+const arr = Array.from(obj);
+console.log(arr); // log (4) [1, 2, 3, 4]
+
+// проверяем масив ли
+console.log(Array.isArray(arr)); // log true
+
+*/
+/*
+
+// Стрелочная функция
+
+const add = (...args) => console.log(args); // log (3) [1, 2, 3]
+
+add(1, 2, 3);
+
+*/
+/*
+
+// Получить ключ по значению
+
+const human = {
+  name: "Bobby",
+  age: 15,
+};
+
+function getKeyByValue(obj, value) {
+  const keyValues = Object.entries(obj);
+
+  for (const item of keyValues) {
+    if (item[1] === value) {
+      return item[0];
+    }
+  }
+}
+
+console.log(getKeyByValue(human, "Bobby")); // log name
+console.log(getKeyByValue(human, 15)); // log age
+
+*/
