@@ -234,50 +234,85 @@
           </ul>
 
           <!-- Geri 2 -->
-          
+
           <h2 class="title main">Spread - Rest - Деструктуризация</h2>
           <ul class="content-list list">
-
             <li class="content-item text">
-              <code class="theme-code">const arr2 = [...arr1]</code>копирование массива: создаем новый [] и ...arr1 внутри скобок
+              <code class="theme-code">const arr2 = [...arr1]</code>копирование
+              массива: создаем новый [] и ...arr1 внутри скобок
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">arr2[2] = 456</code>изменить элемент массива
-            </li>
-            
-            <li class="content-item text">
-              <code class="theme-code">const obj2 = { ...obj1 }</code>копирование объекта: созд. нов. {}, и ...obj1 (распыляем исходный объект внутрь {})
+              <code class="theme-code">arr2[2] = 456</code>изменить элемент
+              массива
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">obj2.age = 35</code>изменить элемент массива: по ключу (не по идексу, как в массиве)
+              <code class="theme-code">const obj2 = { ...obj1 }</code
+              >копирование объекта: созд. нов. {}, и ...obj1 (распыляем исходный
+              объект внутрь {})
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">const min = Math.min(...numbers)</code>ищем min и max в массиве numbers 
+              <code class="theme-code">obj2.age = 35</code>изменить элемент
+              массива: по ключу (не по идексу, как в массиве)
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">const arr2 = [...arr1.slice(0, 3), 6, 7, "word"]</code>добавляем новые элементы и методы в распыленный массив
+              <code class="theme-code">const min = Math.min(...numbers)</code
+              >ищем min и max в массиве numbers
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">slice(begin, end)</code>копирует элементы от begin, до, но не ключая, end - возвращает новый мас (копию) не изменяет исходный
+              <code class="theme-code"
+                >const arr2 = [...arr1.slice(0, 3), 6, 7, "word"]</code
+              >добавляем новые элементы и методы в распыленный массив
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">const obj2 = { ...obj1, eyes: "brown", age: 27}</code>добавляет и изменяет ключи в распыленном мас
+              <code class="theme-code">slice(begin, end)</code>копирует элементы
+              от begin, до, но не ключая, end - возвращает новый мас (копию) не
+              изменяет исходный
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">function fn1(a, b, ...rest)</code>операция рест: при fn1(1, 2, 3, 4) // log (2) [3, 4]
+              <code class="theme-code"
+                >const obj2 = { ...obj1, eyes: "brown", age: 27}</code
+              >добавляет и изменяет ключи в распыленном мас
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">000</code>00000
+              <code class="theme-code">function fn1(a, b, ...rest){}</code
+              >операция Rest: fn1(1, 2, 3, 4) // log (2) [3, 4]
             </li>
-            
+
+            <li class="content-item text">
+              <code class="theme-code">const { name = "Anonymus", age = 0 } = human</code>деструктуризация объектов с дефолтными значениями
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const [a, b, c] = arr</code>деструктуризация мас (исх: arr = [3, 2, 1])
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const a = arr[0]</code>меняем местами элементы: const arr = [3, 2] =-> arr[1] = a;
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">[arr[0], arr[1]] = [arr[1], arr[0]]</code>деструктуризация элементов (исх: arr = [3, 2])
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">[a, b] = [b, a]</code>меняет местами значения переменных a и b: 
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">if (arr[j] < arr[i]) {}</code>сортировка по порядку - Old School
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const [, , blue] = rgb</code>деструктуризация с пропуском элементов
+            </li>
           </ul>
 
           <!-- Source on GitHub-->

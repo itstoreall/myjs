@@ -1937,7 +1937,7 @@ console.log(obj2) // log {name: "Bobby", age: 27, eyes: "brown"}
 
 /*
  *
- * Rest
+ * - Rest
  * 
  * ...rest
  *
@@ -1945,7 +1945,7 @@ console.log(obj2) // log {name: "Bobby", age: 27, eyes: "brown"}
 
 /*
 
-// - Опперация рест
+// - Операция рест
 
 function fn1(a, b, ...rest) {
   console.log("a + b =", a + b) // log a + b = 2
@@ -1955,5 +1955,129 @@ function fn1(a, b, ...rest) {
 
 fn1(1, 1) 
 fn1(1, 2, 3, 4)
+
+*/
+/*
+
+// - Деструктуризация объектов
+
+// имеем 3 объекта
+const obj1 = { name: "Bobby", age: 15 };
+const obj2 = { name: "Chappy", dogAge: 2 };
+const obj3 = { name: "Whiskas", catAge: 2 };
+
+// имеем функцию с дефолтными значениями
+function sayHello(human = {}, pet = {}) {
+  // деструктуризация с дефолтными значениями
+  const { name = "Anonymus", age = 0 } = human
+  const { name: petName = "Anonymus" } = pet
+
+  console.log(`Hello my name is ${name}, I'm ${age} years old`)
+  console.log(`My best friend is ${petName}`)
+
+}
+
+sayHello(obj1, obj2);
+sayHello(obj1, obj3);
+
+*/
+/*
+
+// - Деструктуризация массивов
+
+// имеем мас 
+const arr = [3, 2, 1]
+
+// деструктуризация мас
+const [a, b, c] = arr
+
+// результат:
+console.log(arr) // log (3) [3, 2, 1]
+
+*/
+/*
+
+// - Меняем местами элементы массива
+
+const arr = [3, 2]
+console.log(arr)
+
+const a = arr[0]; // 3
+const b = arr[1]; // 2
+
+arr[0] = b; // 2
+arr[1] = a; // 3
+console.log(arr)
+
+*/
+/*
+
+// - Деструктуризация элементов
+// - Over distruction
+
+// имеем мас
+const arr = [3, 2]
+console.log(arr); // log (2) [3, 2]
+
+// деструктуризация элементов 0 в 1, а 1 в 0
+[arr[0], arr[1]] = [arr[1], arr[0]];
+console.log(arr) // log (2) [2, 3]
+
+*/
+/*
+
+// - Поменять местами a и b
+
+// имеем a и b
+let a = 1;
+let b = 2;
+console.log(a, b); // log 1 2
+
+// создаем [] и деструктуризируем на b и a
+[a, b] = [b, a];
+
+// результат
+console.log(a, b); // log 2 1
+
+*/
+/*
+
+// - Сортировка по порядку
+// Old School
+
+// имеем мас
+const arr = [2, 1, 5, 2, 4];
+console.log(arr);
+
+// перебераем мас
+for (let i = 0; i < arr.length; i += 1){
+  // присваеваем item1 значение элемента
+  const item1 = arr[i];
+
+  // перебераем начиная с единицы
+  for (let j = i + 1; j < arr.length; j += 1){
+    // если j меньше i
+    if (arr[j] < arr[i]) {
+      // деструктуризируем их
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+}
+console.log(arr); // log (5) [1, 2, 2, 4, 5]
+
+*/
+/*
+
+// - Деструктуризация с пропуском элементов
+
+// имеем мас
+const rgb = [200, 100, 255];
+
+// деструктуризация пропуская элементы 
+// и обзывая последний
+const [, , blue] = rgb;
+
+// результат
+console.log(`Blue: ${blue}`) // log Blue: 255
 
 */
