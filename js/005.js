@@ -49,7 +49,7 @@ console.log(objA.qwe); // log undefined
  *
  * Функции-конструкторы
  * Свойства Function.prototype
- *
+ * Function.prototype это - объект, который является свойством всех функций
  */
 
 /*
