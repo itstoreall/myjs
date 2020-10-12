@@ -14,31 +14,24 @@
 
         .theme {
           margin-right: 15px;
-          font-size: 16px;
+          font-size: 14px;
+        }
+
+        .theme-code {
+          @media all and (min-width: 667px) {
+            font-size: 13px;
+            margin-right: 10px;
+          }
         }
 
         // Text
 
         &.text {
           font-size: 14px;
-        }
-      }
-    }
-  }
 
-  @media all and (min-width: 768px) {
-    .content-list {
-      .content-item {
-        // Theme
-
-        .theme {
-          margin-right: 15px;
-        }
-
-        // Text
-
-        &.text {
-          font-size: 20px;
+          @media all and (min-width: 667px) {
+            font-size: 12px;
+          }
         }
       }
     }

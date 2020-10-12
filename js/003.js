@@ -2081,3 +2081,126 @@ const [, , blue] = rgb;
 console.log(`Blue: ${blue}`) // log Blue: 255
 
 */
+
+/*
+ *
+ * Система логирования
+ *
+ */
+
+/*
+
+// Создаем планировщик 
+// имеем три функции: logAction(), addItem(), markDone()
+
+// имеем объект с двумя типами
+const types = {
+  ADD: "added item",
+  MARK: "marked item"
+}
+
+// имеем объект планировщик с двумя ключами
+const scheduler = {
+  items: [],
+  log: [],
+
+  // имеем функцию с двумя параметрами 
+  // которые записываем в мас
+  logAction(type, id) {
+    this.log.push({ id, type })
+  },
+
+  // добавляем items через push и генерируем id
+  // функция вызывает logAction, потом добавляет 
+  // элемент(объект) в items через push
+  addItem(text) {
+    // логируем экшины и логируем пиы
+    this.logAction(types.ADD, this.items.length);
+
+    this.items.push({
+      // в качестве id возьиеи длину items
+      id: this.items.length,
+      isDone: false,
+      // ! если у нас объект, и ключ и значение совпадают
+      // тогда можно писать не text: text, а просто
+      // text - (Shorthand)
+      text,
+    })
+  },
+
+  // markDone вызывает внутреннюю функцию logAction,
+  // передает параметры (types.MARK, id)
+  markDone(id) {
+    // 
+    this.logAction(types.MARK, id)
+
+    // ищем элемент по id
+    for (let i = 0; i < this.items.length; i += 1){
+      // если id совпадают
+      if (this.items[i].id === id) {
+        // меняем значение элемента на true
+        this.items[i].isDone = true;
+        break;
+      }
+    }
+  },
+};
+
+scheduler.addItem("Buy bread");
+scheduler.addItem("Buy potato");
+
+// меняет false на true
+scheduler.markDone(1);
+console.log(scheduler)
+
+*/
+/*
+
+// - .sort() (отсортированый массив)
+
+const arr1 = [2, 4, 1, 3];
+const arr2 = [7, 6, 5, 8];
+const arr3 = [...arr1, ...arr2].sort();
+
+console.log(arr3) // log (8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+*/
+/*
+
+// - Сортировка прямо в консоле
+
+const arr1 = [2, 4, 1, 3];
+const arr2 = [7, 6, 5, 8];
+
+console.log([...arr1, ...arr2].sort()) // log (8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+*/
+/*
+
+// - Сортировка трех массивов
+
+const arr1 = [2, 4, 1, 3];
+const arr2 = [7, 6, 5, 8];
+const arr3 = [10, 9, 12, 11];
+const arr4 = [...arr1, ...arr2, ...arr3].sort();
+
+// результат без функции (a, b) => a - b
+console.log(arr4) // log (12) [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// результат с функцией (a, b) => a - b
+const arr5 = [...arr1, ...arr2, ...arr3].sort((a, b) => a - b);
+console.log(arr5) // log (12) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+*/
+/*
+
+// - Сортировка задом на перед
+
+const arr1 = [2, 4, 1, 3];
+const arr2 = [7, 6, 5, 8];
+const arr3 = [10, 9, 12, 11];
+
+const arr4 = [...arr1, ...arr2, ...arr3].sort((a, b) => b - a);
+console.log(arr4) // log (12) [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+*/

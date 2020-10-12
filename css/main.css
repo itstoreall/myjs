@@ -205,7 +205,7 @@ button {
 
 @media screen and (min-width: 1200px) {
   .content-list {
-    padding-left: 80px;
+    padding-left: 60px;
     margin-bottom: 60px;
   }
 }
@@ -245,7 +245,7 @@ button {
 
 @media screen and (min-width: 1024px) {
   .content-list .content-item .theme-code {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -264,6 +264,12 @@ button {
 @media screen and (min-width: 768px) {
   .content-list .content-item.text {
     font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content-list .content-item.text {
+    font-size: 18px;
   }
 }
 
@@ -320,19 +326,26 @@ button {
   }
   .content-list .content-item .theme {
     margin-right: 15px;
-    font-size: 16px;
+    font-size: 14px;
   }
+}
+
+@media all and (orientation: landscape) and (max-width: 767px) and (min-width: 667px) {
+  .content-list .content-item .theme-code {
+    font-size: 13px;
+    margin-right: 10px;
+  }
+}
+
+@media all and (orientation: landscape) and (max-width: 767px) {
   .content-list .content-item.text {
     font-size: 14px;
   }
 }
 
-@media all and (orientation: landscape) and (min-width: 768px) {
-  .content-list .content-item .theme {
-    margin-right: 15px;
-  }
+@media all and (orientation: landscape) and (max-width: 767px) and (min-width: 667px) {
   .content-list .content-item.text {
-    font-size: 20px;
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=main.css.map */

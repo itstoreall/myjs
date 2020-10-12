@@ -51,7 +51,7 @@
   }
 
   @media screen and (min-width: 1200px) {
-    padding-left: 80px;
+    padding-left: 60px;
     margin-bottom: 60px;
   }
 
@@ -87,7 +87,7 @@
       }
 
       @media screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 16px;
       }
     }
 
@@ -111,9 +111,9 @@
         font-size: 20px;
       }
 
-      // @media screen and (min-width: 1200px) {
-      //   font-size: 20px;
-      // }
+      @media screen and (min-width: 1024px) {
+        font-size: 18px;
+      }
     }
   }
 }
