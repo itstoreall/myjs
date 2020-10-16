@@ -33,15 +33,83 @@
 
           <ul class="content-list list">
             <li class="content-item text">
-              <code class="theme-code">numbers.forEach(function (element, index, array) {}</code>ничего не возвращает, поэлементно переберает
+              <code class="theme-code">numbers.forEach(function (element, index, array) {})</code>forEach: ничего не возвращает, поэлементно переберает
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">numbers.map(function (element) {}</code>возвращает новый массив такой же длины
+              <code class="theme-code">numbers.map(function (element) {})</code>map: возвращает новый массив такой же длины
             </li>
 
             <li class="content-item text">
-              <code class="theme-code">000</code>00000
+              <code class="theme-code">const mappedNumbers = numbers.map(function (element) {return element * 2})</code>map: увеличить значение на 2
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const playerNames = players.map(function (player) {return player.name})</code>map: получаем массив всех игроков
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return {...player, points: player.points + player.points * 0.1})</code>map:увеличиваем кол-во поинтов каждого игрока
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return {...player, timePlayed: player.timePlayed + 50}</code>map: увеличиваем кол-во часов игрока по id
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">onst filteredNumbers = numbers.filter(function (number) {})</code>filter - возвращает новый массив (с отфильтрованными элементами)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.online</code>filter: получаем массив всех онлайн игроков
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return !player.online</code>filter: получаем мас всех оффлайн игроков
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.timePlayed > 250</code>filter: получить список игроков с временем болше 250
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const number = numbers.find(function(n) {})</code>find - возвращает первый элемент удовлетворяющий условию или undefined
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.id === playerIdToFind</code>find: ищет игрока по id
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const isAllOnline = players.every(function (player) {})</code>every - возвращает true если все элементы мас удовлетворяют условие
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.online</code>every: все ли онлайн
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.timePlayed > 100</code>every: все ли больше 100 часов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const isAnyOnline = players.some(function (player) {})</code>some: возвращает true если хотябы один элемент массива удовлетворяет условию
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return player.timePlayed > 400</code>some: хотя бы один наиграл больше 400 часов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const map = function (array, callback) {}</code>map своими руками (что под капотом)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">Array.prototype.map = function (callback) {}</code>пишем руками Array.prototype.map (Так никогда делать не нужно)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const filter = function (array, callback) {}</code>пишем filter своими руками
             </li>
           </ul>
 

@@ -1065,3 +1065,482 @@ fn(hotel.showThis.bind(hotel)); // log {name: "Resort Hotel", showThis: ƒ}
  * и номер строки в которой произошел вызов.
  *
  */
+
+ /*
+ *
+ * Gari
+ *
+ */
+
+/*
+
+// - Callback()
+
+// - Концепция
+
+// функция высшего порядка
+function sayHello(x, callback) {
+  console.log("Hello", x);
+
+  // иногда добавляют проверку:
+  // если это колбек и тайпоф колбек это точно функция
+  // то только в этов случае делать вызов
+
+  if (callback && typeof callback === "function") {
+    // функция обратного вызова
+    callback();
+  }
+}
+
+function fn(){
+  console.log("some function")
+}
+
+const a = 1;
+// вызов
+sayHello(a, fn)
+
+*/
+/*
+
+// - Filter
+
+// нужно получить вот такой массив на выходе -v
+// если x > 3 =-> [4, 5, 6] и x < 3 || x > 4
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+console.log(filter(numbers, x => x > 3)) // x > 3 =-> [4, 5, 6]
+console.log(filter(numbers, x => x < 4)) // x < 4 =-> [1, 2, 3]
+console.log(filter(numbers, x => x < 3 || x > 4)) // x < 3 || x > 4 =-> [1, 2, 3]
+
+function filter(arr, callback) {
+  const result = [];
+  // const check = (x) => x > 3; // true || false
+
+  for (const value of arr) {
+    if (callback(value)) {
+      result.push(value);
+    }
+  }
+
+  return result;
+}
+
+*/
+/*
+
+// - Find 
+
+// x === 3
+// x === 7
+// x > 1
+// x > 5
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+function find(arr, callback) {
+  const result = [];
+
+  for (const value of arr) {
+    if (callback(value)) {
+      return value
+    }
+  }
+}
+
+console.log(find(numbers, x => x === 3));
+console.log(find(numbers, x => x === 7));
+console.log(find(numbers, x => x > 1));
+console.log(find(numbers, x => x > 5));
+
+*/
+/*
+
+// - indexOf 
+
+// x === 3 =-> 2
+
+const fruits = ['apple', "orange", "strawberry"];
+
+function indexOf(arr, callback) {
+  const result = [];
+  // console.log(callback);
+
+  for (let i = 0; i < arr.length; i += 1){
+    if (callback(arr[i])) {
+      // "jhfg" ---> false
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+function check(fruit) {
+  // "jhfg"
+  return fruit === "apple";
+}
+
+// различные варианты написания
+console.log(indexOf(fruits, check)); // 0
+console.log(indexOf(fruits, x => x === "strawberry")); // 2
+console.log(indexOf(fruits, fruit => fruit === "jhfg")); // -1
+
+*/
+/*
+
+// - map()
+
+const fruits = ["apple", "orange", "strawberry"];
+
+function transform(x) {
+  return `<li>${x}</li>`
+}
+
+function map(arr, callback) {
+  const result = [];
+
+  for (const item of arr) {
+    result.push(callback(item));
+  }
+
+  return result;
+}
+
+console.log(map(fruits, transform));
+console.log(map(fruits, x => `<li class="list-item">${x}</li>`))
+
+// <li>apple</li>;
+// <li>orange</li>;
+// <li>strawberry</li>;
+
+*/
+/*
+
+// - Замыкание (Closures)
+
+// способность функции запоминать лекс. окружение родителя 
+// работать с ним и практически во всех случаях возвращать
+// функцию которая работает с этим лекс. окр.
+
+// для этой функции глобальным считается глобальное
+function createCount() {
+  let x = 0;
+
+  // для этой функции глобальным считается лекс.
+  // окружение createCount(). Из-за этого эта функция
+  // при каждом вызове будет обращаться именно к 
+  // этому let x = 0;
+  
+  return function () {
+    console.log((x += 1));
+  }
+}
+
+const count = createCount();
+
+count(); // 1
+count(); // 2
+count(); // 3
+count(); // 4
+
+// снова считает с ноля, так как в момент вызова
+// createCount() создается новое лекс. окружение
+const count2 = createCount();
+
+count2(); // 1
+count2(); // 2
+
+// продолжим снова count() и видим, что порядок 
+// создания продолжается 
+count(); // 5
+count(); // 6
+count(); // 7
+count(); // 8
+
+*/
+/*
+
+// - count начиная c 10 и с 22
+
+// Record: {x: 10}
+function createCount(x = 0) {
+
+  return function () {
+    console.log((x += 1));
+  }
+}
+
+// тут по дефолту приходит 0
+const count = createCount();
+
+count(); // 1
+count(); // 2
+count(); // 3
+count(); // 4
+
+// тут начально значение 10
+const count3 = createCount(10);
+
+count3(); // 11
+count3(); // 12
+
+// тут начально значение 22
+const count4 = createCount(22);
+
+count4(); // 23
+count4(); // 24
+
+*/
+/*
+
+// - Замыкание
+// Возвращаем результат функции
+
+function createCounter(x = 0) {
+
+  // возвращаем функцию
+  return function () {
+
+    // возвращаем результат функции
+    return (x += 1);
+  }
+}
+
+const counter = createCounter(5);
+
+console.log(counter); // функция
+
+console.log(counter()); // 6 - return (x += 1)
+console.log(counter()); // 7 - return (x += 1)
+
+*/
+/*
+
+// - increment, decrement
+
+// доступ к х только через функцию
+function createCounter(x = 0) {
+
+  // замыкает лекс. окр. родителя
+  function increment() {
+    return (x += 1);
+  }
+
+  // замыкает лекс. окр. родителя
+  function decrement() {
+    return (x -= 1);
+  }
+
+  return {
+    increment,
+    decrement
+  }
+}
+
+const counter = createCounter(100)
+
+console.log(counter.increment); // видим функц. increment
+console.log(counter.decrement); // видим функц. decrement
+
+console.log(counter.increment()); // 101
+console.log(counter.increment()); // 102
+console.log(counter.increment()); // 103
+console.log(counter.increment()); // 104
+console.log(counter.increment()); // 105
+
+console.log(counter.decrement()); // 104
+console.log(counter.decrement()); // 103
+console.log(counter.decrement()); // 102
+console.log(counter.decrement()); // 101
+console.log(counter.decrement()); // 100
+
+*/
+/*
+
+// - Возыращаем массив
+
+// ! такой вариант лучше не изпользовать
+
+function createCounter(x = 0) {
+  function increment() {
+    return (x += 1);
+  }
+
+  function decrement() {
+    return (x -= 1);
+  }
+
+  return [increment, decrement];
+}
+
+const counter = createCounter(100)
+
+console.log(counter[0]()); // 101
+console.log(counter[0]()); // 102
+console.log(counter[0]()); // 103
+
+console.log(counter[1]()); // 101
+console.log(counter[1]()); // 102
+console.log(counter[1]()); // 103
+
+*/
+/*
+
+// - This
+
+// Концепция
+
+const bobby = {
+  name: "Bobby",
+
+  sayHello() {
+    console.log(this.name);
+  }
+}
+
+// this записан в лекс.инв. в момент вызова функции
+bobby.sayHello();
+
+*/
+/*
+
+// - Call
+
+function sayHello() {
+  console.log(`Hello, my name is ${this.name}`);
+}
+
+const bobby = {
+    name: "Bobby",
+}
+
+const peter = {
+    name: "Peter",
+}
+
+const chris = {
+    name: "Chris",
+}
+
+sayHello.call(bobby) // bobby.sayHello()
+sayHello.call(peter) // peter.sayHello()
+sayHello.call(chris) // chris.sayHello()
+
+*/
+/*
+
+// - Apply
+
+function sayHello(years = -1, x) {
+  console.log(`Hello, my name is ${this.name} and I'm ${years} years old. ${x}`);
+};
+
+const bobby = {
+  name: "Bobby",
+};
+
+const peter = {
+  name: "Peter",
+};
+
+const chris = {
+  name: "Chris",
+};
+
+// изпользовать когда нeжно передать несколько параметров
+// call в качестве параметров передает значения
+
+sayHello.call(bobby, 15, 4); // bobby.sayHello(15)
+sayHello.call(peter, 20, 6); // bobby.sayHello(20)
+sayHello.call(chris, 30, 8); // bobby.sayHello(30)
+
+// не используется почти никогда
+// apply в качестве параметров передает массив
+
+sayHello.apply(bobby, [15, 4]); // bobby.sayHello()
+sayHello.apply(peter, [20, 6]); // peter.sayHello()
+sayHello.apply(chris, [30, 8]); // chris.sayHello()
+
+*/
+/*
+
+// - Bind 
+// this, bind
+
+// создаем функцию для корректной работы setTimeout()
+
+function sayHello(years = -1, x) {
+  console.log(`Hello, my name is ${this.name} and I'm ${years} years old. ${x}`);
+};
+
+const bobby = {
+  name: "Bobby",
+};
+
+// bind создает копию функции замыкает this 
+// и запускает в нужное время
+
+const fn = sayHello.bind(bobby);
+
+setTimeout(fn, 2000, 35, ":)")
+
+*/
+/*
+
+// - This и стрелочные функции (arrow function)
+
+class Human {
+  constructor(newName) {
+    this.name = newName;
+  }
+
+  sayHello() {
+    console.log(this);
+  }
+
+  // стрелка всегда помнит свой this
+  sayBye = () => console.log(`${this.name} Bye`);
+}
+
+const bobby = new Human("Bobby");
+
+bobby.sayHello();
+const fn = bobby.sayHello;
+fn(); // Bye
+
+bobby.sayBye();
+const fn2 = bobby.sayBye;
+fn2(); // Bye
+
+*/
+/*
+
+// Задача: Написать свой bind
+
+// myBind в момент вызова замыкает внутри ctx и 
+// callback и возвращает функцию вызова замкнутых 
+// ctx и callback
+
+function myBind(ctx, callback) {
+  return function bindedFunction() {
+    callback.call(ctx)
+  }
+}
+
+const obj = {
+  name: "Bobby",
+
+  sayHello() {
+  console.log(this);
+}
+}
+
+const fn = myBind(obj, obj.sayHello)
+
+console.dir(fn); // ƒ bindedFunction()
+
+fn() // {name: "Bobby", sayHello: ƒ}
+
+*/

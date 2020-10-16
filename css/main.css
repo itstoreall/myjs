@@ -188,7 +188,7 @@ button {
 
 @media screen and (min-width: 1200px) {
   .btns-wrap {
-    padding-left: 80px;
+    padding-left: 60px;
     margin-bottom: 20px;
   }
 }
@@ -274,7 +274,7 @@ button {
 }
 
 .page-link {
-  display: block;
+  display: inline-block;
   margin-bottom: 15px;
   color: #87ceeb;
 }
@@ -294,7 +294,7 @@ button {
 @media screen and (min-width: 1200px) {
   .sourсe-link {
     font-size: 20px;
-    padding-left: 80px;
+    padding-left: 60px;
   }
 }
 
