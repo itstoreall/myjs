@@ -430,3 +430,243 @@ const filteredNumbers = filter(numbers, function (number, index, array) {
 console.log(filteredNumbers); // (2) [20, 25]
 
 */
+
+/*
+ *
+ * - Reduce
+ * 
+ * Array.prototype.reduce()
+ * Поэлементно перебирает оригинальный массив
+ * Возвращает что угодно
+ * Заменяет все на все, но использовать нужно с умом
+ * Reduce от слова сократить - берете много и делаете что-то одно
+ * Reduce можно вызывать только на массивах
+ * accumulator - это любое значение (есть только внутри функции)
+ * Reduce не должен ничего изменять напрямую кроме аккумулятора
+ * 
+ */
+
+/*
+
+// - Концепция
+
+const numbers = [5, 10, 15, 20, 25];
+
+const total = numbers.reduce(function (accumulator, number, index, array) {
+  // console.log("accumulator:", accumulator);
+  // console.log(number);
+  // console.log(index);
+  // console.log(array);
+
+  return accumulator + number;
+}, 0);
+
+// Схема работы Reduce
+// accumulator = 0 -> number = 5 -> return 0 + 5
+// accumulator = 5 -> number = 10 -> return 5 + 10
+// accumulator = 15 -> number = 15 -> return 15 + 15
+// accumulator = 30 -> number = 20 -> return 30 + 20
+// accumulator = 50 -> number = 25 -> return 50 + 25
+
+console.log(total); // 75
+
+*/
+/*
+
+// Считаем общую зарплату
+
+const salary = {
+  mango: 100,
+  poly: 50,
+  ajax: 150,
+};
+
+// 1. приобразовываем обж в мас - Object.values(salary)
+// 2. на этом массиве вызываем редюс - reduce(function (acc, value)
+
+const totalSalary = Object.values(salary).reduce(function (acc, value) {
+  return acc + value;
+})
+console.log(totalSalary);
+
+*/
+/*
+
+// - Считаем общее кол-во часов
+
+const players = [
+  { id: "player-1", name: "Mango", timePlayed: 310, points: 54, online: false },
+  { id: "player-2", name: "Poly", timePlayed: 470, points: 92, online: true },
+  { id: "player-3", name: "Kiwi", timePlayed: 230, points: 48, online: true },
+  { id: "player-4", name: "Ajax", timePlayed: 150, points: 71, online: false },
+  { id: "player-5", name: "Chris", timePlayed: 80, points: 48, online: true },
+];
+
+const totalTimePlayed = players.reduce(function (time, player) {
+  return time + player.timePlayed;
+}, 0)
+
+console.log(totalTimePlayed); // 1240
+
+*/
+/*
+
+// - Считаем общую сумму товаров в корзине
+
+const cart = [
+  { label: "Apples", price: 100, quantity: 2 },
+  { label: "Bananas", price: 120, quantity: 3 },
+  { label: "Lemon", price: 70, quantity: 4 },
+]; 
+
+// item - это отдельный объект у которого есть
+// свойства price и quantity
+
+const totalAmount = cart.reduce(function (total, item) {
+  return total + item.price * item.quantity;
+}, 0)
+console.log(totalAmount); // 840
+
+*/
+/*
+
+// - Ведем статистику тегов из твитов
+// Грязная версия, мутирует аргумент который придет в acc
+// Вариант 1 (много кода)
+
+const tweets = [
+  { id: "000", lokes: 5, tags: ["js", "nodejs"] },
+  { id: "001", lokes: 2, tags: ["html", "nodejs"] },
+  { id: "002", lokes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", lokes: 8, tags: ["css", "react"] },
+  { id: "004", lokes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+// начинаем перебор с пустого массива
+
+const allTags = tweets.reduce(function (tags, tweet) {
+  tags.push(...tweet.tags)
+
+  return tags;
+}, [])
+
+console.log(allTags);
+
+// - Статистика тегов
+
+const tagsStats = allTags.reduce(function (acc, tag) {
+
+  console.log("TAG:", tag);
+
+  // на первой итерации акк пустой 
+  console.log("ACC:", acc); // ACC: {}
+
+  // в объекте будут храниться теги как ключ
+  // если в текущем аккумуляторе есть такой ключ
+  // то нужно туда сделать + 1
+  // если еще нет, то его нужно записать и поставить 1
+  // includes применять нельзя (это метод массива, а у нас обж)
+  // применяем метод объекта hasOwnPropery
+
+  if (acc.hasOwnProperty(tag)) {
+    console.log("такое свойство есть, увличиваем!!!");
+
+    acc[tag] += 1;
+
+    return acc;
+  }
+
+  console.log("такого свойства нет, добавляем!!!");
+  acc[tag] = 1;
+
+  return acc;
+  
+}, {});
+console.log(tagsStats); // {js: 3, nodejs: 4, html: 2, css: 1, react: 2}
+
+*/
+/*
+
+// - Ведем статистику тегов из твитов
+// Грязная версия, мутирует аргумент который придет в acc
+// Вариант 2 (рефакторинг)
+
+const tweets = [
+  { id: "000", lokes: 5, tags: ["js", "nodejs"] },
+  { id: "001", lokes: 2, tags: ["html", "nodejs"] },
+  { id: "002", lokes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", lokes: 8, tags: ["css", "react"] },
+  { id: "004", lokes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+const allTags = tweets.reduce(function (tags, tweet) {
+  tags.push(...tweet.tags)
+
+  return tags;
+}, [])
+
+console.log(allTags);
+
+const tagsStats = allTags.reduce(function (acc, tag) {
+  // console.log("TAG:", tag);
+  // console.log("ACC:", acc);
+
+  acc[tag] = acc.hasOwnProperty(tag) ? acc[tag] + 1 : 1
+
+  return acc;
+  
+}, {});
+console.log(tagsStats); // {js: 3, nodejs: 4, html: 2, css: 1, react: 2}
+
+*/
+/*
+
+// - Ведем статистику тегов из твитов
+// Чистая версия, каждый раз создает новый объект
+// Вариант 3 (чистый код)
+
+const tweets = [
+  { id: "000", lokes: 5, tags: ["js", "nodejs"] },
+  { id: "001", lokes: 2, tags: ["html", "nodejs"] },
+  { id: "002", lokes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", lokes: 8, tags: ["css", "react"] },
+  { id: "004", lokes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+const allTags = tweets.reduce(function (tags, tweet) {
+  tags.push(...tweet.tags)
+
+  return tags;
+}, [])
+
+console.log(allTags);
+
+// вместо того чтобы пушить в обж acc, мы каждый раз
+// возвращаем новый обж, где сначала распыляем старый,
+// а за тем в свойство с ключем [tag] записываем значение
+
+const tagsStats = allTags.reduce(function (acc, tag) {
+  return {
+    ...acc,
+    [tag]: acc.hasOwnProperty(tag) ? acc[tag] + 1 : 1
+  };
+}, {});
+
+console.log(tagsStats); // {js: 3, nodejs: 4, html: 2, css: 1, react: 2}
+
+*/
+/*
+
+// - Reduce своими руками
+
+Array.prototype.reduce = function (callback, initialValue = this[0]) {
+  let accumulator = initialValue;
+
+  for (let i = 0; i < this.length; i += 1){
+    accumulator = callback(accumulator, this[i], i, this);
+
+    return accumulator;
+  }
+}
+
+*/

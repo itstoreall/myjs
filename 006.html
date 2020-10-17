@@ -111,6 +111,38 @@
             <li class="content-item text">
               <code class="theme-code">const filter = function (array, callback) {}</code>пишем filter своими руками
             </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const total = numbers.reduce(function (accumulator, number, index, array) {})</code>reduce: возвращает что угодно
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return acc + value</code>reduce: считаем общую зарплату
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return time + player.timePlayed</code>reduce: считаем общее кол-во часов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return total + item.price * item.quantity</code>reduce: считаем общую сумму товаров в корзине
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const tagsStats = allTags.reduce(function (acc, tag) {})</code>reduce: ведем статистику тегов из твитов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">acc[tag] = acc.hasOwnProperty(tag) ? acc[tag] + 1 : 1</code>reduce: ведем статистику тегов из твитов - грязная версия, мутирует аргумент который придет в acc
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return { ...acc, [tag]: acc.hasOwnProperty(tag) ? acc[tag] + 1 : 1 }</code>reduce: ведем статистику тегов из твитов - чистая версия, каждый раз создает новый объект
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">Array.prototype.reduce = function (callback, initialValue = this[0]) {}</code>reduce своими руками
+            </li>
           </ul>
 
           <!-- Source on GitHub-->
