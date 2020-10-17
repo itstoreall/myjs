@@ -152,6 +152,7 @@ console.log(updatedPlayers2);
  * Фильтр не используется для изменения, только для фильтрации
  * Использовать чтобы найти много в коллекции
  * (декларативный код)
+ * 
  */
 
 /*
@@ -668,5 +669,152 @@ Array.prototype.reduce = function (callback, initialValue = this[0]) {
     return accumulator;
   }
 }
+
+*/
+
+/*
+ *
+ * - Sort
+ * 
+ * Array.prototype.sort()
+ * Сортирует и ИЗМЕНЯЕТ оригинальный массив
+ * Сортирует только примитивы
+ * return prev - next - по возрастанию (по умолчанию)
+ * return next - prev - по убыванию
+ * Sort используется редко
+ * 
+ */
+
+/*
+
+// - Концепция 
+
+// по возрастанию 
+const numbers = [1, 9, 6, 2, 3];
+numbers.sort();
+console.log(numbers); // (5) [1, 2, 3, 6, 9]
+
+// по убыванию 
+const numbers2 = [1, 9, 6, 2, 3];
+numbers2.sort(function (prev, next) {
+  return next - prev;
+});
+console.log(numbers2); // (5) [9, 6, 3, 2, 1]
+
+// для сортировки символов сорт использует charCodeAt
+// и сортирует по сзначению в юникоде
+// Поэтому строки сотром не сортируют
+console.log("A".charCodeAt(0)); // 65
+console.log("a".charCodeAt(0)); // 97
+console.log("B".charCodeAt(0)); // 66
+console.log("b".charCodeAt(0)); // 98
+
+const letters = ["b", "B", "a", "A"];
+letters.sort();
+console.log(letters); // (4) ["A", "B", "a", "b"]
+
+*/
+/*
+
+// - Как создать копию массива чтобы не сортировать оригинал
+
+const numbers = [1, 9, 6, 2, 3];
+
+// 1. вариант - .slice() (Old School)
+
+const copy = numbers.slice().sort();
+console.log(copy); // это копия - (5) [1, 2, 3, 6, 9]
+console.log(copy === numbers); // false
+
+// 2. вариант - распыляем
+
+const copy2 = [...numbers].sort();
+console.log(copy2); // это копия - (5) [1, 2, 3, 6, 9]
+console.log(copy === numbers); // false
+
+*/
+/*
+
+// - Кастомная сортировка сложных типов
+
+const players = [
+  { id: "player-1", name: "Mango", timePlayed: 310, online: false },
+  { id: "player-2", name: "Poly", timePlayed: 470, online: true },
+  { id: "player-3", name: "Kiwi", timePlayed: 230, online: true },
+  { id: "player-4", name: "Ajax", timePlayed: 150, online: false },
+  { id: "player-5", name: "Chelsey", timePlayed: 80, online: true },
+];
+
+// по возрастанию значения свойства
+// ипользую оригинальный массив
+players.sort(function (prevPlayer, nextPlayer) {
+  return prevPlayer.timePlayed - nextPlayer.timePlayed;
+})
+
+console.table(players)
+
+// по убыванию значения свойства
+// использую копию массива
+const sortByTopPlayers = [...players].sort(function (prevPlayer, nextPlayer) {
+  return nextPlayer.timePlayed - prevPlayer.timePlayed;
+})
+
+console.table(sortByTopPlayers)
+
+*/
+/*
+
+/*
+ *
+ * - Цепочка методов (method chaining)
+ * 
+ */
+
+/*
+
+const numbers = [1, 5, 2, 4, 3];
+
+// Отфильторать
+
+const res = numbers.filter(function (num) {
+
+  // Отфильторать
+
+  return num > 2; // (3) [5, 4, 3]
+
+  // Умножить на 3
+
+}).map(function (num) {
+  return num * 3; // (3) [15, 12, 9]
+
+  // Сортируем
+
+}).sort(function (a, b) {
+  return a - b // (3) [9, 12, 15]
+})
+
+console.log(res)
+
+*/
+/*
+
+// - Сортируем тех кто в онлайне по рангу
+
+const players = [
+  { id: "id-1", name: "Mango", isOnline: true, rank: 800 },
+  { id: "id-2", name: "Poly", isOnline: false, rank: 600 },
+  { id: "id-3", name: "Ajax", isOnline: true, rank: 100 },
+  { id: "id-4", name: "Kiwi", isOnline: true, rank: 400 },
+];
+
+const onlineAndSorted = players
+  .filter(function (player) {
+    return player.isOnline;
+  })
+  .sort(function(prevPlayer, nextPlayer) {
+    return prevPlayer.rank - nextPlayer.rank;
+});
+
+console.table(onlineAndSorted);
 
 */

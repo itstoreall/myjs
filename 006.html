@@ -143,6 +143,30 @@
             <li class="content-item text">
               <code class="theme-code">Array.prototype.reduce = function (callback, initialValue = this[0]) {}</code>reduce своими руками
             </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.sort()</code>sort: сортирует и ИЗМЕНЯЕТ оригинальный массив (сортирует только примитивы)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const copy = numbers.slice().sort()</code>sort: как создать копию массива чтобы не сортировать оригинал
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const copy = [...numbers].sort()</code>sort: вариант - распыляем
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return prevPlayer.timePlayed - nextPlayer.timePlayed</code>sort: кастомная сортировка сложных типов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">return nextPlayer.timePlayed - prevPlayer.timePlayed</code>sort: по убыванию значения свойства
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">ns.filter(function(num){}).map(function(num){}).sort(function(a, b){})</code>chaining
+            </li>
           </ul>
 
           <!-- Source on GitHub-->
