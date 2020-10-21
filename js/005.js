@@ -556,3 +556,197 @@ titleRef.addEventListener("click", function () {
 });
 
 */
+
+// =================== Geri ===================
+
+/*
+ *
+ * constructor
+ * Это функция которая умеет создавать объекты
+ * просто вызов - [[ Call ]] - fn вызывается здесь и сейчас
+ * вызов через new - [[ Constructor ]] - внутри создается объект с this
+ * 
+ */
+
+/*
+
+// Концепция
+
+function Human(name, age) {
+  this.name = name;
+  this.age = age;
+
+
+  this.walk = function () {
+    console.log(`${this.name} is walking`); 
+  };
+}
+ 
+const bobby = new Human("Boddy", 15);
+console.log(bobby); // Human {name: "Boddy", age: 15, walk: ƒ}
+bobby.walk() // Boddy is walking
+
+const peter = new Human("Peter", 20);
+console.log(peter); // Human {name: "Peter", age: 20, walk: ƒ}
+peter.walk() // Peter is walking
+
+// - Сделать копию функции peter.walk()
+
+const fn = peter.walk.bind(peter);
+fn() // Peter is walking
+
+*/
+/*
+
+// - Создаем телефон
+
+function Phone(model, accumulator) {
+  this.model = model;
+  this.accumulator = accumulator;
+  this.isOn = false;
+
+  this.turnOn = function () {
+    this.isOn = true
+  }
+
+  this.turnOff = function () {
+    this.isOn = falsel
+  };
+
+  this.getModel = function () {
+    return this.model;
+  }
+};
+
+const nokia = new Phone("Nokia 3310", 600);
+console.log(nokia); // Phone {model: "Nokia 3310", accumulator: 600, isOn: false, turnOn: ƒ, turnOff: ƒ}
+
+nokia.turnOn();
+console.log(nokia); // Phone {model: "Nokia 3310", accumulator: 600, isOn: true, turnOn: ƒ, turnOff: ƒ}
+
+const siemens = new Phone("Siemens C55", 500);
+console.log(siemens); // Phone {model: "C55", accumulator: 500, isOn: false, turnOn: ƒ, turnOff: ƒ, …}
+console.log(siemens.getModel()); // Siemens C55
+
+*/
+/*
+
+// - Добавляем карточки пользователей
+
+function Seller(name) {
+  this.name = name;
+}
+
+const cards = {
+  items: [],
+
+  createCard(userName, phone) {
+    this.items.push({
+      id: this.items.length,
+      userName,
+      phone,
+    });
+  },
+};
+
+// создаем экземпляры класса
+const seller1 = new Seller("Margo");
+const seller2 = new Seller("Ingrid");
+
+
+cards.createCard(seller1.name, "555-342");
+cards.createCard(seller1.name, "555-111");
+cards.createCard(seller2.name, "555-098");
+console.log(cards);
+// Результат:
+// {items: Array(3), createCard: ƒ}
+// > 0: {id: 0, userName: "Margo", phone: "555-342"}
+// > 1: {id: 1, userName: "Margo", phone: "555-111"}
+// > 2: {id: 2, userName: "Ingrid", phone: "555-098"}
+
+*/
+/*
+
+// - Создаем автомобиль
+
+function Auto(model) {
+  this.model = model;
+  this.speed = 0;
+  
+  this.accelerate = function (speed) {
+
+    // ставим ограничение по скорости
+
+    if (speed > 140) {
+      this.speed = 140;
+    } else {
+      this.speed = speed
+    };
+  }
+
+  this.break = function (speed) {
+
+    // тормозим автомобиль
+
+    if (speed < 0) {
+      this.speed = 0;
+    } else {
+      this.speed = speed
+    };
+  }
+
+  this.showSpeed = function () {
+    console.log(this.speed);
+  }
+}
+
+const auto1 = new Auto("Red Kopeyka");
+
+auto1.accelerate(3000000);
+auto1.showSpeed(); // 140
+console.log(auto1) // 140
+
+auto1.break(-40); 
+auto1.showSpeed(); // 0
+console.log(auto1) // 0
+
+*/
+/*
+
+// Просто пример суммирования числа и строки
+
+function sum(a, b, c = 0) {
+  return Number(a) + Number(b) + Number(c);
+}
+
+console.log(sum(1, 1)) // 2
+console.log(sum(1, 1, 1)) // 3
+console.log(sum("2", "2")) // 4
+
+*/
+/*
+
+// - Как работает filter и indexOf
+// фильтруем и оставляем уникальные числа
+           
+//           0  1  2  3
+const arr = [1, 2, 2, 3];
+const isUniq = (element, index, arr) => arr.indexOf(element) === index;
+
+function filter(arr, callback) {
+  for (let i = 0; i < arr.length; i += 1){
+    if (callback(arr[i], i, arr)) {
+
+      // Принцип: 
+      // проверяет совпадает ли index с текущим index
+      // 0 === 0 // true
+      // 1 === 1 // true
+      // 1 === 2 // false - indexOf возвращает первый элемент
+      // 3 === 3 // true
+    }
+  }
+}
+
+console.log(arr.filter(isUniq)) // (3) [1, 2, 3]
+
+*/
