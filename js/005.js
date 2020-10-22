@@ -750,3 +750,424 @@ function filter(arr, callback) {
 console.log(arr.filter(isUniq)) // (3) [1, 2, 3]
 
 */
+
+/*
+ *
+ * class
+ * 
+ */
+
+/*
+
+// - Концепция ES6 classes
+
+class Human{
+  constructor(name) {
+    this.name = name;
+  }
+
+  talk() {
+    console.log(`${this.name} is talking`);
+  }
+
+  walk() {
+    console.log(`${this.name} is walking`);
+  }
+}
+
+// создаем экземпляры класса
+
+const bobby = new Human("Bobby");
+const peter = new Human("Peter");
+
+console.log(bobby); // Human {name: "Bobby"}
+console.log(peter); // Human {name: "Peter"}
+
+// вызвваем метод класса
+
+bobby.talk(bobby); // Bobby is talking
+peter.walk(peter); // Peter is walking
+
+// наследование
+
+class Doctor extends Human{
+  heal() {
+    console.log(`${this.name} is healing`)
+  }
+
+  walk() {
+    console.log(`${this.name} is limping`)
+  }
+}
+
+const house = new Doctor("dr.House");
+
+// проверяем, умеет ли он ходить и лечить
+
+house.walk(); // dr.House is limping (хромает)
+house.heal(); // dr.House is healing
+
+console.log(house) // Doctor {name: "dr.House"}
+
+*/
+
+// ES5 prototype 
+
+/*
+
+// - Минимальное наследование (Old School)
+
+const animal = { eats: true };
+const dog = { barks: true };
+
+dog.__proto__ = animal;
+
+console.log(animal); // {eats: true}
+console.log(dog); // {barks: true}
+
+*/
+/*
+
+// - Создание объекта через Object.create()
+// при этом создается копия объекта
+
+const animal = { eats: true };
+
+// создаем объект и подстовляем родителя для прототипного наследования
+
+const dog = Object.create(animal)
+
+// добавляем собственные свойства объекта dog
+
+dog.barks = true;
+
+console.log(animal); // {eats: true}
+console.log(dog); // {barks: true}
+
+// обращаемся к ключу eats объекта dog
+
+console.log(dog.eats); // true
+
+*/
+/*
+
+// - Проблема наследования функций про создании
+// через Function.prototype
+
+function Human(name) {
+  this.name = name;
+
+  // неправильная функция
+
+  // this.walk = function () {
+  //   console.log("walk");
+  // }
+}
+
+// пример правильной функции
+// ее нет в экземплярах классов, только в __proto__
+
+Human.prototype.walk2 = function(){
+  console.log("walk2");
+}
+
+// создаем 2 объекта через конструктор
+
+const bobby = new Human("Bobby");
+const peter = new Human("Peter");
+
+// Проблема в том, что в каждом объкте (Bobby или Peter) 
+// при создании функции walk создается своя функция walk
+// тоесть - нет наследования (а именно - копии), а это
+// расходует много памяти при большом колличестве объектов
+// Для решения этих проблем придумали функции выносить
+// сразу в prototype - пример walk2 
+
+console.log(bobby); // Human {name: "Bobby", walk: ƒ}
+console.log(peter); // Human {name: "Peter", walk: ƒ}
+
+*/
+/*
+
+// - Делаем копию прототипа
+
+function Human(name) {
+  this.name = name;
+}
+
+Human.prototype.walk = function(){
+  console.log("walk"); // walk
+}
+
+function Doctor() {
+  this.heal = function () {
+    console.log("heal");
+  }
+}
+
+// делаем копию конструктора через Object.create
+
+Doctor.prototype = Object.create(Human.prototype)
+Doctor.prototype.constructor = Doctor;
+
+const bobby = new Human("Bobby");
+const peter = new Human("Peter");
+
+console.log(bobby);
+console.log(peter); 
+
+const house = new Doctor("dr.House")
+house.walk(); // walk
+
+// добавляем функцию sayHallo в родителя
+// и она становится доступна всем наследникам
+
+Human.prototype.sayHello = function () {
+  console.log("Hello") // Hello
+}
+
+house.sayHello() // Hello
+
+*/
+/*
+
+// - Передаем Доктору данные которых нет (они в конструкторе Human)
+
+function Human(name) {
+  this.name = name;
+}
+
+Human.prototype.walk = function(){
+  console.log("walk"); // walk
+}
+
+function Doctor(name, age) {
+
+  // передаем name из Human
+
+  Human.call(this, name);
+
+  this.age = age;
+
+  this.heal = function () {
+    console.log("heal");
+  }
+}
+
+Doctor.prototype = Object.create(Human.prototype)
+Doctor.prototype.constructor = Doctor;
+
+const bobby = new Human("Bobby");
+const peter = new Human("Peter");
+
+console.log(bobby);
+console.log(peter); 
+
+// добавляем параметр age
+
+const house = new Doctor("dr.House", 20)
+house.walk(); // walk
+
+console.log(house) // Doctor {name: "dr.House", age: 20, heal: ƒ}
+
+*/
+/*
+
+// - Super - используем конструктор родителя
+
+class Human{
+  constructor(name, eyes) {
+    this.name = name;
+    this.eyes = eyes;
+  }
+
+  talk() {
+    console.log(`${this.name} is talking`);
+  }
+
+  walk() {
+    console.log(`${this.name} is walking`);
+  }
+}
+
+class Doctor extends Human{
+  constructor(name, eyes, age) {
+
+    // можно передать сразу все аргументы родителя
+    // но так никто не делает
+
+    // super(...arguments);
+
+    super(name, eyes);
+
+    this.age = age
+  }
+
+  heal() {
+    console.log(`${this.name} is healing`)
+  }
+}
+
+const house = new Doctor("dr.House", "green", 30);
+console.log(house)
+
+*/
+/*
+
+// - Определяем собсвенные ключи или родительские
+
+const animal = { eats: true };
+const dog = Object.create(animal);
+dog.barks = true;
+
+console.log(dog); 
+
+// console.log(Object.keys(dog)) // ["barks"] - видим только один ключ (собственный)
+
+// чтобы увидеть все ключи (включая родительские)
+// если перебрать через for...in мы увидем и другие
+
+for (const key in dog) {
+  console.log(key); // barks, eats
+
+  // чтобы понять какой ключ наш, а какой унаследованный
+  // нужно использовать hasOwnProperty(key)
+
+  console.log(dog.hasOwnProperty(key)) // barks (true), eats (false)
+}
+
+*/
+/*
+
+// - Геттеры и Сеттеры (правильный подход к работе с объектом)
+
+// Автомобиль меняет скорость
+
+class Auto {
+  constructor() {
+    this._speed = 0;
+  }
+
+  set speed(value) {
+    if (value > 100) {
+      this._speed = 100;
+    } else {
+      this._speed = value;
+    }
+  }
+
+  get speed() {
+    return `${this._speed} km/h`;
+  }
+}
+
+const kopeyka = new Auto();
+
+// изменяем скорость через set
+
+kopeyka.speed = 350;
+console.log(kopeyka); // Auto {_speed: 100}
+
+// обращаемся к геттеру (get)
+console.log(kopeyka.speed); // 100 km/h
+
+*/
+/*
+
+// - Приватные свойства и методы (Инкапсуляция)
+
+// защита свойств и метадов от внешнего воздействия
+
+class Auto {
+
+  // для защиты используем знак #
+  // обязательно объявить #speed
+
+  #speed = 0; // - приватное поле для обращений через get и set
+
+  // приватый метод для примера
+
+  #sayHallo() {
+    console.log("Hallo") // Hallo
+  }
+
+  // конструктор больше не нужен если в нем ничего не записываем
+
+  // constructor() {
+  //   this.#speed = 0;
+  // }
+
+  set speed(value) {
+    if (value > 100) {
+      this.#speed = 100;
+    } else {
+      this.#speed = value;
+    }
+  }
+
+  get speed() {
+
+    // приватный метод для примера
+
+    this.#sayHallo();
+    
+    return `${this.#speed} km/h`;
+  }
+}
+
+const kopeyka = new Auto();
+kopeyka.speed = 350;
+
+console.log(kopeyka.speed); // 100 km/h
+
+*/
+/*
+
+// - Создаем автомобиль с начальной скоростью 10 km/h
+
+class Auto {
+  #speed = 0;
+
+  constructor(initialSpeed) {
+    this.#speed = initialSpeed;
+  }
+
+  set speed(value) {
+    if (value > 100) {
+      this.#speed = 100;
+    } else {
+      this.#speed = value;
+    }
+  }
+
+  get speed() {
+    return `${this.#speed} km/h`;
+  }
+}
+
+const kopeyka = new Auto(10);
+// kopeyka.speed = 350;
+
+console.log(kopeyka.speed); // 10 km/h
+
+*/
+/*
+
+// - Статические свойства и методы
+
+class MyMath {
+  constructor() { }
+  
+  static saySomthing() {
+    console.log('dfvfvevnl')
+  }
+}
+
+MyMath.saySomthing()
+
+// при создании нового экземпляра класса этот метод не копируется
+
+const math = new MyMath();
+math.saySomthing() // пытаемся вызвать, но получаем ошибку
+
+*/

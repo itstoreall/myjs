@@ -142,9 +142,9 @@
             </li>
           </ul>
 
-          <!-- Gari -->
+          <!-- constructor (Gari) -->
 
-          <h2 class="title main">Gari</h2>
+          <h2 class="title main">constructor (Gari)</h2>
           <ul class="content-list list">
 
             <li class="content-item text">
@@ -178,6 +178,69 @@
             <li class="content-item text">
               <code class="theme-code">const isUniq = (element, index, arr) => arr.indexOf(element) === index</code>уникальные числа - как работает filter и indexOf
             </li>
+          </ul>
+
+          <!-- class (Gari) -->
+          
+          <h2 class="title main">class (Gari)</h2>
+          <ul class="content-list list">
+          
+            <li class="content-item text">
+              <code class="theme-code">class Human{constructor(name) {this.name = name}</code>концепция ES6 classes
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const bobby = new Human("Bobby")</code>создаем экземпляры класса
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">bobby.talk(bobby)</code>вызвваем метод класса
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">class Doctor extends Human{}</code>наследование
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">dog.__proto__ = animal</code>ES5 prototype - минимальное наследование (Old School)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const dog = Object.create(animal)</code>создаем объект и подстовляем родителя для прототипного наследования
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">Human.prototype.walk2 = function(){}</code>пример правильной функции (проблема наследования функций про создании)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">Doctor.prototype = Object.create(Human.prototype)</code>делаем копию конструктора через Object.create
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">super(name, eyes)</code>super - используем конструктор родителя
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">console.log(dog.hasOwnProperty(key))</code>определяем собсвенные ключи или родительские
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">kopeyka.speed = 350</code>изменяем скорость через set
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">#sayHallo() {}</code>приватные свойства и методы (Инкапсуляция)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">constructor(initialSpeed) {this.#speed = initialSpeed}</code>автомобиль с начальной скоростью 10 km/h
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">static saySomthing() {console.log('dfvf')}</code>статические свойства и методы
+            </li>
+          
           </ul>
 
           <!-- Source on GitHub-->
