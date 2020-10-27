@@ -187,10 +187,14 @@ button {
 }
 
 @media screen and (min-width: 1200px) {
-  .btns-wrap {
+  .test-content-wrap {
     padding-left: 60px;
     margin-bottom: 20px;
   }
+}
+
+.test-img {
+  margin-bottom: 20px;
 }
 
 .content-list {
@@ -347,5 +351,31 @@ button {
   .content-list .content-item.text {
     font-size: 12px;
   }
+}
+
+.product-card__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-card__name::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.product-card__name--available::before {
+  background-color: green;
+}
+
+.product-card__name--not-available::before {
+  background-color: red;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модуль 7 - DOM. События</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
+
+  <body>
+    <!-- Page Header -->
+
+    <header class="page-header">
+      <div class="container header">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title header">JS</h1>
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Main -->
+
+    <main class="page-main">
+      <section class="section">
+        <div class="container main">
+          <h2 class="title main">Seventh module</h2>
+
+          <!-- Content List -->
+          <div class="test-content-wrap">
+
+            <img class="test-img" src="./images/img-001.jpg" alt="office" style="width: 300px;">
+
+            <!-- <div id="root"></div> -->
+            <div class="products js-products"></div>
+
+          </div>
+
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">const titleRef = document.querySelector(".title.header")</code>querySelector: озвращает первый найденный элемент (по принципу find)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const linksRef = document.querySelectorAll(".content-list")</code>querySelectorAll: ищем все ссылки внутри нашело ul
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.textContent = "Привет, добро пожаловать!"</code>textContent: изменяет текстовый контент
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.src = "./images/img-002.jpg"</code>заменяем картинку
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.alt = "Это моя фотка!"</code>заменяем alt
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">linkRef.style.color = "red"</code>добавляем инлайн стили для ссылки
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.getAttribute("alt")</code>getAttribute: получаем alt
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.getAttribute("src")</code>getAttribute: получаем src
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">.setAttribute(name, value)</code>setAttribute: меняем значение аттрибута
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.setAttribute("src", "./images/img-002.jpg")</code>setAttribute: меняем src
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">imageRef.setAttribute("alt", "Это моя фотка")</code>setAttribute: меняем alt
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">activeLinkRef.classList.add('ddd001')</code>classList: добавляем класс в элемент
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">activeLinkRef.classList.remove('logo-link')</code>classList: удаляем класс из элемента
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">activeLinkRef.classList.toggle('logo-link')</code>classList: если класс есть, то удаляет и наоборот
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const titleRef = document.createElement("h1")</code>createElement: делаем тег h1
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.textContent = "Динамически зазданный h1"</code>textContent: добавляем текстовый контент в тег
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.classList.add('site-title')</code>classList: добавляем класс в тег
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.id = 'title'</code>id: добавляем свойство id
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const containerRef = document.createElement("div")</code>создаем див
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">priceRef.textContent = `${product.price} грн`</code>создаем цену
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">containerRef.appendChild(titleRef)</code>добавляет один элемент в конец детей элемента
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">containerRef.append(titleRef, descrRef, priceRef)</code>ля вставки множества элементов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">contentList.firstElementChild</code>получаем ссылка на первый li при помощи firstElementChild
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">contentList.prepend(listItemRef2)</code>добавляет элемент в начало списка
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">contentList.insertBefore(listItemRef, contentList.firstElementChild)</code>добавляет элемент перед первым элементом
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const cardRootRef = document.querySelector("#root")</code>cardRootRef.appendChild(containerRef) - добавляет в DOM карточку товара (внутрь дива в html)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">000</code>00000
+            </li>
+          </ul>
+
+          <!-- Source on GitHub-->
+
+          <a
+            class="sourсe-link link"
+            href="https://github.com/itstoreall/myjs/blob/master/js/007.js"
+            >source</a
+          >
+
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-03-create-part-2">source Cards</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Page Footer -->
+
+    <footer class="page-footer">
+      <div class="container footer">
+        <a class="logo-link" href="./index.html">
+          <h1 class="title footer">JS</h1>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <!-- <script src="./js/007.js" type="module"></script> -->
+    <script src="./js/007-03-create-part-2.js" type="module"></script>
+    <script src="./js/007-products.js" type="module"></script>
+  </body>
+</html>
