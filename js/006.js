@@ -848,3 +848,768 @@ function getNum({ num }) { return num; }
 console.log(getNum(object)) // 2
 
 */
+
+/**
+ * 
+ * - Geri
+ * 
+ */
+
+/*
+
+// - Чистая функция (poor function)
+// чистая функцию не мутирует, никогда не изменяет данные 
+// которые на входе, она создает новый массив
+
+// - Концепция
+
+const numbers = [1, 2, 3, 4];
+
+function multiply(arr, x) {
+  const res = [...arr];
+
+  for (let i = 0; i < res.length; i += 1){
+    res[i] *= x;
+  }
+
+  return res;
+}
+
+console.log(multiply(numbers, 2)); // [2, 4, 6, 8]
+console.log(numbers); // [1, 2, 3, 4]
+
+*/
+/*
+
+// - array, this
+
+// фильтруем числа больше 3 и добавляем их в новый массив
+
+Array.prototype.myFilter = function myFilter(callback) {
+  const res = [];
+  
+  for (let i = 0; i < this.length; i += 1){
+    if (callback(this[i])) {
+      res.push(this[i]);
+    }
+  }
+
+  return res;
+};
+
+const arr = [1, 2, 3, 4, 5, 6];
+console.log(arr.myFilter((x) => x > 3));
+
+*/
+
+/**
+ * 
+ * - Filter
+ * 
+ * Array.filter
+ * Возвращает новый массив с отфильтровванными элементами
+ * 
+ */
+
+/*
+
+// Задача:
+// - Написать функцию фильтр которая фильтрует элементы внутри массива
+
+//  * Параметры на входе
+//  * Returns a filtered array
+//  * @param {array} array
+//  * @param {function} callback
+ 
+// имеем массив
+const numbers = [1, 2, 3, 4, 5];
+
+// фильтруем элементы и добавляем в мас те что > 3
+console.log(numbers.filter(item => item > 3)); // (2) [4, 5]
+
+*/
+
+/**
+ * 
+ * - forEach
+ * 
+ * Array.forEach
+ * Переберает исходный массив
+ * Ничего не возвращает
+ * 
+ */
+
+/*
+
+// - просто перебираем и выводим элементы массива
+
+// numbers
+const numbers = [1, 2, 3, 4];
+numbers.forEach(value => console.log(value))
+
+// numbers2
+const numbers2 = ["apple", "orange", "strawberry"];
+numbers2.forEach((value, index) => console.log(`index: ${index}, value: ${value}`),)
+
+*/
+
+/**
+ * 
+ * - Map
+ * 
+ * Array.map
+ * Переберает исходный массив
+ * Возвращает новый массив такой же длины
+ * и может чтото делать для каждого элемента
+ * 
+ */
+
+/*
+
+// - Создаем элементы li и добавляем их в ul
+// четные li - tomato, не четные li - green
+
+const users = ["Bobby", "Peter", "Chris", "Vernon"];
+
+const userItems = users.map((value, index, arr) => {
+  const className = index % 2 === 0 ? 'tomato' : 'green';
+
+  return `<li class="user-item ${className}">${value}</li>`;
+});
+
+// добавляем в DOM
+document.getElementById("user-list").insertAdjacentHTML("afterbegin", userItems.join(''));
+
+console.log(userItems)
+
+*/
+/*
+
+// - Умножаем каждое число на 2
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.map(value => value * 2)); // (5) [2, 4, 6, 8, 10]
+
+*/
+/*
+
+// - Делаем из списка обектов список имен
+// возвращаем names
+
+const numbers = [
+  {
+  id: 1,
+    name: "Bobby",
+  surname: "Ivanov"
+  },
+  {
+  id: 2,
+    name: "Peter",
+  surname: "Petrov"
+  },
+  {
+  id: 3,
+    name: "Peter",
+  surname: "Parker"
+  }
+];
+
+console.log(numbers.map(user => user.name)) // (3) ["Bobby", "Peter", "Peter"]
+
+*/
+/*
+
+// - Делаем из списка обектов новые объекты 
+// без некоторых свойств (без фамилии)
+// используем деструктуризацию
+
+const numbers = [
+  {
+  id: 1,
+    name: "Bobby",
+  surname: "Ivanov"
+  },
+  {
+  id: 2,
+    name: "Peter",
+  surname: "Petrov"
+  },
+  {
+  id: 3,
+    name: "Peter",
+  surname: "Parker"
+  }
+];
+
+// создаем новый объект без фамилии
+console.log(numbers.map(({ id, name }) => ({ id, name })))
+
+*/
+/*
+// ========================================
+// Array.prototype.map
+// - Вернуть новый массив содержащий длины элементов (слов)
+
+const arr = ["Есть", "жизнь", "на", "Марсе"];
+
+const res = arr.map((word) => word.length);
+
+console.log(res) // (4) [4, 5, 2, 5]
+
+*/
+
+/*
+ * - Find
+ *
+ * Array.find
+ * Поэлементно перебирает оригинальный массив
+ * Используется для поиска уникального элемента
+ * Возвращает первый элемент удовлетворяющий условию или undefined
+ * После нахождения прирывает перебор
+ * Если не нашел ничего - вернет undefined
+ * 
+ */
+
+/*
+
+// - Ищем 5 в массиве
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.find(value => value === 5));
+
+*/
+/*
+
+// - Поиск в объекте (элементе массива) по имени и фамилии
+// учитываем регистр
+
+const numbers = [
+  {
+  id: 1,
+    name: "Bobby",
+  surname: "Ivanov"
+  },
+  {
+  id: 2,
+    name: "Peter",
+  surname: "Petrov"
+  },
+  {
+  id: 3,
+    name: "Peter",
+  surname: "Parker"
+  }
+];
+
+const userName = "peTer";
+const userSurname = "Parker";
+
+console.log(numbers.find(user => user.name.toLowerCase() === userName.toLowerCase() && user.surname === userSurname)); // {id: 2, name: "Peter"}
+
+*/
+
+/*
+ *
+ * - Every
+ * 
+ * Array.prototype.every()
+ * Поэлементно перебирает оригинальный массив
+ * Возвращает true если все элементы мас удовлетворяют условие
+ * Прерывается на первом false
+ * 
+ */
+
+/*
+
+// - Проверяем в каком массиве все числа > 2
+
+const numbers1 = [1, 2, 3, 4, 5];
+const numbers2 = [3, 4, 5];
+
+const everyNumberIsLargerTwo1 = numbers1.every(value => value > 2);
+const everyNumberIsLargerTwo2 = numbers2.every(value => value > 2);
+
+console.log(everyNumberIsLargerTwo1); // false
+console.log(everyNumberIsLargerTwo2); // true
+
+*/
+
+/*
+ *
+ * - Some
+ * 
+ * Array.prototype.some()
+ * Поэлементно перебирает оригинальный массив
+ * Возвращает true если хотябы один элемент массива удовлетворяет условию
+ * Переберает до первого true
+ * 
+ */
+
+/*
+
+// - Проверяем есть ли хоть один элемент > 2
+
+const numbers1 = [1, 2, 3, 4, 5];
+const numbers2 = [-5, 1, 2];
+
+const someNumberIsLargerTwo1 = numbers1.some(value => value > 2);
+const someNumberIsLargerTwo2 = numbers2.some(value => value > 2);
+
+console.log(someNumberIsLargerTwo1); // true
+console.log(someNumberIsLargerTwo2); // false
+
+*/
+
+/*
+ *
+ * - Цепочка методов (method chaining)
+ * 
+ */
+
+/*
+
+// - Развернуть слова используя чейнинг
+
+const text = "Hello World";
+
+// создаем массив, поворачиваем, объединяем
+const textReverse = text.split('').reverse().join('')
+
+console.log(textReverse)
+
+*/
+
+/**
+ * 
+ * - Деструктуризаця объекта
+ * 
+ */
+
+/*
+
+// - Концепция
+
+const obj = {
+  key1: "abc",
+  key2: "def",
+  key3: "ghi",
+};
+
+const { key2 } = obj;
+
+console.log(key2) // def
+
+*/
+/*
+
+// - Изменяем объект (удаляем фамилию) в массив объектов
+// применяем деструктуризацию
+
+const numbers = [
+  {
+  id: 1,
+    name: "Bobby",
+  surname: "Ivanov"
+  },
+  {
+  id: 2,
+    name: "Peter",
+  surname: "Petrov"
+  },
+  {
+  id: 3,
+    name: "Peter",
+  surname: "Parker"
+  }
+];
+
+// 1. - без деструктуризации
+
+console.log(numbers.map(function (obj) {
+  return obj.name
+
+})) // (3) ["Bobby", "Peter", "Peter"]
+
+// 2. - с деструктуризацией
+
+console.log(numbers.map(function ({ name }) {
+  return name
+
+})) // (3) ["Bobby", "Peter", "Peter"]
+
+// 3. - создаем новый обж, но без id и деструктуризации
+
+console.log(numbers.map(function (obj) {
+  return {
+    name: obj.name,
+    surname: obj.surname,
+  }
+}))
+
+// 4. - создаем новый обж, без id с деструктуризацией
+
+console.log(numbers.map(function ({ name, surname }) {
+  return {
+    name,
+    surname,
+  }
+}))
+
+// 5. - создаем новый обж, без id с деструктуризацией 
+// используя =>
+
+console.log(numbers.map(({ name, surname }) => ({ name, surname })))
+
+*/
+
+/*
+ *
+ * - Reduce
+ * 
+ * Array.prototype.reduce()
+ * Поэлементно перебирает оригинальный массив
+ * Возвращает что угодно
+ * Заменяет все на все, но использовать нужно с умом
+ * Reduce от слова сократить - берете много и делаете что-то одно
+ * Reduce можно вызывать только на массивах
+ * accumulator - это любое значение (есть только внутри функции)
+ * Reduce не должен ничего изменять напрямую кроме аккумулятора
+ * initial value - начальное значение, он же и аккумулятор
+ * 
+ */
+
+/*
+// ========================================
+// - Посчитать сумму всех элементов массива
+// Пример с forEach - Get sum 
+// так делали раньше
+
+const numbers = [1, 5, 3]; // 9
+
+let sum = 0;
+
+numbers.forEach((item, index, arr) => sum += item);
+
+console.log("Sum:", sum); // Sum: 9
+
+*/
+/*
+// ========================================
+// Array.prototype.reduce
+// - Посчитать сумму всех элементов массива
+
+const numbers = [1, 5, 3]; // 9
+
+const acc = numbers.reduce((acc, item) => {
+  return acc += item;
+}, 0);
+
+console.log(acc) // 9
+
+*/
+/*
+// ========================================
+// Array.prototype.reduce
+// - Посчитать сумму всех элементов массива объектов
+// (деструктуризация, одна строка, => )
+
+const goods = [
+  {
+    name: "phone",
+    price: 1000,
+  },
+  {
+    name: "pc",
+    price: 2000,
+  },
+  {
+    name: "earphones",
+    price: 500,
+  },
+];
+
+const arr = goods.reduce((acc, { price }) => acc + price, 0);
+
+console.log("Sum:", arr); // Sum: 3500
+
+*/
+/*
+// ========================================
+// Array.prototype.reduce
+// - min, max
+// - без использования initial value
+// Пример - max = Math.max(...numbers)
+// (Math, ...numbers, reduce)
+
+const numbers = [5, 3, -1, 0, 2, 4, 1];
+
+const min = numbers.reduce((acc, item) => item < acc ? item : acc); // -1
+const max = numbers.reduce((acc, item) => item > acc ? item : acc); // 5
+
+console.log(min)
+console.log(max)
+
+*/
+/*
+// ========================================
+// Array.prototype.reduce
+// - Счетаем сколько каждой буквы в словах
+// Номера символов (букв) - asciitable.com
+// (acc[letter], ...acc, ascii, )
+
+const letters = "Hello World"
+
+const res = letters.split("").reduce((acc, letter) => {
+  return {
+    ...acc,
+    [letter]: acc[letter] ? acc[letter] + 1 : 1
+  }
+}, {});
+  
+console.log("Result:", res) // Result: {H: 1, e: 1, l: 3, o: 2, " ": 1, …}
+
+*/
+/*
+// ========================================
+// Array.prototype.reduce
+// - Сумировать рядом стоящие цифры с учетом предыдущей суммы
+
+const numbers = [1, 2, 3, 4, 5];
+
+const res = numbers.reduce((acc, item, idx) => {
+  return idx === 0 ? [item] : [...acc, acc[idx - 1] + item];
+}, [])
+
+console.log(res) // (5) [1, 3, 6, 10, 15]
+
+*/
+
+/*
+ *
+ * - Sort
+ * 
+ * Array.prototype.sort()
+ * Сортирует и ИЗМЕНЯЕТ оригинальный массив
+ * Сортирует только примитивы
+ * return prev - next - по возрастанию (по умолчанию)
+ * return next - prev - по убыванию
+ * Sort используется редко
+ * 
+ */
+
+/*
+// ========================================
+// Array.prototype.sort
+// - Неправильная сортировка чисел
+// (ascii, )
+
+const numbers = [5, 42, 3, -1, 0, 100, 234, 2, 4, 1];
+
+numbers.sort();
+
+// не сортирует правильно, потому что по ascii
+console.log(numbers); // (10) [-1, 0, 1, 100, 2, 234, 3, 4, 42, 5]
+
+*/
+/*
+// ========================================
+// Array.prototype.sort
+// - Правильная сортировка чисел
+// (sort,  )
+
+const numbers = [5, 42, 3, -1, 0, 100, 234, 2, 4, 1];
+
+// a - b или b - a
+numbers.sort((a, b) => a - b);
+
+console.log(numbers); // (10) [-1, 0, 1, 2, 3, 4, 5, 42, 100, 234]
+
+*/
+/*
+// ========================================
+// Array.prototype.sort
+// - Сортировка объекта по цене
+
+const goods = [
+  {
+    name: "pc",
+    price: 2000,
+  },
+  {
+    name: "earphones",
+    price: 500,
+  },
+  {
+    name: "phone",
+    price: 1000,
+  },
+];
+
+// b.price - a.price или a.price - b.price
+const sortedGoods = goods.sort((a, b) => b.price - a.price);
+
+console.log(sortedGoods)
+
+*/
+/*
+// ========================================
+// Array.prototype.sort
+// - Пишем свою сортировку
+
+// Условие:
+// a < b = -1
+// b < a = 1
+// a = b = 0
+
+const goods = [
+  {
+    name: "pc",
+    price: 2000,
+  },
+  {
+    name: "earphones",
+    price: 500,
+  },
+  {
+    name: "phone",
+    price: 1000,
+  },
+];
+
+const sortedGoods = goods.sort((a, b) => {
+  if (a.price < b.price) {
+    return -1;
+  }
+
+  if (a.price > b.price) {
+    return 1;
+  }
+
+  return 0;
+});
+
+console.log(sortedGoods)
+
+*/
+
+/**
+ * 
+ * - Пишем программу (супер-нужную для мужчин)
+ * 
+ */
+
+/*
+// ========================================
+// todoList
+// - Пишем свою сортировку
+// В toggleTodo используется map - классический подход к изменению значений в списке массивов
+// Удалять через filter (потому что вернуть все кроме этого)
+// (терн.опер, map, filter, sort, toggle, )
+
+class TodoList {
+  items = [];
+
+  // метод возвращает список
+  showTodos() {
+    console.log(this.items)
+  }
+
+  // добавляет элемент списка
+  // id генерируем через библиотеку
+  // Скрипт из https://cdnjs.com/libraries/uuid добавляем в HTML > head 
+  // Вписать в значение id: uuid.v4() из https://www.npmjs.com/package/uuid
+
+  addTodo(text) {
+    this.items.push({
+      id: uuid.v4(),
+      isDone: false,
+      text,
+    });
+  }
+
+  // переключатель значения isDone
+  toggleTodo(id) {
+    this.items = this.items.map(item =>
+      item.id === id ? { ...item, isDone: !item.isDone } : item,
+    );
+  }
+
+  // удаляем элемент из массива элементов
+  // нужно вернуть все которые не совпадают с входящим id
+
+  removeTodo(id) {
+    this.items = this.items.filter(item => item.id !== id) 
+  };
+
+  // сортируем элементы
+  // @param {string} direction ASC, DESC
+  // ASC - значение по умолчанию для direction
+
+  sortTodos(direction = ASC) {
+    this.items.sort((a, b) => {
+      if (a.text < b.text) {
+        return direction === "DESC" ? -1 : 1;
+      }
+      if (a.text > b.text) {
+        return direction === "DESC" ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+}
+
+// создаем экземпляр
+const todoList = new TodoList();
+
+todoList.showTodos();
+
+// добавляем элементы
+todoList.addTodo("Картошка"); // 0
+todoList.addTodo("Морква"); // 1
+todoList.addTodo("Капуста"); // 2
+todoList.addTodo("Колбаса");
+
+// переключение 
+// idForToggle присваиваем сгенерированный id по индексу 
+
+const idForToggle = todoList.items[2].id;
+todoList.toggleTodo(idForToggle);
+
+// удаление
+// idForRemove присваиваем сгенерированный id по индексу 
+
+const idForRemove = todoList.items[3].id;
+todoList.removeTodo(idForRemove)
+
+// DESC созтирует в одном направлении, 
+// без параметра сортирует в другом
+
+todoList.sortTodos("DESC")
+
+todoList.showTodos();
+
+*/
+/*
+// ========================================
+// toggle
+// - Концепция
+// Использовать в чекбоксах
+
+let isOn = true;
+console.log("isOn:", isOn); // isOn: true
+
+isOn = !isOn;
+console.log("isOn:", isOn); // isOn: false
+
+isOn = !isOn;
+console.log("isOn:", isOn); // isOn: true
+
+isOn = !isOn;
+console.log("isOn:", isOn); // isOn: false
+
+*/
+
+
+

@@ -29,15 +29,110 @@
         <div class="container main">
           <h2 class="title main">Seventh module</h2>
 
-          <!-- Content List -->
+          <!-- Test Content -->
+          
           <div class="test-content-wrap">
 
-            <img class="test-img" src="./images/img-001.jpg" alt="office" style="width: 300px;">
+            <img class="test-img" src="./images/img-001.jpg" alt="office">
 
             <!-- <div id="root"></div> -->
+
+            <!-- Карта товара -->
+
+            <h3 class="title main">Карта товара</h3>
             <div class="products js-products"></div>
 
+            <!-- Слушатели событий -->
+
+            <h3 class="title main">Слушатели событий</h3>
+            <button type="button" class="test-button js-target-btn">Целевая кнопка</button>
+            <button type="button" class="test-button js-add-listener">Добавить слушатель</button>
+            <button type="button" class="test-button js-remove-listener">Снять слушатель</button>
+
+            <!-- Form -->
+
+            <h3 class="title main">Form</h3>
+            <form class="test-form js-register-form">
+              <div class="test-form_set" role="group">
+                <label class="test-form__label">
+                  <input name="name" type="text" autocomplete="off">
+                </label>
+
+                <label class="test-form__label">
+                  <input name="email" type="email" autocomplete="off">
+                </label>
+
+                <label>
+                  <input name="password" type="password">
+                </label>
+              </div>
+
+              <div class="test-form__group">
+
+                <b class="test-form__b">Выберите тип подписки</b>
+                
+                <label>
+                  <input name="subscription" type="radio" value="free">
+                </label>
+                
+                <label>
+                  <input name="subscription" type="radio" value="basic">
+                </label>
+
+                <label>
+                  <input name="subscription" type="radio" value="pro">
+                </label>
+              </div>
+
+              <button type="submit">Зарегистрироваться</button>
+            </form>
+
+            <!-- Reg Form -->
+
+            <h3 class="title main">Reg Form</h3>
+
+            <label class="test-form__label">Имя
+              <input type="text" class="js-input">
+            </label>
+
+            <p>
+              <label>
+                <input type="checkbox" class="js-license">
+                Принимаю лицензионное соглашение
+              </label>
+            </p>
+
+            <button type="button" class="test-button js-button" disabled>Зарегаться как <span>Антон</span></button>
+
+            <!-- Keyboard -->
+
+            <h3 class="title main">Keyboard</h3>
+            <p class="test-output js-output"></p>
+            <button class="test-button js-clear" class="mb20"">Очистить</button>
+
+            <!-- Mouse -->
+
+            <h3 class="title main">Mouse</h3>
+            <div class="box js-box">
+              <div class="inner-box js-inner-box"></div>
+            </div>
+
+            <!-- Modal -->
+
+            <button class="button" data-action="open-modal" class="mb20"">Open Modal</button>
+
+            <div class="backdrop js-backdrop">
+              <div class="modal">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi consectetur similique quaerat molestias quidem atque, eos quis, quo ea deserunt facere fugiat labore eius enim. Voluptatibus perspiciatis fugiat ex consectetur, tenetur minus laudantium facere soluta, doloribus mollitia libero et asperiores explicabo fugit maiores beatae excepturi magni. Totam neque quasi quibusdam?
+                </p>
+                <button type="button" class="button" data-action="close-modal">Close Modal</button>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Content List -->
 
           <ul class="content-list list">
             <li class="content-item text">
@@ -143,21 +238,403 @@
             <li class="content-item text">
               <code class="theme-code">const cardRootRef = document.querySelector("#root")</code>cardRootRef.appendChild(containerRef) - добавляет в DOM карточку товара (внутрь дива в html)
             </li>
+          </ul>
+
+          <!-- Source 007 on GitHub-->
+          
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007.js">source</a>
+
+          <!-- Карточка товара -->
+
+          <h2 class="title main">Карточка товара</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">const containerRef = document.createElement("div")</code>создаем div
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">containerRef.classList.add('product-card')</code>назначаем диву класс
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const titleRef = document.createElement("h2")</code>создаем h2
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.textContent = product.name</code>текст в h2 = product.name
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const inStockClass = product.available ? "product-card__name--available" : "product-card__name--not-available"</code>меняем классы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">titleRef.classList.add("product-card__name", inStockClass)</code>задает текущий класс ::before
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const descrRef = document.createElement("p")</code>создаем p
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">descrRef.textContent = product.description</code>текст p = product.description
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const priceRef = document.createElement("p")</code>создаем цену
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">priceRef.classList.add("product-card__text")</code>добавляем класс цене
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">priceRef.textContent = `${product.price} грн`</code>добавляем текст цены
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">containerRef.append(titleRef, descrRef, priceRef)</code>добавляет элементы в контейнер
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const productCards = products.map(product => createProductCard(product))</code>возвращает (массив) результат для каждого продукта
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const productsListRef = document.querySelector(".js-products")</code>получает ссылку на див в html
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">productsListRef.append(...productCards)</code>...productCards - распыляет массив в отдельные аргументы
+            </li>
+          </ul>
+
+          <!-- Source Cards on GitHub -->
+
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-03-create-part-2.js">source
+            Cards</a>
+
+          <!-- События. Создание и удаление слушателей -->
+          
+          <h2 class="title main">События. Создание и удаление слушателей</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">event.target</code>ссылка на элемент на котором произошло событие
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">targetBtnRef.addEventListener("click", () => {console.log(Date.now())})</code>концепция
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">c targetBtnRef = document.querySelector(".js-target-btn")</code>подключаемся к классу из разметки
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">c addListenerBtnRef = document.querySelector(".js-add-listener")</code>добавляет слушателя к слассу
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">c removeListenerBtnRef = document.querySelector(".js-remove-listener")</code>удаляет слушатель
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">targetBtnRef.addEventListener("click", (event) => {console.dir(event.target);})</code>00000
+            </li>
 
             <li class="content-item text">
               <code class="theme-code">000</code>00000
             </li>
           </ul>
 
-          <!-- Source on GitHub-->
+          <!-- Source Listener on GitHub -->
 
-          <a
-            class="sourсe-link link"
-            href="https://github.com/itstoreall/myjs/blob/master/js/007.js"
-            >source</a
-          >
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-01-listener.js">source Listener</a>
 
-          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-03-create-part-2.js">source Cards</a>
+          <!-- Form - сбытие Submit -->
+
+          <h2 class="title main">Form - сбытие Submit</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">c formRef = document.querySelector(".js-register-form")</code>подключаемся к форме
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">formRef.addEventListener("submit", event => {event.preventDefault()</code>вешаем слушателя
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const formElements = event.target.elements</code>присваеваем ссылку на элементы формы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const submittedData = {}</code>создаем пустой объект для отправки на бэкэнд
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">formData.forEach((value, key) => {submittedData[key] = value})</code>соберает все значения и запихивает в специальную структуру
+            </li>
+          </ul>
+
+          <!-- Source Listener on GitHub -->
+
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-02-forms.js">source
+            Form</a>
+
+          <!-- Input -->
+          
+          <h2 class="title main">Input</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">const btnRef = document.querySelector(".js-button")</code>получаем ссылки на элементы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const inputRef = document.querySelector(".js-input")</code>получаем ссылки на элементы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const nameLabelRef = document.querySelector(".js-button > span")</code>получаем ссылки на элементы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const licenseRef = document.querySelector(".js-license")</code>получаем ссылки на элементы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">inputRef.addEventListener("focus", handleInputFocus)</code>слушатель
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">inputRef.addEventListener("blur", handleInputBlur)</code>слушатель
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">inputRef.addEventListener("input", handleInputChange)</code>слушатель
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">licenseRef.addEventListener("change", handleLicenseChange)</code>слушатель
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function handleInputFocus(event) {console.log("Получил фокус!")}</code>колбэк
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function handleInputBlur(event) {console.log("Потерял фокус!")}</code>колбэк
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function handleInputChange(event) {nameLabelRef.textContent = event.target.value}</code>колбэк
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function handleLicenseChange(event) {btnRef.disabled = !event.target.checked}</code>колбэк
+            </li>
+          </ul>
+          
+          <!-- Source Input on GitHub -->
+          
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-03-input.js">source
+            Input</a>
+
+          <!-- Keyboard -->
+          
+          <h2 class="title main">Keyboard</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">window.addEventListener("keydown", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{if (event.code === "KeyG") {console.log("WIN!")}})</code>концепция: нажав G выведет "WIN!"
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const outputRef = document.querySelector(".js-output")</code>подключаем output
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const clearBtnRef = document.querySelector(".js-clear")</code>подключаем clear
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">window.addEventListener("keydown", onKeypress)</code>написать текст в окне
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">clearBtnRef.addEventListener("click", onClearOutput)</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function onKeypress(event) {outputRef.textContent += event.key}</code>очистить окно от текста
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function onClearOutput() {outputRef.textContent = ""}</code>очистка окна браузера от написанного текста
+            </li>
+          </ul>
+          
+          <!-- Source Keyboard on GitHub -->
+          
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-04-keyboard.js">source
+            Keyboard</a>
+
+          <!-- Mouse -->
+          
+          <h2 class="title main">Mouse</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">const boxRef = document.querySelector(".js-box")</code>подключаем box
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseenter", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target</code>на элементе boxRef событие входа мышки
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">box.classList.add("box--active")})</code>добавляем в див boxRef новый класс
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseleave", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target</code>когда мышка уходит
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">box.classList.remove("box--active")})</code>удаляем с дива boxRef класс .box--active
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseover", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target</code>на элементе boxRef событие входа мышки
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">box.classList.add("box--active")})</code>добавляем в див boxRef новый класс
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseout", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target</code>когда мышка уходит
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">box.classList.remove("box--active")})</code>удаляем с дива .box--active
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseover", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target;box.classList.add("box--active")})</code>mousemove
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mouseout", event =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{const box = event.target;box.classList.remove("box--active")})</code>mouseout
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">boxRef.addEventListener("mousemove", event => {console.log(event)})</code>высчитывает координаты каждого движения мышки
+            </li>
+          </ul>
+          
+          <!-- Source Mouse on GitHub -->
+          
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-05-mouse.js">source
+            Mouse</a>
+
+          <!-- Modal -->
+          
+          <h2 class="title main">Modal</h2>
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">c openModalBtn = document.querySelector('button[data-action="open-modal"]')</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">c closeModalBtn = document.querySelector('button[data-action="close-modal"]')</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">c backdropRef = document.querySelector(".js-backdrop")</code>селекторы
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">openModalBtn.addEventListener("click", onOpenModal)</code>открывает модалку
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">closeModalBtn.addEventListener("click", onCloseModal)</code>закрывает клик по кнопке
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">backdropRef.addEventListener("click", onBackdropClick)</code>закрытие по бэкдропу
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function onOpenModal() {window.addEventListener("keydown", onPressEscape)</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">document.body.classList.add("show-modal")}</code>закрытие через Escape рег в открытии модалки
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">function onCloseModal() {window.removeEventListener("keydown", onPressEscape)</code>
+            </li>
+
+            <var>
+              <li class="content-item text">
+                <code class="theme-code">document.body.classList.remove("show-modal")}</code>закрывая снимает слуш закр Escape
+              </li>
+
+              <li class="content-item text">
+                <code class="theme-code">function onBackdropClick(event){</code>
+              </li>
+
+              <li class="content-item text">
+                <code class="theme-code">if (event.target === event.currentTarget) {onCloseModal()}}</code>удаляем класс с боди
+              </li>
+
+              <li class="content-item text">
+                <code class="theme-code">function onPressEscape(event) {if (event.code === "Escape") {onCloseModal()}}</code>
+              </li>
+
+              <li class="content-item text">
+                <code class="theme-code">000</code>00000
+              </li>
+
+              <li class="content-item text">
+                <code class="theme-code">000</code>00000
+              </li>
+            </var>
+          </ul>
+          
+          <!-- Source Modal on GitHub -->
+          
+          <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/007-06-modal.js">source
+            Modal</a>
+
         </div>
       </section>
     </main>
@@ -174,8 +651,14 @@
 
     <!-- Scripts -->
 
+    <!-- <script src="./js/007-06-modal.js" type="module"></script> -->
+    <!-- <script src="./js/007-05-mouse.js" type="module"></script> -->
     <!-- <script src="./js/007.js" type="module"></script> -->
-    <script src="./js/007-03-create-part-2.js" type="module"></script>
-    <script src="./js/007-products.js" type="module"></script>
+    <!-- <script src="./js/007-04-keyboard.js" type="module"></script> -->
+    <!-- <script src="./js/007-03-input.js" type="module"></script> -->
+    <!-- <script src="./js/007-02-forms.js" type="module"></script> -->
+    <!-- <script src="./js/007-01-listener.js" type="module"></script> -->
+    <!-- <script src="./js/007-03-create-part-2.js" type="module"></script> -->
+    <!-- <script src="./js/007-products.js" type="module"></script> -->
   </body>
 </html>

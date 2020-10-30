@@ -1,6 +1,11 @@
+// ====== card from 007-03-create-part-2 ======
+
+// Title H2
+
 .product-card__name {
   display: flex;
   align-items: center;
+  font-size: 26px;
 
   &::before {
     content: "";
@@ -18,4 +23,10 @@
 
 .product-card__name--not-available::before {
   background-color: red;
+}
+
+// Text p
+
+.product-card__p {
+  font-size: 14px;
 }

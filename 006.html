@@ -9,6 +9,25 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
     />
     <link rel="stylesheet" href="css/main.min.css" />
+
+    <!-- Test Styles -->
+
+    <style>
+      .tomato{
+        color:tomato;
+      }
+      .green{
+        color:green;
+      }
+    </style>
+
+    <!-- id Generator -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.1/uuid.min.js"
+      integrity="sha512-4JH7nC4nSqPixxbhZCLETJ+DUfHa+Ggk90LETm25fi/SitneSvtxkcWAUujvYrgKgvrvwv4NDAsFgdwCS79Dcw=="
+      crossorigin="anonymous">
+    </script>
+
   </head>
 
   <body>
@@ -28,6 +47,17 @@
       <section class="section">
         <div class="container main">
           <h2 class="title main">Sixth module</h2>
+
+          <!-- Test Content -->
+          
+          <div class="test-content-wrap">
+
+            <!-- Geri - Map -->
+
+            <h3 class="title main">Geri - Map</h3>
+            <ul id="user-list"></ul>
+
+          </div>
 
           <!-- Content List -->
 
@@ -182,6 +212,180 @@
 
             <li class="content-item text">
               <code class="theme-code">000</code>000
+            </li>
+          </ul>
+
+          <!-- Geri -->
+
+          <h2 class="title main">Geri</h2>
+
+          <ul class="content-list list">
+            <li class="content-item text">
+              <code class="theme-code">if (callback(this[i])) {res.push(this[i])}</code>фильтруем числа больше 3 и добавляем их в новый массив
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.filter(item => item > 3)</code>filter: фильтруем элементы и добавляем в мас те что > 3
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.forEach((item, index, arr) => sum += item)</code>forEach: сумма всех элементов
+              массива
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.forEach(value => console.log(value))</code>forEach: просто перебираем и выводим элементы массива
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers2.forEach((value, index) =></code>
+            </li>
+
+            <li class="content-item text">
+              <code
+                class="theme-code">console.log(`index: ${index}, value: ${value}`),)</code>forEach:
+              просто перебираем и выводим элементы массива
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const userItems = users.map((value, index, arr) => </code>
+            </li>
+
+            <li class="content-item text">
+              <code
+                class="theme-code">{const className = index % 2 === 0 ? 'tomato' : 'green'</code>map:
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">document.getElementById("user-list")</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">.insertAdjacentHTML("afterbegin", userItems.join(''))</code>добавляем в DOM
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(value => value * 2)</code>map: умножаем каждое число на 2
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(user => user.name)</code>map: делаем из списка обектов список имен возвращаем names
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(({ id, name }) => ({ id, name }))</code>map: создаем новый объект без фамилии
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const res = arr.map((word) => word.length)</code>map: вернуть новый массив содержащий длины элементов (слов)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.find(value => value === 5)</code>find: ищем 5 в массиве
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.find(user => user.name.toLowerCase()</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">=== userName.toLowerCase() && user.surname === userSurname)</code>find: поиск в объекте (элементе массива)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const everyNumberIsLargerTwo1 = numbers1.every(value => value > 2)</code>every: все > 2
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const someNumberIsLargerTwo1 = numbers1.some(value => value > 2)</code>some: хоть один > 2
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const textReverse = text.split('').reverse().join('')</code>chaining: создаем массив, поворачиваем, объединяем
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const { key2 } = obj</code>деструктуризаця объекта const obj = {key1: "abc"}
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(function(obj) {return obj.name})</code>map: измен. обж (удаляем фамилию)
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(function({ name }) {return name})</code>-//- 2. с деструктуризацией
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(function(obj) {return {name: obj.name,surname: obj.surname}})</code>-//- 3. новый обж без id
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(function({ name, surname }) {return {name,surname,}})</code>-//- 4. новый обж без id с деструктуризацией
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.map(({ name, surname }) => ({ name, surname }))</code>-//- 5. новый обж без id с => и деструктуризацией
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const acc = numbers.reduce((acc, item) => {return acc += item}, 0)</code>reduce: сумма всех эл. массива
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const arr = goods.reduce((acc, { price }) => acc + price, 0)</code>reduce: сумма всех эл. мас объектов
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const min = numbers.reduce((acc, item) => item < acc ? item : acc)</code>reduce: min
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const max = Math.max(...numbers)</code>пример с Math
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const res = letters.split("").reduce((acc, letter) =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{return {...acc,[letter]: acc[letter] ? acc[letter] + 1 : 1}}, {})</code>reduce: сколько каждой буквы в словах
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const res = numbers.reduce((acc, item, idx) =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{return idx === 0 ? [item] : [...acc, acc[idx - 1] + item];}, [])</code>reduce: сумируем рядом стоящие цифры
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">numbers.sort((a, b) => a - b)</code>sort: правильная сортировка чисел
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const sortedGoods = goods.sort((a, b) => b.price - a.price)</code>sort: сортировка объекта по цене
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">const sortedGoods = goods.sort((a, b) =></code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">{if (a.price < b.price) { return -1; }</code>
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">if (a.price> b.price) {return 1;} return 0})</code>sort: пишем свою сортировку
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">let isOn = true</code>toggle: true
+            </li>
+
+            <li class="content-item text">
+              <code class="theme-code">isOn = !isOn</code>toggle: false
             </li>
           </ul>
 

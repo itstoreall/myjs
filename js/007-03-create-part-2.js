@@ -1,3 +1,11 @@
+/**
+ * 
+ * - Карточка товара
+ * 
+ */
+
+/*
+
 import products from "./007-products.js";
 
 console.table(products)
@@ -6,18 +14,20 @@ console.table(products)
 // функция принимает объект карточки
 const createProductCard = product => {
 
-   // создает див
+   // создает див Product Card
    const containerRef = document.createElement("div")
    containerRef.classList.add('product-card');
 
-   // создает h2
+   // создает H2
    const titleRef = document.createElement("h2")
    titleRef.textContent = product.name;
 
+   // при false или true меняет классы
    const inStockClass = product.available
       ? "product-card__name--available"
       : "product-card__name--not-available";
    
+   // задает текущий класс ::before
    titleRef.classList.add("product-card__name", inStockClass);
 
    // создает p
@@ -26,9 +36,10 @@ const createProductCard = product => {
 
    // создает цену
    const priceRef = document.createElement("p");
+   priceRef.classList.add("product-card__text")
    priceRef.textContent = `${product.price} грн`;
 
-   // добавляет в элементы в контейнер
+   // добавляет элементы в контейнер
    containerRef.append(titleRef, descrRef, priceRef);
    
    // возвращает ссылку на контейнер
@@ -46,3 +57,5 @@ console.log(productCards);
 const productsListRef = document.querySelector(".js-products");
 productsListRef.append(...productCards);
 console.log(productsListRef)
+
+*/
