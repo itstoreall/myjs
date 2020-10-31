@@ -42,7 +42,7 @@ licenseRef.addEventListener("change", event => {
 })
 
 */
-/* 
+// /* 
 
 // ========== Рефакторинг кода ==========
 
@@ -78,4 +78,4 @@ function handleLicenseChange(event) {
    btnRef.disabled = !event.target.checked
 };
 
-*/
+// */

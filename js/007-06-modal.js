@@ -13,6 +13,8 @@
  * 
  */
 
+// /*
+
 // - Полный код модаки
 
 // Селекторы
@@ -63,3 +65,5 @@ function onPressEscape(event) {
       onCloseModal();
    }
 };
+
+// */

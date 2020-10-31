@@ -8,7 +8,7 @@
  * 
  */
 
-/*
+// /*
 
 //  - Концепция
 
@@ -40,7 +40,7 @@ removeListenerBtnRef.addEventListener("click", () => {
    targetBtnRef.removeEventListener("click", doStuffOnClick)
 })
 
-*/
+// */
 /*
 
 // - Объект события

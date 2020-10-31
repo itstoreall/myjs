@@ -12,7 +12,7 @@
  * 
  */
 
-/*
+// /*
 
 // - Форма
 // прослушивание вешается на саму форму (не на клик или инпут)
@@ -45,4 +45,4 @@ formRef.addEventListener("submit", event => {
    console.log(submittedData)
 });
 
-*/
+// */

@@ -28,7 +28,7 @@ window.addEventListener("keydown", event => {
 })
 
 */
-/*
+// /*
 
 // - Пишем текс прямо в окне браузера
 
@@ -50,4 +50,4 @@ function onClearOutput() {
    outputRef.textContent = "";
 }
 
-*/
+// */

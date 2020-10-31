@@ -4,7 +4,7 @@
  * 
  */
 
-/*
+// /*
 
 import products from "./007-products.js";
 
@@ -58,4 +58,4 @@ const productsListRef = document.querySelector(".js-products");
 productsListRef.append(...productCards);
 console.log(productsListRef)
 
-*/
+// */

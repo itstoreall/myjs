@@ -14,7 +14,7 @@
  * 
  */
 
-/* 
+// /* 
 
 // - mouseenter и mouseleave
 
@@ -36,7 +36,7 @@ boxRef.addEventListener("mouseleave", event => {
    box.classList.remove("box--active");
 });
 
-*/
+// */
 /* 
 
 // - mouseover и mouseout
