@@ -150,6 +150,19 @@ button {
   }
 }
 
+.nav__link {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.new-class-activeLink {
+  font-size: 28px;
+}
+
+.created__title--class {
+  color: skyblue;
+}
+
 .title.main {
   display: -webkit-box;
   display: -ms-flexbox;
