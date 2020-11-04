@@ -469,6 +469,7 @@ body.show-modal .modal {
   height: 20px;
   margin-right: 8px;
   border-radius: 50%;
+  background-color: teal;
 }
 
 .product-card__name--available::before {
