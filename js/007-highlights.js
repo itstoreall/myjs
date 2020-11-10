@@ -21,6 +21,28 @@ const incBtnRef = document.querySelector('button[data-action="increment"]');
 - Показать текст в элементе
 console.log(element.textContent);
 
+- Посмотреть, есть ли атрибут hidden
+console.log(h1.hasAttribute("hidden"))
+
+- Посмотреть все data-атрибуты у картинки
+console.log(gerImgRef.dataset);
+
+- Посмотреть конкретный data-атрибут "full" у картинки
+console.log(gerImgRef.dataset.full);
+
+- Показать родителей и содой для li
+const firstLi = document.querySelector("li");
+console.log(firstLi.nextSibling.nextSibling);
+console.log(firstLi.parentNode);
+
+- Показать детей в ul (возвр массив)
+const list = document.querySelector("ul");
+console.log(list.childNodes); // NodeList(7) [text, li.item, text, li.item]
+console.log(list.children); // HTMLCollection(3) [li.item, li.item]
+
+- Показать в img атрибут src
+console.log(img.src);
+
 ------------------------------------------- */
 
 /* ===========================================
@@ -30,10 +52,7 @@ console.log(element.textContent);
 const containerRef = document.createElement("div");
 
 - Создаем класс заголовка (oldS)
-titleRef.setAttribute("class", "page-h3")
-
-- Изменяем текст в элементе
-element.textContent = 'Новый текст';
+titleRef.setAttribute("class", "page-h3");
 
 - Присваивает спану значение введенное в инпут
 nameNameOutput.textContent = event.target.value;
@@ -41,15 +60,26 @@ nameNameOutput.textContent = event.target.value;
 - Присваиваем значение data-length
 const inpunDataLength = inputRef.dataset.length;
 
-- Добавляем и удаляем класс
-inputRef.classList.remove("invalid");
+- Добавляем class
 inputRef.classList.add("valid");
 
 - Добавляем атрибут для input type="range"
 input.setAttribute("min", "16");
 
+- Добавляем инлайн ширину в img
+img.width = 100;
+
 - Добавляем спану инлайн-стиль font-size с текущим значением инпута
 span.style.fontSize = event.currentTarget.value + "px";
+
+- Добавляем elem в конец дочерних элементов parentElem
+parentElem.insertBefore(elem, naxtSibling); // лучше не использовать
+
+- Добавляет готовую разметку в DOM
+element.insertAdjacentHTML("beforeend", lisRef);
+
+- Toggle (мигание с интервалом)
+setInterval(() => {h1.classList.toggle("red")}, 5000);
 
 - Увеличиваем на 10 начальное значение (из инпута) amount раз 
 const initialSize = 30;
@@ -73,10 +103,67 @@ function randomColor() {
   return Math.floor(Math.random() * 256);
 };
 
+------------------------------------------- */
+
+/* ===========================================
+** Изменение и удаление
+
+- Удаляем class
+inputRef.classList.remove("invalid");
+
+- Изменяем текст в элементе
+element.textContent = 'Новый текст';
+
+- Изменяем видимость картинки
+imageRef.hidden = true; // или false
+
+- Удалить атрибут hidden
+h1.removeAttribute("hidden");
+
 - Функция очистки инпута
 function destroyBoxes() {
   boxesRef.textContent = "";
 };
+
+- Функция setInterval (мигание с интервалом)
+const h1 = document.querySelector("h1");
+setInterval(() => {h1.classList.toggle("red")}, 5000);
+
+------------------------------------------- */
+
+/* ===========================================
+** hasAttribute
+
+* Стандартные методы доступа к тегам с текстовыми атрибутами,
+работают со значением, которое находится в HTML
+
+elem.hasAttribute(name) - проверяет наличие аттрибута, возвращает true или false
+elem.getAttribute(name) - получает значение атрибута и возвращает его
+elem.setAttribute(name, value) - устанавливает атрибут
+elem.removeAttribute(name) - удаляет атрибут
+elem.attributes - свойство, возвращает коллекцию всех атрибутов элемента
+
+- Находим h1
+const h1 = document.querySelector("h1");
+
+- Добавляем и удаляем атрибут hidden
+h1.setAttribute("hidden", true);
+h1.removeAttribute("hidden");
+
+- Посмотреть, есть ли атрибут hidden
+console.log(h1.hasAttribute("hidden"))
+
+- Показать все атрибуты h1
+console.log(h1.attributes);
+
+------------------------------------------- */
+
+/* ===========================================
+** forEach
+
+- Выбираем все li и перебираем в forEach, выводим в конс
+const list = document.querySelectorAll("li");
+list.forEach(item => console.log(item));
 
 ------------------------------------------- */
 
@@ -123,6 +210,12 @@ imageRef.alt = "Это моя фотка!";
 - Изменяем src
 imageRef.src = "./images/img-002.jpg";
 
+- Изменить ширину
+imageRef.width = 100;
+
+- Изменить видимость
+imageRef.hidden = true; // или false
+
 - Получаем значение альта
 console.log(imageRef.getAttribute("alt"));
 
@@ -165,7 +258,18 @@ linkRef.classList.forEach(cls => {
 ------------------------------------------- */
 
 /* ===========================================
-** createElement
+** classList.toggle
+
+- Мигание с интервалом
+const h1 = document.querySelector("h1");
+setInterval(() => {h1.classList.toggle("red")}, 5000);
+
+------------------------------------------- */
+
+/* ===========================================
+** createElement (h3)
+
+* Создаем h3
 
 - Создаем элемент h3 в пямяти
 const titleRef2 = document.createElement("h3");
@@ -182,7 +286,174 @@ titleRef2.id = "created__title-id";
 ------------------------------------------- */
 
 /* ===========================================
-** createElement
+** createElement (img)
+
+* Создаем img (плохой способ)
+
+- Достучались к элементу в который добавим img
+const wrapRef = document.querySelector(".test-content-wrap");
+
+- Создаем элемент img
+const img = document.createElement("img");
+
+- Добавляем src
+img.src = "./images/img-002.jpg";
+
+- Задаем инлайн стили
+img.width = 300;
+img.style.display = "block";
+img.style.marginTop = "30px";
+
+- Добавляем img в div в HTML
+wrapRef.appendChild(img);
+
+------------------------------------------- */
+
+/* ===========================================
+** createElement (ul)
+
+* Создаем ul с li (плохой способ)
+
+- Достучались к элементу в который добавим ul
+const wrapRef = document.querySelector(".test-content-wrap");
+
+- Создаем элемент ul
+const ulRef = document.createElement("ul");
+
+- Добавляем к ul class
+ulRef.classList.add("ul-class");
+
+- Создаем в памяти три li
+const li1 = document.createElement("li");
+const li2 = document.createElement("li");
+const li3 = document.createElement("li");
+
+- Если добавлять по одному
+// ul.appendChild(li1);
+// ul.appendChild(li2);
+// ul.appendChild(li3);
+
+- Если добавили li через mep в массив
+const lisArr = [li1, li2, li3];
+
+- то можно распылить их используя append
+ulRef.append(...lisArr); // добавляет в конец elem
+// ulRef.prepend(...lisArr); // добавляет в начало elem
+// ulRef.after(...lisArr); // добавляет после elem
+// ulRef.before(...lisArr); // добавляет перед elem
+// ulRef.replaceWith(...lisArr); // добавляет вместо elem
+
+- Добавляем готовый ul в div в DOM
+wrapRef.appendChild(ulRef);
+
+- Можно удалить ul из div в DOM
+1. способ
+// ulRef.remove();
+
+2. способ
+// wrapRef.removeChild(ulRef);
+
+------------------------------------------- */
+
+/* ===========================================
+** innerHTML
+
+- Добавляет разметку в код
+li1.innerHTML = "<h3>Hello</h3>";
+
+- Удаляет все li из ul
+ulRef.innerHTML = "";
+
+------------------------------------------- */
+
+/* ===========================================
+** innerText, textContent
+
+- Добавляет текст в тег
+1. способ
+li2.innerText = "Новый текст";
+
+2. способ (использовать)
+li3.textContent = "Новый текст";
+
+------------------------------------------- */
+
+/* ===========================================
+** insertAdjacentHTML
+
+* Вставляет текстовую заготовку HTML в нужное место (использовать)
+
+- Не делает повторный рендеринг для существующих 
+элементов внутри элемента-родителя на котором используется. 
+Это позволяет избежать дополнительного этапа сериализации, 
+делая его быстрее, чем непосредственная манипуляция innerHTML
+
+Варианты вставки:
+'beforebegin' - перед element (если элемент уже в DOM)
+'afterbegin' - внутрь element, в самое начало контента
+'beforeend' - внутрь element, в самый конец контента
+'afterend' - после element (если элемент уже в DOM)
+
+- Достучались к элементу в который добавим ul
+const wrapRef = document.querySelector(".test-content-wrap");
+
+- Динамически сгенерировали разметку
+const listRef = `
+<ul>
+   <li>123</li>
+   <li>456</li>
+</ul>`;
+
+- Добавили в DOM не нарушая целостности страницы
+wrapRef.insertAdjacentHTML("beforeend", listRef);
+
+------------------------------------------- */
+
+/* ===========================================
+** Динамический список
+
+- Достучались к элементу в который добавим ul
+const wrapRef = document.querySelector(".test-content-wrap");
+
+- 3. Функцию создает li с данными пользователей
+function getUserItemMarkup({ name, age }) {
+   return `<li class="userClass">${name} - ${age}</li>`;
+}
+
+- 2. Функция создает list, мэпает массив объектов, вызывает 
+функцию создания li и джойнит лишки (чтобы удалить запятую между li)
+
+function getListMarkup(arr) {
+   const list = `
+      <ul>
+         ${arr.map(item => getUserItemMarkup(item)).join('')}
+      </ul>`;
+
+   return list
+};
+
+const users = [
+   {
+      name: "Bobby",
+      age: 15,
+   },
+   {
+      name: "Peter",
+      age: 20,
+   },
+   {
+      name: "Chris",
+      age: 25,
+   },
+];
+
+- 1. Функция создания разметки вызывается при добавлении в DOM
+wrapRef.insertAdjacentHTML("beforeend", getListMarkup(users));
+
+------------------------------------------- */
+
+/* ===========================================
+** createElement (card)
 
 * Создаем карточку 
 
@@ -394,6 +665,23 @@ nameInputRef.addEventListener("input", event => {
 ------------------------------------------- */
 
 /* ===========================================
+** data-attributes
+
+- Находим картинку
+const gerImgRef = document.querySelector(".geri-img")
+
+- Показать все атрибуты картинки
+console.log(gerImgRef.attributes);
+
+- Показать все дата-атрибуты картинки
+console.log(gerImgRef.dataset);
+
+- Показать конкретный дата-атрибут full
+console.log(gerImgRef.dataset.full);
+
+------------------------------------------- */
+
+/* ===========================================
 ** Input data-length blur =-> classList
 
 * При 6 символах бордер зеленый, иначе - красный
@@ -506,5 +794,21 @@ function randomColor() {
 function destroyBoxes() {
   boxesRef.textContent = "";
 };
+
+------------------------------------------- */
+
+/* ===========================================
+** history
+
+* Перемещаемся в истории
+
+- Вернуться назад
+history.back();
+
+- Вернуться вперед
+history.forward();
+
+- Перейти на сторонний сайт
+location.replace("https://google.com");
 
 ------------------------------------------- */

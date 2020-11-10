@@ -150,6 +150,10 @@ button {
   }
 }
 
+.red {
+  color: red;
+}
+
 .nav__link {
   display: block;
   margin-bottom: 20px;
