@@ -66,6 +66,9 @@ inputRef.classList.add("valid");
 - Добавляем атрибут для input type="range"
 input.setAttribute("min", "16");
 
+- Значение инпута type="number" пустое
+input.value = null;
+
 - Добавляем инлайн ширину в img
 img.width = 100;
 
@@ -74,6 +77,9 @@ span.style.fontSize = event.currentTarget.value + "px";
 
 - Добавляем elem в конец дочерних элементов parentElem
 parentElem.insertBefore(elem, naxtSibling); // лучше не использовать
+
+- Добавляем (распыляем) массив с li в ul в DOM
+ingredientsRef.append(...arrIngredients);
 
 - Добавляет готовую разметку в DOM
 element.insertAdjacentHTML("beforeend", lisRef);
@@ -106,7 +112,10 @@ function randomColor() {
 ------------------------------------------- */
 
 /* ===========================================
-** Изменение и удаление
+** Изменение, удаление и запреты
+
+- Отменяет событие по-умолчанию
+event.preventDefault()
 
 - Удаляем class
 inputRef.classList.remove("invalid");
@@ -164,6 +173,14 @@ console.log(h1.attributes);
 - Выбираем все li и перебираем в forEach, выводим в конс
 const list = document.querySelectorAll("li");
 list.forEach(item => console.log(item));
+
+------------------------------------------- */
+
+/* ===========================================
+** Тернарный оператор
+
+- Если спан пустой показать "Незнакомец", если нет показать то, что ввели
+nameNameOutput.textContent === '' ? nameNameOutput.textContent = "незнакомец" : nameNameOutput.textContent = event.target.value;
 
 ------------------------------------------- */
 
@@ -568,28 +585,70 @@ items.forEach(item => {
 ------------------------------------------- */
 
 /* ===========================================
-** ul.ingredients
+** ul.ingredients `<li>${elem}</li>`
 
-* Создаем li из массива и впихиваем их в ul
+* Создаем li прямо в шаблонной строке и впихиваем в DOM (Код в одну строку)
+
+- Вариант с массивом объектов (строк)
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+];
+
+const ingredientsRef = document.querySelector("#ingredients");
+const arrIngredients = ingredients.reduce((liStr, elem) => liStr + `<li class="gallery-item">${elem}</li>`, ``);
+ingredientsRef.insertAdjacentHTML("beforeend", arrIngredients);
+
+-- * --
+
+* Создаем li из массива и впихиваем их в ul в DOM
 
 - Имеем массив ингредиентов
 const ingredients = ['Картошка', 'Грибы', 'Чеснок'];
 
 - Находим ul.ingredients
-const ingredientsRef = document.querySelector(".ingredients");
+const ingredientsRef = document.querySelector("#ingredients");
 
-- Перебираем массив ингредиентов
-ingredients.forEach(element => {
+- Мэпаем массив ингредиентов
+const arrIngredients = ingredients.map(elem => {
 
-   - Создаем li
-   const ingredient = document.createElement("li");
+   - Создаем li, добавляем текст
+  const ingredient = document.createElement("li");
+  ingredient.textContent = elem;
 
-   - Добавляем в li текс из массива
-   ingredient.textContent = element;
+   - возвращаем новый массив с новыми li
+  return ingredient;
+});
 
-   - Впихиваем li в ul
-   ingredientsRef.appendChild(ingredient);
-})
+- Впихиваем li в ul за одну операцию
+ingredientsRef.append(...arrIngredients); 
+
+------------------------------------------- */
+
+/* ===========================================
+** ul.images `<li>${elem.url}</li>`
+
+* Создаем li прямо в шаблонной строке и впихиваем в DOM
+
+- Вариант с массивом объектов (изображений)
+const images = [
+  {
+    url:
+      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+];
+
+- Код в одну строку
+const galleryRef = document.querySelector("#gallery");
+const arrImages = images.reduce((liStr, elem) => liStr + `<li class="gallery-item"><img class="image-task-03" src="${elem.url}" alt="${elem.alt}"></li>`, ``);
+galleryRef.insertAdjacentHTML("beforeend", arrImages);
 
 ------------------------------------------- */
 
@@ -657,9 +716,7 @@ nameInputRef.addEventListener("input", event => {
    nameNameOutput.textContent = event.target.value;
    
    - Если спан пустой, будет отображаться "незнакомец"
-   if (nameNameOutput.textContent === "") {
-      nameNameOutput.textContent = "незнакомец";
-   };
+   nameNameOutput.textContent === '' ? nameNameOutput.textContent = "незнакомец" : nameNameOutput.textContent = event.target.value;
 });
 
 ------------------------------------------- */
@@ -744,15 +801,16 @@ function onInputRange(event) {
 ------------------------------------------- */
 
 /* ===========================================
-** input value =-> div.style.cssText
+** input type="number" value =-> div.style.cssText
 
-// - Находим div и кнопку по data-*
+// - Находим div, input и кнопки по data-*
 
+const boxesRef = document.querySelector("#boxes");
 const renderBtnRef = document.querySelector('button[data-action="render"]');
 const destroyBtnRef = document.querySelector('button[data-action="destroy"]');
-const boxesRef = document.getElementById("boxes");
+const input = document.querySelector("#controls > input");
 
-// - Запускаем кликом функцию получения значения из инпута (type="number")
+// - Запускаем кликами функцию получения значения из инпута (type="number")
 // и функцию очистки строки (удалить контент в input)
 
 renderBtnRef.addEventListener("click", getInputValue);
@@ -779,7 +837,7 @@ function createBoxes(amount) {
 // контексте запускает создание дивчика 
 
 function getInputValue() {
-  const inputValue = document.querySelector("#controls > input").value;
+  const inputValue = input.value;
   createBoxes(inputValue);
 };
 
@@ -793,6 +851,7 @@ function randomColor() {
 
 function destroyBoxes() {
   boxesRef.textContent = "";
+  input.value = null;
 };
 
 ------------------------------------------- */

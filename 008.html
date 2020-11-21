@@ -10,9 +10,27 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
     />
     <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/008-styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"
+      integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww=="
+      crossorigin="anonymous"></script>
   </head>
 
   <body>
+
+    <!-- 008 Task-01 -->
+    
+    <ul class="gallery js-gallery"></ul>
+    
+    <div class="lightbox js-lightbox">
+      <div class="lightbox__overlay"></div>
+    
+      <div class="lightbox__content">
+        <img class="lightbox__image" src="" alt="" />
+      </div>
+    
+      <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
+    </div>
 
     <!-- Page Header -->
 
@@ -33,13 +51,156 @@
 
           <!-- Task Content -->
 
-          <!-- Test Content -->
+          <!-- Всплытие -->
           
+          <div id="parent" style="margin-bottom: 30px;">PARENT
+            <div id="child">CHILD
+              <div id="inner-child">INNER-CHILD</div>
+            </div>
+          </div>
+
+          <!-- Делегирование -->
+
+          <ul class="nav js-tags">
+            <li><button href="" class="btn" data-value="html">HTML</button></li>
+            <li><button href="" class="btn" data-value="css">CSS</button></li>
+            <li><button href="" class="btn" data-value="js">JavaScript</button></li>
+            <li><button href="" class="btn" data-value="npm">NPM</button></li>
+            <li><button href="" class="btn" data-value="bable">Babel</button></li>
+            <li><button href="" class="btn" data-value="webpack">Webpack</button></li>
+            <li><button href="" class="btn" data-value="react">React</button></li>
+            <li><button href="" class="btn" data-value="redux">Redux</button></li>
+            <li><button href="" class="btn" data-value="nodejs">NodeJS</button></li>
+          </ul>
+
+          <p class="js-active-tag"></p>
+
+          <!-- Событие mousemove -->
+
+          <p class="js-coords"></p>
+
+          <!-- Событие input -->
+
+          <input type="text" class="js-input">
+          <p class="js-output"></p>
+
+          <!-- Intersection Observer API -->
+
+          <div class="boxes">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box js-box">3</div>
+            <div class="box">4</div>
+          </div>
+
+          <!-- Lazy Load -->
+
+          <ul class="feed">
+            <li class="feed__item">
+              <img data-lazy="./images/img-001.jpg" alt="sdssdfs" width="100%">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis veniam enim placeat vitae porro ut blanditiis, voluptate, ea quos corporis soluta necessitatibus quod exercitationem nemo id nam accusamus facere dolor fugit temporibus fuga. Repellat odio explicabo quis ipsum! Hic unde aliquam tempora magni recusandae amet suscipit praesentium quam atque.</p>
+            </li>
+            <li class="feed__item">
+              <img data-lazy="./images/img-002.jpg" alt="sdssdfs" width="100%">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis veniam enim placeat vitae porro ut blanditiis, voluptate, ea quos corporis soluta necessitatibus quod exercitationem nemo id nam accusamus facere dolor fugit temporibus fuga. Repellat odio explicabo quis ipsum! Hic unde aliquam tempora magni recusandae amet suscipit praesentium quam atque.</p>
+            </li>
+            <li class="feed__item">
+              <img data-lazy="./images/img-003.jpg" alt="sdssdfs" width="100%">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis veniam enim placeat vitae porro ut blanditiis, voluptate, ea quos corporis soluta necessitatibus quod exercitationem nemo id nam accusamus facere dolor fugit temporibus fuga. Repellat odio explicabo quis ipsum! Hic unde aliquam tempora magni recusandae amet suscipit praesentium quam atque.</p>
+            </li>
+            <li class="feed__item">
+              <img data-lazy="./images/img-004.jpg" alt="sdssdfs" width="100%">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis veniam enim placeat vitae porro ut blanditiis, voluptate, ea quos corporis soluta necessitatibus quod exercitationem nemo id nam accusamus facere dolor fugit temporibus fuga. Repellat odio explicabo quis ipsum! Hic unde aliquam tempora magni recusandae amet suscipit praesentium quam atque.</p>
+            </li>
+            <li class="feed__item">
+              <img data-lazy="./images/img-005.jpg" alt="sdssdfs" width="100%">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis veniam enim placeat vitae porro ut blanditiis, voluptate, ea quos corporis soluta necessitatibus quod exercitationem nemo id nam accusamus facere dolor fugit temporibus fuga. Repellat odio explicabo quis ipsum! Hic unde aliquam tempora magni recusandae amet suscipit praesentium quam atque.</p>
+            </li>
+          </ul>
+
+          <!-- Gari -->
+
+          <h3>Scroll: <span class="title-008">0</span></h3>
+
+          <nav>
+            <ul class="menu-008 list">
+              <li data-id="section-1">Section 1</li>
+              <li data-id="section-2">Section 2</li>
+              <li data-id="section-3">Section 3</li>
+              <li data-id="section-4">Section 4</li>
+              <li data-id="section-5">Section 5</li>
+            </ul>
+            <progress class="progress-008" value="50" max="100"></progress>
+          </nav>
+
+          <input type="text" autocomplete="off" id="input">
+
+          <div class="wrapper-008">
+            <div class="sections-008">
+              <section class="section-008" data-id="section-1">
+                <h3>Section 1</h3>
+                <p>
+                  <img src="" data-url="https://picsum.photos/id/237/100/70" alt="image" class="leftimg-008">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum asperiores, accusantium repellendus tempore cumque perspiciatis iste quod doloribus nam, recusandae illum? Eveniet nemo eligendi consectetur laborum suscipit officiis sit at dolore atque reiciendis eum dolores praesentium numquam, beatae, ex fugiat est odit non! Accusamus soluta sint explicabo labore, dolor deleniti!
+                </p>
+              </section>
+              <hr />
+
+              <section class="section-008" data-id="section-2">
+                <h3>Section 2</h3>
+                <p>
+                  <img src="" data-url="https://picsum.photos/id/238/100/70" alt="image" class="leftimg-008">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum asperiores, accusantium repellendus tempore cumque
+                  perspiciatis iste quod doloribus nam, recusandae illum? Eveniet nemo eligendi consectetur laborum suscipit officiis
+                  sit at dolore atque reiciendis eum dolores praesentium numquam, beatae, ex fugiat est odit non! Accusamus soluta
+                  sint explicabo labore, dolor deleniti!
+                </p>
+              </section>
+              <hr />
+
+              <section class="section-008" data-id="section-3">
+                <h3>Section 3</h3>
+                <p>
+                  <img src="" data-url="https://picsum.photos/id/239/100/70" alt="image" class="leftimg-008">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum asperiores, accusantium repellendus tempore cumque
+                  perspiciatis iste quod doloribus nam, recusandae illum? Eveniet nemo eligendi consectetur laborum suscipit officiis
+                  sit at dolore atque reiciendis eum dolores praesentium numquam, beatae, ex fugiat est odit non! Accusamus soluta
+                  sint explicabo labore, dolor deleniti!
+                </p>
+              </section>
+              <hr />
+
+              <section class="section-008" data-id="section-4">
+                <h3>Section 4</h3>
+                <p>
+                  <img src="" data-url="https://picsum.photos/id/240/100/70" alt="image" class="leftimg-008">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum asperiores, accusantium repellendus tempore cumque
+                  perspiciatis iste quod doloribus nam, recusandae illum? Eveniet nemo eligendi consectetur laborum suscipit officiis
+                  sit at dolore atque reiciendis eum dolores praesentium numquam, beatae, ex fugiat est odit non! Accusamus soluta
+                  sint explicabo labore, dolor deleniti!
+                </p>
+              </section>
+              <hr />
+
+              <section class="section-008" data-id="section-5">
+                <h3>Section 5</h3>
+                <p>
+                  <img src="" data-url="https://picsum.photos/id/241/100/70" data-username="qqq" alt="image" class="leftimg-008">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum asperiores, accusantium repellendus tempore cumque
+                  perspiciatis iste quod doloribus nam, recusandae illum? Eveniet nemo eligendi consectetur laborum suscipit officiis
+                  sit at dolore atque reiciendis eum dolores praesentium numquam, beatae, ex fugiat est odit non! Accusamus soluta
+                  sint explicabo labore, dolor deleniti!
+                </p>
+              </section>
+              <hr />
+            </div>
+          </div>
+
           <!-- Content List -->
 
           <ul class="content-list list">
             <li class="content-item text">
-              <code class="theme-code">const titleRef = document.querySelector(".title.header")</code>querySelector: озвращает первый найденный элемент (по принципу find)
+              <code class="theme-code">000</code>00000
             </li>
           </ul>
 
@@ -59,6 +220,11 @@
 
     <!-- Scripts -->
 
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
     <script src="./js/008.js" type="module"></script>
+    <script src="./js/008-lazy-load.js" type="module"></script>
+    <script src="./js/008-highlights.js" type="module"></script>
+    <script src="./js/008-gallery-items.js" type="module"></script>
   </body>
 </html>
