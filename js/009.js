@@ -105,7 +105,9 @@ npm run имя-скрипта
 
 // Последовательные шаги
 
-// 1. Загрузчики
+// Загрузчики
+
+// 1.
 
 - 1.1. Инициализация npm в проекте
 npm init -y
@@ -267,5 +269,204 @@ npm start
 
 -- 
 Теперь транспайлер настроен
+
+=====================================
+
+// Плагины
+
+// 2. CSS
+
+- 2.1. 
+Создаем в папке src:
+- папку css с файлом style.css
+- папку js и перемещаем в нее файлы a,b,c.js
+- файл index.html
+
+- 2.2. 
+Импортируем css в файл index.js
+Изменяем путь к файлу a.js
+
+import value from "./js/a";
+import "./css/style.css";
+const add = (a, b) => a + b;
+add(2, 3);
+console.log(value);
+
+- 2.3. style-loader
+Style-loader инлайнит css в head документа
+
+npm install style-loader css-loader --save-dev
+
+Если лоудеров больше одного, создается массив
+Загрузчики применяются в массиве справа на лево
+В файл webpack.config.js добавляем код-правило:
+
+module: {
+      rules: [
+         {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: "babel-loader"
+         },
+         {
+            test: /\.css$/,
+            use: ["style-loader",'css-loader'] // массив загрузчиков
+         },
+    ]
+  }
+
+npm start
+
+В bundle.js появился модуль - код (css который привратился в js)
+
+- 2.4. Вытягиваем этот css в отдельный css файл:
+
+npm install --save-dev mini-css-extract-plugin
+
+Комбинируем с нашим css лоудером: 
+
+Добавляем в webpack.config.js строку кода 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin').
+В массив добавляем MiniCssExtractPlugin.loader.
+Создаем свойство plugins с массивом плагинов: 
+
+Стало:
+
+const path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+   entry: "./src/index.js",
+   output: {
+      path: path.resolve(__dirname, 'build'),
+      filename: "bundle.js"
+   },
+   module: {
+      rules: [
+         {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: "babel-loader"
+         },
+         {
+            test: /\.css$/,
+            use: ["style-loader", MiniCssExtractPlugin.loader, "css-loader"]
+         },
+    ]
+   },
+   plugins: [new MiniCssExtractPlugin()]
+};
+
+npm start
+
+--
+В папке build появился файл main.css
+
+- 2.5. В папке src > css создаем файл base.css и импортируем его в index.js
+
+Стало в index.js:
+
+import value from "./js/a";
+import "./css/styles.css";
+import "./css/base.css";
+const add = (a, b) => a + b;
+add(2, 3);
+console.log(value);
+
+npm start
+
+-- 
+В файл main.css добавился код из base.css
+
+==========================================
+
+// 3. SASS
+
+- 3.1. Инсталируем загрузчик sass 
+npm i --save-dev sass-loader node-sass
+
+Переименовуем файлы base.css и styles.css в файлы .scss
+Добавляем новый файл body.scss
+
+Переносим весь код из styles в body
+Импортируем в styles.scss оба файла:
+
+@import "./base.scss";
+@import "./body.scss";
+
+Заменяем в index.js строки с импортом styles и base на import "./css/styles.scss";
+
+Стало в index.js:
+
+import value from "./js/a";
+import "./css/styles.scss";
+const add = (a, b) => a + b;
+add(2, 3);
+console.log(value);
+
+- 3.2. Заменяем в webpack.config.js 
+test: /\.css$/ на test: /\.scss$/
+и добавляем в массив use элемент "sass-loader"
+
+Стало:
+
+{
+   test: /\.scss$/,
+   use: ["style-loader",
+      MiniCssExtractPlugin.loader,
+      "css-loader",
+      "sass-loader"]
+},
+
+npm start
+
+--
+В main.css создались все стили из файлов sass
+
+========================================
+
+// 4. (MiniCssExtractPlugin)
+
+- 4.1. Изменяем имя файла build > main.css
+
+В файле webpack.config.js в строке добавляем объект
+с именем будущего файла:
+
+plugins: [new MiniCssExtractPlugin({ filename: 'styles.css' })] // добавил { filename: 'styles.css' }
+
+Удаляем папку build с двумя файлами build.js и main.css
+
+npm start
+
+--
+Создалась новая папка build с двумя файлами build.js и styles.css
+
+===================================================
+
+// 5. HTML (HtmlWebpackPlugin)
+
+- 5.1. Делаем HTML выгрузку
+
+npm install --save-dev html-webpack-plugin
+
+Импортируем в webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+Передаем новый экземпляр с опйией template и путем к 
+будущему файлу index.html в массив плагинов:
+
+new HtmlWebpackPlugin({
+         template: "./src/index.html"
+      })
+
+npm start
+
+--
+Создались два файла index.html, один в папке build, второй в src
+
+npm run build
+
+-- 
+Минифицируются все три файла (html, css, js) в папке build
 
 */
