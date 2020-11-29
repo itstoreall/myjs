@@ -470,3 +470,4 @@ npm run build
 Минифицируются все три файла (html, css, js) в папке build
 
 */
+
