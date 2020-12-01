@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Модуль 10 - Плагины и библиотеки, JSON</title>
     <meta name="description" content="Распространение. Всплытие. Делегирование, Throttle и Debounce, IntersectionObserver API">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <!-- <script>console.log(Handlebars)</script> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
@@ -45,6 +47,20 @@
             <button type="submit">Оставить отзыв</button>
           </form>
 
+          <!-- Countries Gallery -->
+
+          <ul class="gallery js-gallery"></ul>
+
+          <!-- Templating Gallery -->
+
+          <template id='list-item'>
+            {{#each items}}
+              <li>
+                <a href="">{{this}}</a>
+              </li>
+            {{/each}}
+          </template>          
+
           <!-- Content List -->
 
           <ul class="content-list list">
@@ -57,7 +73,6 @@
           
           <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/010.js">source</a>
           <a class="sourсe-link link" href="https://github.com/itstoreall/myjs/blob/master/js/010-highlights.js">source 010 Highlights</a>
-            Highlights</a>
 
     <!-- Page Footer -->
 

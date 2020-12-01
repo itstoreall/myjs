@@ -114,12 +114,7 @@ const refs = {
    textarea: document.querySelector('.js-feedback-form textarea')
 };
 
-const saveMessage = localStorage.getItem('feedback-message');
-
-// Если в localStorage есть текст, показываем его в тексэрия
-if (saveMessage) {
-   refs.textarea.value = saveMessage;
-}
+populateMessage();
 
 refs.form.addEventListener("submit", handleFormSubmit);
 refs.textarea.addEventListener("input", handleTextareaInput);
@@ -142,5 +137,107 @@ function handleTextareaInput(event) {
    // Текст из текстэрия записать в localStorage
    localStorage.setItem("feedback-message", message)
 };
+
+function populateMessage() {
+   const saveMessage = localStorage.getItem('feedback-message');
+
+   // Если в localStorage есть текст, показываем его в тексэрия
+   if (saveMessage) {
+      refs.textarea.value = saveMessage;
+   };
+};
+
+*/
+
+/**
+ * 
+ * Шаблонизация
+ * 
+ */
+
+ /*
+
+// Вариант 1.
+// Используем innerHTML
+// Недостаток - при коздам изменении он пересоздает
+// весь html заново - это плохо
+
+const tech = ["html", "css", "js", "react"];
+
+// 1. Берем ссылку на галлерею
+const galleryRef = document.querySelector('.js-gallery');
+
+// 2. Создаем html конструкцию (без шаблонной строки)
+const element = '<li><a href="">Hello</a></li>';
+
+// 3. Парсим в галлерею
+galleryRef.innerHTML = element;
+
+*/
+/*
+
+// Вариант 2.
+// Используем insertAdjacentHTML
+// Этот метод добавляет в нужное место на трогая всю разметку
+
+// 'beforebegin' - перед element
+// 'afterbegin' - внутрь element, в самое начало контента
+// 'beforeend' - внутрь element, в самый конец контента
+// 'afterend' - после element
+
+const tech = ["html", "css", "js", "react"];
+
+// 1. Берем ссылку на галлерею
+const galleryRef = document.querySelector('.js-gallery');
+
+// 2. Создаем html конструкцию (без шаблонной строки)
+const element = '<li><a href="">Hello</a></li>';
+
+// 3. Парсим в галлерею
+galleryRef.insertAdjacentHTML("beforeend", element);
+
+*/
+/*
+
+// Вариант 2.1. 
+// Добавляем разметку в галлерею
+
+const tech = ["html", "css", "js", "react"];
+
+const galleryRef = document.querySelector('.js-gallery');
+
+// 1. Проходимся по массиву мэпом и чейним джойн
+// получаем одну большую строку
+const markup = tech.map(el => `<li><a href="">${el}</a></li>`).join('');
+
+// 2. Передаем в элемент строку и рендерится разметка
+galleryRef.insertAdjacentHTML("beforeend", markup);
+
+*/
+/*
+
+// Шаблонизатор Handlebars (без webpack - OldSchool)
+// https://handlebarsjs.com
+// Добавляем CDN в head перед стилями --v
+// https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js
+// Добавляем в html разметку Templating Gallery
+// trim обрезает пробелы вокруг элемента
+
+const tech = ["html", "css", "js", "react"];
+
+const html = document.querySelector('#list-item').innerHTML.trim();
+console.log(html);
+
+const template = Handlebars.compile(html);
+
+const markup = template({
+   items: ["html", "css", "js", "react"],
+});
+
+console.log(markup);
+
+const galleryRef = document.querySelector('.js-gallery');
+
+galleryRef.insertAdjacentHTML("beforeend", markup);
 
 */
