@@ -241,3 +241,4 @@ const galleryRef = document.querySelector('.js-gallery');
 galleryRef.insertAdjacentHTML("beforeend", markup);
 
 */
+
