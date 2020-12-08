@@ -1,0 +1,32 @@
+/* Task 011 */
+
+/* Notofocation */
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #2a2a2a;
+  border-radius: 3px;
+  padding: 24px;
+  user-select: none;
+  cursor: pointer;
+
+  transform: translateX(calc(100% + 20px));
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification.success {
+  border: 1px solid #388e3c;
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.notification.is-visible {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
