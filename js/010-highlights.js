@@ -40,7 +40,7 @@ npm start
 git init
 
 12. Связываем локальный репо с удаленным
-git remote add origin https://github.com/itstoreall/webpack-module-10.git
+git remote add origin https://github.com/itstoreall/иня-нового-remote-репо.git
 
 13. Добавляем файлы в каталоге под версионный контроль
 git add .
@@ -51,8 +51,11 @@ git commit -m "first commit"
 15. Переименовываем ветку в main
 git branch -M main
 
-16. Пушим на гитхаб
+16.1. Пушим на гитхаб
 git push -u origin main
+
+16.2. Создаем рабочую страницу на GitHub
+->
 
 17. Создаем оптимизированные файлы для хостинга
 npm run build
