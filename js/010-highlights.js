@@ -32,7 +32,6 @@ npm start
 10. CSS =-> SCSS
 - Создаем src > sass 
 - Переименовуем styles.css в styles.scss
-- Переперемещаем в sass > styles.scss
 - В index.js изменяем путь - import './styles.scss';
 - В index.html удаляем лишнее
 
@@ -53,9 +52,6 @@ git branch -M main
 
 16.1. Пушим на гитхаб
 git push -u origin main
-
-16.2. Создаем рабочую страницу на GitHub
-->
 
 17. Создаем оптимизированные файлы для хостинга
 npm run build
