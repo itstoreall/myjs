@@ -465,7 +465,7 @@ promise.then(() => {
 console.log("End...");
 
 */
-// /*
+/*
 
 // Loader (показываем и скрывем)
 // Loader срываем внезависаммости от resolve или reject
@@ -495,3 +495,82 @@ promise.then(() => {
 })
 
 console.log("End...");
+
+*/
+// /*
+// eslint-disable-next-line
+
+// Задача
+// Как сделать 1, 2, 3..., а не 10 10, без использования let
+
+// Условие
+/*
+for (var i = 0; i < 10; i += 1){ 
+   setTimeout(function(){
+      console.log(i);
+   }, 200)
+};
+*/
+
+// Решение 1.
+// Добавить параметр i
+/*
+for (var i = 0; i < 10; i += 1){ 
+   setTimeout(function(i){
+      console.log(i);
+   }, 200, i)
+};
+*/
+
+// Решение 2. (так писать не нужно)
+// Создать самозамыкающуюся функцию
+/*
+for (var i = 0; i < 10; i += 1){ 
+   setTimeout(function () {
+      const x = i;
+
+      return function () {
+         console.log(x);
+      }
+   }(), 2000);
+};
+*/
+
+// Решение 3.
+// Хорошее решение
+/*
+for (var i = 0; i < 10; i += 1) {
+   setTimeout(
+      function (i) {
+         console.log(i);
+      }, 2000, i);
+};
+*/
+// Решение 4.
+// Решение студента
+// /*
+for (var i = 0; i < 1; i += 1) {
+   setTimeout(() => {
+      for (let i = 0; i < 10; i += 1) {
+         console.log(i);
+      }
+   }, 1000);
+};
+// */
+
+
+// Задача 2.
+// Как сделать чтобы функция вызывала сама себя
+
+// Условие
+/*
+function fn() {
+   console.log("hello");
+};
+*/
+
+// Решение
+// Обернуть в скобки и поставить скобки в конце
+(function fn() {
+   console.log("hello");
+})();
