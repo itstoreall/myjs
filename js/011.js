@@ -423,3 +423,75 @@ setInterval(() => {
 
 */
 
+/**
+ * 
+ * Geri
+ * 
+ */
+
+/* 
+
+// Запрос на SERVER
+
+fetch('http://localhost:3000/users')
+   .then(data => data.json())
+   .then(console.log)
+   .catch(() => console.log("My awesome error"));
+
+*/
+/*
+
+// Promise
+// Асинхронная структура
+// Выполняем cl сразу после таймера
+
+console.log("Start...");
+
+const promise = new Promise((resolve, reject) => {
+setTimeout(() => {
+   console.log("from timer...");
+
+   resolve(); // return (promise.then не выполняется)
+   reject();
+}, 1000);
+})
+
+promise.then(() => {
+   console.log("SUCCESS after timer...");
+}).catch(() => {
+   console.log("my ERROR...");
+})
+
+console.log("End...");
+
+*/
+// /*
+
+// Loader (показываем и скрывем)
+// Loader срываем внезависаммости от resolve или reject
+// при помощи finally
+
+const loader = document.querySelector('#loader');
+
+console.log("Start...");
+
+loader.classList.add('show');
+
+const promise = new Promise((resolve, reject) => {
+setTimeout(() => {
+   console.log("from timer...");
+
+   // resolve(); // return (promise.then не выполняется)
+   reject();
+}, 1000);
+})
+
+promise.then(() => {
+   console.log("SUCCESS after timer...");
+}).catch(() => {
+   console.log("my ERROR...");
+}).finally(() => {
+   loader.classList.remove('show');
+})
+
+console.log("End...");
