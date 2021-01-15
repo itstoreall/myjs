@@ -277,7 +277,21 @@ console.log(testGreaterThan_20(27)); // 10 or over
 
 // === 21.
 
-// 
+// Проверка величины числа
+function testSize_21(num) {
+  if(num < 5) {
+    return "Tiny";
+  } else if (num < 10) {
+    return "Small";
+  } else if (num < 15) {
+    return "Medium";
+  } else if (num < 20) {
+    return "Large";
+  } else if (num >= 20) {
+    return "Huge";
+   };
+};
 
+console.log(testSize_21(21));
 
 // ------------------------------------------------------ */
