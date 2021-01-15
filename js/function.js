@@ -117,6 +117,8 @@ getMessage_08("Hi", "Serhii");
 
 // === 09.
 
+/*
+
 // setTimeout
 const getMessage_09 = (text, name) => console.log(`${text} ${name}`);
 
@@ -182,6 +184,8 @@ function showNumber_14(num) {
 
 const timeId_14 = setInterval(showNumber_14, 1000, 1);
 
+*/
+
 // === 15.
 
 // Функция конкатенации
@@ -200,5 +204,80 @@ function initMessage_15(text, name) {
 };
 
 initMessage_15("Привет", "Фрилансер");
+
+// === 16.
+
+// Возвращает из функции значение
+function timesFive_16(arg1){
+    return arg1 * 5;
+};
+
+const equal_16 = timesFive_16(10);
+
+console.log(equal_16); // 50
+
+// === 17.
+
+// Функция с одной глобальной переменной
+const sum_17 = 0;
+
+function addFive_17(arg) {
+   let equal = sum_17;
+   equal = arg + 5;
+   return equal;
+};
+
+console.log(addFive_17(30)); // 35
+
+// === 18.
+
+// Две функции и глобальная переменная
+let processed_18 = 0;
+
+function processArg_18(num) {
+  return (num + 17) / 2;
+};
+
+function getEqual_18() {
+  processed_18 = processArg_18(7);
+   console.log(processed_18); // 12
+};
+
+getEqual_18();
+
+// === 19.
+
+// Boolean - функция возвращает одно из сначений
+function trueOrFalse_19(wasThatTrue) {
+   if(wasThatTrue) {
+      return "Yes, that was true";
+   }; 
+
+   return "No, that was false";
+}
+
+console.log(trueOrFalse_19(true)); // Yes, that was true
+
+// === 20.
+
+// Выбор диапазона до 10 - между - 100 после
+function testGreaterThan_20(val) {
+  if (val >= 100) { 
+    return "100 or over";
+  }
+
+  if (val >= 10) {
+    return "10 or over";
+  }
+
+  return "Under 10";
+}
+
+console.log(testGreaterThan_20(27)); // 10 or over
+
+// === 21.
+
+// 
+
 
 // ------------------------------------------------------ */
