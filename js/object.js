@@ -307,4 +307,80 @@ function UserInfo_18(key) {
 console.log("018--", new UserInfo_18("value-1")); // UserInfo_18 {key: "value-1", second key: 52}
 console.log("018--", new UserInfo_18("value-2")); // UserInfo_18 {key: "value-2", second key: 52}
 
+// === 19.
+
+// Доступ к значению свойста методом точки и скобок
+const testObj_19 = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+
+const hatValue_19 = testObj_19.hat;  
+const hatValue_19_2 = testObj_19["shirt"];
+
+console.log("019--", hatValue_19);
+console.log("019--", hatValue_19_2);
+
+// === 20.
+
+// Вызываем значение через присвоение ключа переменной
+const testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+const playerNumber = 16;
+const player = testObj[playerNumber];
+
+console.log("020--", player);
+
+// === 21.
+
+// Изменение, добавление и удаление свойств 
+const myDog_21 = {
+  "name": "Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+};
+
+myDog_21.friends.push("Bobby");
+myDog_21.bark = "woof";
+myDog_21.name = "Happy Coder";
+delete myDog_21.legs;
+
+console.log("021--", myDog_21.friends[1]); // Bobby
+console.log("021--", myDog_21); // {name: "Happy Coder", tails: 1, friends: Array(2), bark: "woof"}
+
+// === 22.
+
+// Возвращает результат поиска свойства через переменную
+function phoneticLookup_22(val) {
+   let result = "";
+
+   const lookup = {
+      alpha: "Adams",
+      bravo: "Boston",
+      charlie: "Chicago",
+      delta: "Denver",
+      echo: "Easy",
+      foxtrot: "Frank",
+   };
+
+   result = lookup[val];
+
+   return result;
+}
+
+console.log("022--", phoneticLookup_22("charlie")); // Chicago
+
+// === 23.
+
+// 
+
+
+
+
 // ------------------------------------------------------ */

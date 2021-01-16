@@ -260,7 +260,7 @@ console.log(trueOrFalse_19(true)); // Yes, that was true
 
 // === 20.
 
-// Выбор диапазона до 10 - между - 100 после
+// if - Выбор диапазона до 10 - между - 100 после
 function testGreaterThan_20(val) {
   if (val >= 100) { 
     return "100 or over";
@@ -277,7 +277,7 @@ console.log(testGreaterThan_20(27)); // 10 or over
 
 // === 21.
 
-// Проверка величины числа
+// if - Проверка величины числа
 function testSize_21(num) {
   if(num < 5) {
     return "Tiny";
@@ -293,5 +293,169 @@ function testSize_21(num) {
 };
 
 console.log(testSize_21(21));
+
+// === 22.
+
+// if - Условия с множественными значениями
+const names_22 = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+function golfScore_22(par, strokes) {
+   if(strokes === 1) {
+   return names_22[0]; // Hole-in-one!
+   } else if (strokes <= par - 2) {
+   return names_22[1]; // Eagle
+   } else if (strokes == par - 1) {
+   return names_22[2]; // Birdie
+   } else if (strokes === par) {
+   return names_22[3]; // Birdie
+   } else if (strokes == par + 1) {
+   return names_22[4]; // Bogey
+   } else if (strokes == par + 2) {
+   return names_22[5]; // Double Bogey
+   } else if (strokes >= par + 3) {
+   return names_22[6]; // Go Home!
+   };
+};
+
+console.log(golfScore_22(4, 3)); // Birdie
+
+// === 23.
+
+// switch - Результат записываем в answer и возвращаем
+function caseInSwitch_23(val) {
+  var answer = "";
+
+  switch(val) {
+   case "one":
+      answer = "alpha";
+      break;
+   case "two":
+      answer = "beta";
+      break;
+   case "three":
+      answer = "gamma";
+      break;
+   case "four":
+      answer = "delta";
+      break;
+   default:
+      answer = 3 + 5;
+      break;
+   };
+
+  return answer;
+};
+
+console.log(caseInSwitch_23("qwe")); // 8
+
+// === 24.
+
+// switch - Условия с множественными идентичными параметрами
+function sequentialSizes_24(val) {
+  var answer = "";
+
+  switch(val) {
+    case 1:
+    case 2:
+    case 3:
+      answer = "Low";
+      break;
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid";
+      break;
+    case 7:
+    case 8:
+    case 9:
+      answer = "High";
+      break;
+   };
+ 
+  return answer;
+};
+
+console.log(sequentialSizes_24(4)); // Mid
+
+// === 25.
+
+// Вместо if else можно сразу вернуть результат выражения
+function isLess_25(a, b) {
+  return a < b;
+};
+
+console.log(isLess_25(10, 15)); // true
+
+// === 26.
+
+// if - Если одно из значений меньше 0 возвращаем undefined
+function abTest_26(a, b) {
+  if(a < 0 || b < 0) {
+    return undefined;
+   };
+
+  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+};
+
+console.log(abTest_26(-3, 2));
+
+// === 27.
+
+// Blackjack - 
+let count_27 = 0;
+
+function cc_27(card) {
+   let holdBet = "Hold";
+
+   switch (card) {
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+         count_27 += 1;
+         break;
+      case 10:
+      case "J":
+      case "Q":
+      case "K":
+      case "A":
+         count_27 -= 1;
+   }; 
+
+   if (count_27 > 0) {
+      holdBet = "Bet";
+   };
+   
+   return count_27 + " " + holdBet
+};
+
+console.log(cc_27("K")); // -1 Hold
+
+// === 28.
+
+// .hasOwnProperty() - Проверяет наличие свойства. Возвращает значение
+const obj_28 = {
+   gift: "pony",
+   pet: "kitten",
+   bed: "sleigh",
+};
+
+function checkObj_28(obj, checkProp) {
+
+   if (obj.hasOwnProperty(checkProp)) {
+      return obj[checkProp];
+   };
+
+   return "Not Found"
+};
+
+console.log(checkObj_28(obj_28, "bed"));
+
+// === 29.
+
+// 
+
+
+
 
 // ------------------------------------------------------ */
