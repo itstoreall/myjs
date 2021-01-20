@@ -530,6 +530,89 @@ console.log("31--", collection_31[5439]);
 
 // 
 
+// =========== Loops ===========
+
+// === L01.
+
+// While
+// Выполняется «пока» заданное условие истинно
+
+// - Добавляем в массив числа от 5 до 0 включительно
+const myArray_L01 = [];
+let i_L01 = 5
+
+while (i_L01 >= 0) {
+   myArray_L01.push(i_L01);
+   i_L01 -= 1;
+};
+
+console.log("L01--", myArray_L01); // (6) [5, 4, 3, 2, 1, 0]
+
+// === L02.
+
+// For
+// Выполняется «для» определенное количество раз
+
+// Пушит в массив числа от 10 до 0 включительно (декремент - 2)
+const myArray_L02 = [];
+
+for (let i = 10; i >= 0; i -= 2) {
+   myArray_L02.push(i);
+};
+
+console.log("L02--", myArray_L02); // (6) [10, 8, 6, 4, 2, 0]
+
+// === L03.
+
+// For
+
+// Перебирает массив в цикле for .length раз добавляя элементы в total
+const myArr_L03 = [ 2, 3, 4, 5, 6];
+
+let total_L03 = 0;
+
+for (let i = 2; i <= myArr_L03.length + 1; i += 1) {
+    total_L03[i]
+    total_L03 += i;
+};
+
+console.log("L03--", total_L03); // 20
+
+// === L04.
+
+// For
+
+// Перебирает массивы в массиве и возвращает произведение всех чисел
+function multiplyAll_L04(arr) {
+   let product_L04 = 1;
+
+   for (let i = 0; i < arr.length; i += 1){
+      for (let q = 0; q < arr[i].length; q += 1){
+         product_L04 *= arr[i][q];
+      };
+   };
+
+   return product_L04;
+};
+
+console.log("L04--", multiplyAll_L04([[1,2],[3,4],[5,6,7]])); // 5040
+
+// === L05
+
+// Do...While
+// Вначале выполняет тело, а потом условие
+
+// Передает 10 в массив и на 11-ти цикл останавливается
+const myArray_L05 = [];
+let i_L05 = 10;
+
+do {
+myArray_L05.push(i_L05);
+  i_L05 += 1;
+} while (i_L05 < 5);
+
+console.log("L05--", myArray_L05); // [10]
+
 // ==========================================
 
 // Входной тест на курс React
