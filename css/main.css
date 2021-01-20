@@ -633,6 +633,12 @@ body.show-modal .modal {
   }
 }
 
+.function-link-style {
+  color: gold;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  text-decoration: none;
+}
+
 .product-card__name {
   display: -webkit-box;
   display: -ms-flexbox;

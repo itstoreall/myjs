@@ -154,8 +154,8 @@ const userInfo_10 = {
 const userInfo_10_2 = userInfo_10;
 userInfo_10_2.id.two = '002'
 
-console.log("010--", userInfo_10.id); // {one: 1, two: "002"}
-console.log("010--", userInfo_10_2.id); // {one: 1, two: "002"}
+console.log("10--", userInfo_10.id); // {one: 1, two: "002"}
+console.log("10--", userInfo_10_2.id); // {one: 1, two: "002"}
 
 // === 11.
 
@@ -169,14 +169,14 @@ const userInfo_11 = {
    'second key': 52,
 };
 
-console.log("011--", userInfo_11.id);
+console.log("11--", userInfo_11.id);
 const userInfo_11_2 = Object.assign({111: 222}, userInfo_11);
-console.log("011--", userInfo_11_2.id);
+console.log("11--", userInfo_11_2.id);
 
 userInfo_11_2["second key"] = 11;
 
-console.log("011--", userInfo_11); // {key: "value", second key: 52}
-console.log("011--", userInfo_11_2); // {111: 222, key: "value", second key: 11}
+console.log("11--", userInfo_11); // {key: "value", second key: 52}
+console.log("11--", userInfo_11_2); // {111: 222, key: "value", second key: 11}
 
 // === 12.
 
@@ -187,11 +187,11 @@ const userInfo_12 = {
 };
 
 if (userInfo_12.key) {
-   console.log("012--", "key"); // key
+   console.log("12--", "key"); // key
 };
 
 if (!userInfo_12.key2) {
-   console.log("012--", "Ключа key2 нет"); // Ключа key2 нет
+   console.log("12--", "Ключа key2 нет"); // Ключа key2 нет
 };
 
 // === 13.
@@ -205,7 +205,7 @@ const userInfo_13 = {
    // },
 };
 
-console.log("013--", userInfo_13?.id?.two);
+console.log("13--", userInfo_13?.id?.two);
 
 // === 14.
 
@@ -220,11 +220,11 @@ const userInfo_14 = {
 };
 
 if ('two' in userInfo_14.id) {
-   console.log("014--", "two =", userInfo_14.id.two); // two = 2
+   console.log("14--", "two =", userInfo_14.id.two); // two = 2
 };
 
 if ('three' in userInfo_14.id) {
-   console.log("014--", userInfo_14.id.three); // undefined
+   console.log("14--", userInfo_14.id.three); // undefined
 }
 
 // === 15.
@@ -240,14 +240,14 @@ const userInfo_15 = {
 
 // перебираем обект userInfo_15
 for (let item in userInfo_15) {
-   console.log("015--", item); // value, id
-   console.log("015--", userInfo_15[item]); // {one: 1, two: 2}
+   console.log("15--", item); // value, id
+   console.log("15--", userInfo_15[item]); // {one: 1, two: 2}
 };
 
 // перебираем обект id внутри объекта userInfo_15
 for (let item in userInfo_15.id) {
-   console.log("015--", item); // one, two
-   console.log("015--", userInfo_15.id[item]); // 2
+   console.log("15--", item); // one, two
+   console.log("15--", userInfo_15.id[item]); // 2
 };
 
 // === 16.
@@ -261,7 +261,7 @@ const userInfo_16 = {
    },
 
    showUserInfo() {
-      console.log("016--", `${this.key}, ${this.id.one}, ${this.id.two}`); // value, 1, 2
+      console.log("16--", `${this.key}, ${this.id.one}, ${this.id.two}`); // value, 1, 2
    },
 };
 
@@ -278,7 +278,7 @@ let userInfo_17 = {
    },
 
    showUserInfo() {
-      console.log("017--", `${this.key}, ${this.id.one}, ${this.id.two}`); // value, 1, 2
+      console.log("17--", `${this.key}, ${this.id.one}, ${this.id.two}`); // value, 1, 2
    },
 };
 
@@ -288,8 +288,8 @@ const userInfo_17_2 = userInfo_17;
 userInfo_17 = null;
 userInfo_17_2.showUserInfo() // value, 1, 2
 
-console.log("017--", userInfo_17); // null
-console.log("017--", userInfo_17_2); // {key: "value", id: {…}, showUserInfo: ƒ}
+console.log("17--", userInfo_17); // null
+console.log("17--", userInfo_17_2); // {key: "value", id: {…}, showUserInfo: ƒ}
 
 // === 18.
 
@@ -304,8 +304,8 @@ function UserInfo_18(key) {
    // return this; Возвращает объект
 };
 
-console.log("018--", new UserInfo_18("value-1")); // UserInfo_18 {key: "value-1", second key: 52}
-console.log("018--", new UserInfo_18("value-2")); // UserInfo_18 {key: "value-2", second key: 52}
+console.log("18--", new UserInfo_18("value-1")); // UserInfo_18 {key: "value-1", second key: 52}
+console.log("18--", new UserInfo_18("value-2")); // UserInfo_18 {key: "value-2", second key: 52}
 
 // === 19.
 
@@ -319,8 +319,8 @@ const testObj_19 = {
 const hatValue_19 = testObj_19.hat;  
 const hatValue_19_2 = testObj_19["shirt"];
 
-console.log("019--", hatValue_19);
-console.log("019--", hatValue_19_2);
+console.log("19--", hatValue_19);
+console.log("19--", hatValue_19_2);
 
 // === 20.
 
@@ -334,7 +334,7 @@ const testObj = {
 const playerNumber = 16;
 const player = testObj[playerNumber];
 
-console.log("020--", player);
+console.log("20--", player);
 
 // === 21.
 
@@ -351,8 +351,8 @@ myDog_21.bark = "woof";
 myDog_21.name = "Happy Coder";
 delete myDog_21.legs;
 
-console.log("021--", myDog_21.friends[1]); // Bobby
-console.log("021--", myDog_21); // {name: "Happy Coder", tails: 1, friends: Array(2), bark: "woof"}
+console.log("21--", myDog_21.friends[1]); // Bobby
+console.log("21--", myDog_21); // {name: "Happy Coder", tails: 1, friends: Array(2), bark: "woof"}
 
 // === 22.
 
@@ -374,12 +374,68 @@ function phoneticLookup_22(val) {
    return result;
 }
 
-console.log("022--", phoneticLookup_22("charlie")); // Chicago
+console.log("22--", phoneticLookup_22("charlie")); // Chicago
 
 // === 23.
 
-// 
+// Привязывает контекст объекта к функции
+const dog_23 = { name: 'Poly' };
 
+function showDogName_23() {
+  console.log("23--", this.name); // Poly
+}
+
+const boundShowDogName_23 = showDogName_23.bind(dog_23);
+
+boundShowDogName_23();
+
+// === 24.
+
+// Создает объект распыляя в нем другой объект, и изменяя значения
+const userA_24 = {
+  name: 'Mango',
+  age: 5,
+};
+
+const userB_24 = {
+  ...userA_24,
+  age: 10,
+  happy: true,
+};
+
+console.log("24--", userB_24); // {name: "Mango", age: 10, happy: true}
+
+// === 25.
+
+// Получает список всех ключей объекта 
+const user_25 = {
+   name: 'Mango',
+   age: 5,
+   head: 1,
+};
+
+console.log("25--", Object.keys(user_25)); // (3) ["name", "age", "head"]
+
+// === 26.
+
+// Доступ к подсвойствам объекта
+const myStorage_26 = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+const gloveBoxContents_26 = myStorage_26.car.inside["glove box"]; 
+
+console.log("26--", gloveBoxContents_26); // maps
+
+// === 27.
 
 
 

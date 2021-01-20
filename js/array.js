@@ -16,7 +16,7 @@
 const myArray = [18,64,99];
 myArray[0] = 45; 
 
-console.log(myArray); // [45,64,99]
+console.log("01--", myArray); // [45,64,99]
 
 // ------------------------------------------------------ */
 
@@ -26,7 +26,7 @@ console.log(myArray); // [45,64,99]
 const myArray_02 = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
 const myData_02 = myArray_02[2][1]; 
 
-console.log(myData_02); // [8]
+console.log("02--", myData_02); // [8]
 
 // ------------------------------------------------------ */
 
@@ -37,7 +37,7 @@ console.log(myData_02); // [8]
 const myArray_03 = [["John", 23], ["cat", 2]];
 myArray_03.push(["dog", 3]);
 
-console.log(myArray_03); // (3) [Array(2), Array(2), Array(2)]
+console.log("03--", myArray_03); // (3) [Array(2), Array(2), Array(2)]
 
 // ------------------------------------------------------ */
 
@@ -48,7 +48,7 @@ console.log(myArray_03); // (3) [Array(2), Array(2), Array(2)]
 const myArray_03_2 = [["John", 23], ["dog", 3]];
 myArray_03_2.unshift(["Paul", 35]);
 
-console.log(myArray_03_2); // [["Paul", 35], ["John", 23], ["dog", 3]]
+console.log("03-2", myArray_03_2); // [["Paul", 35], ["John", 23], ["dog", 3]]
 
 // ------------------------------------------------------ */
 
@@ -59,7 +59,7 @@ console.log(myArray_03_2); // [["Paul", 35], ["John", 23], ["dog", 3]]
 const myArray_04 = [["John", 23], ["cat", 2]];
 const removedFromMyArray_04 = myArray_04.pop();
 
-console.log(myArray_04); // ["John", 23]
+console.log("04--", myArray_04); // ["John", 23]
 
 // ------------------------------------------------------ */
 
@@ -70,7 +70,7 @@ console.log(myArray_04); // ["John", 23]
 const myArray_04_2 = [["John", 23], ["dog", 3]];
 const removedFromMyArray_04_2 = myArray_04_2.shift();
 
-console.log(myArray_04_2); // ["dog", 3]
+console.log("05--", myArray_04_2); // ["dog", 3]
 
 // ------------------------------------------------------ */
 
@@ -92,6 +92,65 @@ const testArr_05 = [1,2,3,4,5];
 console.log("Before: " + JSON.stringify(testArr_05)); // Before: [1,2,3,4,5]
 console.log(nextInLine_05(testArr_05, 6));
 console.log("After: " + JSON.stringify(testArr_05)); // After: [2,3,4,5,6]
+
+// ------------------------------------------------------ */
+
+// /* ======================================================
+// ** 06. Находит минимальное число в массиве
+// Math.min()
+
+const minNumber_06 = Math.min(...[1, 5, -1, -10]);
+
+console.log("06--", minNumber_06); // -10
+
+// ------------------------------------------------------ */
+
+// /* ======================================================
+// ** 07. Выводит нужные слова из строки
+// .split()
+
+const [first_07, second_07, third_07, fourth_07] = 'hello sweet suny world'.split(' ');
+
+console.log("07--", first_07, fourth_07); // hello world
+
+// ------------------------------------------------------ */
+
+// /* ======================================================
+// ** 08. Отфильтровует числа больше 3
+// .filter()
+
+const fn_08 = (arr, val) => arr.filter(el => el > val);
+
+console.log("08--", fn_08([1, 2, 3, 4, 5], 3)); // (2) [4, 5]
+
+// ------------------------------------------------------ */
+
+// /* ======================================================
+// ** 09. Доступ к подсвойствам объекта в массиве
+
+// 
+const myPlants_09 = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+const secondTree_09 = myPlants_09[1].list[1];
+
+console.log("09--", secondTree_09); // pine
 
 // ------------------------------------------------------ */
 

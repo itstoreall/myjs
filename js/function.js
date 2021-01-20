@@ -8,27 +8,27 @@
 // ** Жека фрилансер по жизни
 
 // Вызвать можно до или после объявления
-showMessage() // Message
+showMessage_01() // Message
 
-function showMessage() {
-   console.log("Message");
+function showMessage_01() {
+   console.log("01--", "Message");
 };
 
-showMessage() // Message
+showMessage_01() // Message
 
 // === 02.
 
 // Передача параметров в функцию
-function calcSum(numOne, numTwo) {
-   console.log(`Переменная numOne: ${numOne}`); // Переменная numOne: 1
-   console.log(`Переменная numOne: ${numTwo}`); // Переменная numOne: 2
+function calcSum_02(numOne, numTwo) {
+   console.log("02--", `Переменная numOne: ${numOne}`); // Переменная numOne: 1
+   console.log("02--", `Переменная numOne: ${numTwo}`); // Переменная numOne: 2
 
    const numSum = numOne + numTwo;
 
-   console.log(`Сумма: ${numSum}`); // Сумма: 3
+   console.log("02--", `Сумма: ${numSum}`); // Сумма: 3
 };
 
-calcSum(1, 2);
+calcSum_02(1, 2);
 
 // === 03
 
@@ -44,11 +44,11 @@ function calcSum_03(numOne, numTwo, more, less) {
 };
 
 function showMoreMessage_03() {
-   console.log("Больше чем 3");
+   console.log("03--", "Больше чем 3");
 };
 
 function showLessMessage_03() {
-   console.log("Меньше чем 3");
+   console.log("03--", "Меньше чем 3");
 };
 
 calcSum_03(1, 5, showMoreMessage_03, showLessMessage_03)
@@ -65,9 +65,9 @@ function calcSum_04(numOne, numTwo) {
 };
 
 // Присваиваем результат функции в переменную
-const funcResult = calcSum_04(1, 2);
+const funcResult_04 = calcSum_04(1, 2);
 
-console.log(`Сумма: ${funcResult}`);
+console.log("04--", `Сумма: ${funcResult_04}`); // 3
 
 // === 05.
 
@@ -80,14 +80,14 @@ function calcSum_05(numOne, numTwo) {
    };
 };
 
-console.log(calcSum_05(2, 3));
+console.log("05--", calcSum_05(2, 3)); // 8
 
 // === 06.
 
 // Функциональное выражение (function Expression)
 // Вызвать можно только после ее создания
 const showMessage_06 = function () {
-   console.log("Привет!");
+   console.log("06--", "Привет!"); // Привет!
 };
 
 showMessage_06();
@@ -96,22 +96,22 @@ showMessage_06();
 
 // Присвоение переменной раннее объявленной функции
 // позволяет вызывать ее по двум разным именам 
-function getSum() {
+function getSum_07() {
    const sum = 1 + 2;
 
-   console.log(sum);
+   console.log("07--", sum);
 };
 
-const someVar = getSum;
+const someVar_07 = getSum_07;
 
 // Вызовы
-someVar();
-getSum();
+someVar_07(); // 3
+getSum_07(); // 3
 
 // === 08.
 
 // Стрелочные функции
-const getMessage_08 = (text, name) => console.log(`${text} ${name}`);
+const getMessage_08 = (text, name) => console.log("08--", `${text} ${name}`);
 
 getMessage_08("Hi", "Serhii");
 
@@ -195,7 +195,7 @@ function createMessage_15(text, name) {
 
 // Функция вывода в консоль
 function showMessage_15(message) {
-   console.log(message);
+   console.log("15--", message);
 };
 
 // Объединяющая функция (вызывает обе функции)
@@ -214,7 +214,7 @@ function timesFive_16(arg1){
 
 const equal_16 = timesFive_16(10);
 
-console.log(equal_16); // 50
+console.log("16--", equal_16); // 50
 
 // === 17.
 
@@ -227,7 +227,7 @@ function addFive_17(arg) {
    return equal;
 };
 
-console.log(addFive_17(30)); // 35
+console.log("17--", addFive_17(30)); // 35
 
 // === 18.
 
@@ -240,7 +240,7 @@ function processArg_18(num) {
 
 function getEqual_18() {
   processed_18 = processArg_18(7);
-   console.log(processed_18); // 12
+   console.log("18--", processed_18); // 12
 };
 
 getEqual_18();
@@ -256,7 +256,7 @@ function trueOrFalse_19(wasThatTrue) {
    return "No, that was false";
 }
 
-console.log(trueOrFalse_19(true)); // Yes, that was true
+console.log("19--", trueOrFalse_19(true)); // Yes, that was true
 
 // === 20.
 
@@ -273,7 +273,7 @@ function testGreaterThan_20(val) {
   return "Under 10";
 }
 
-console.log(testGreaterThan_20(27)); // 10 or over
+console.log("20--", testGreaterThan_20(27)); // 10 or over
 
 // === 21.
 
@@ -292,7 +292,7 @@ function testSize_21(num) {
    };
 };
 
-console.log(testSize_21(21));
+console.log("21--", testSize_21(21));
 
 // === 22.
 
@@ -316,7 +316,7 @@ function golfScore_22(par, strokes) {
    };
 };
 
-console.log(golfScore_22(4, 3)); // Birdie
+console.log("22--", golfScore_22(4, 3)); // Birdie
 
 // === 23.
 
@@ -345,7 +345,7 @@ function caseInSwitch_23(val) {
   return answer;
 };
 
-console.log(caseInSwitch_23("qwe")); // 8
+console.log("23--", caseInSwitch_23("qwe")); // 8
 
 // === 24.
 
@@ -374,7 +374,7 @@ function sequentialSizes_24(val) {
   return answer;
 };
 
-console.log(sequentialSizes_24(4)); // Mid
+console.log("24--", sequentialSizes_24(4)); // Mid
 
 // === 25.
 
@@ -383,7 +383,7 @@ function isLess_25(a, b) {
   return a < b;
 };
 
-console.log(isLess_25(10, 15)); // true
+console.log("25--", isLess_25(10, 15)); // true
 
 // === 26.
 
@@ -396,7 +396,7 @@ function abTest_26(a, b) {
   return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
 };
 
-console.log(abTest_26(-3, 2));
+console.log("26--", abTest_26(-3, 2));
 
 // === 27.
 
@@ -429,7 +429,7 @@ function cc_27(card) {
    return count_27 + " " + holdBet
 };
 
-console.log(cc_27("K")); // -1 Hold
+console.log("27--", cc_27("K")); // -1 Hold
 
 // === 28.
 
@@ -449,12 +449,347 @@ function checkObj_28(obj, checkProp) {
    return "Not Found"
 };
 
-console.log(checkObj_28(obj_28, "bed"));
+console.log("28--", checkObj_28(obj_28, "bed"));
 
 // === 29.
 
+// Получает при клике на ссылку #apple из атрибут href
+const refs_29 = {
+   controls_29: document.querySelector(`.controls__item`),
+};
+
+refs_29.controls_29.addEventListener('click', e => {
+   e.preventDefault();
+
+   const controlItem = e.target;
+   const paneId = controlItem.getAttribute('href').slice(1);
+
+   console.log("29--", paneId); // apple
+});
+
+// === 30.
+
+// Map создает массив домузлов с текстом из массива
+const fn_30 = arr => arr.map(el => {
+  const item = document.createElement('div');
+  item.textContent = el;
+
+  return item;
+ });
+
+console.log("30--", fn_30(['html', 'css', 'js', 'react'])); // (4) [div, div, div, div]
+
+// === 31.
+
+// Функция добавляет, удаляет и изменяет свойства объекта
+const collection_31 = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold',
+  }
+};
+
+function updateRecords_31(object, id, prop, value) {
+   const objId = object[id];
+
+   if (
+      prop !== "tracks" && value !== "") {
+      objId[prop] = value;
+   } else if (
+      prop === "tracks" && !objId.hasOwnProperty(prop)) {
+      objId[prop] = [value];
+   } else if (
+      prop === "tracks" && value !== "") {
+      object[id][prop].push(value);
+   } else if (
+      value === "") {
+      delete object[id][prop];
+   };
+
+  return object;
+};
+
+updateRecords_31(collection_31, 5439, 'artist', 'ABBA');
+
+console.log("31--", collection_31[5439]);
+
+// === 32.
+
 // 
 
+// ==========================================
+
+// Входной тест на курс React
+
+// 01. Что будет выведено в консоль?
+
+// const x = 1;
+// const x = 'hello';
+// console.log(x);
+
+// Ошибка ' Duplicate declaration "x" '
+
+// ---
+
+// 02. Что будет выведено в консоль?
+
+// let b = 20;
+
+// if (true) {
+//   console.log(b);
+//   let b = 10;
+// }
+
+// Ошибка 'ReferenceError: b is not defined'
+
+// ---
+
+// 03. Что будет выведено в консоль?
+
+// const x;
+// x = 1;
+// console.log(x)
+
+// Ошибка 'Missing initializer in const declaration'
+
+// ---
+
+// 04. Что будет выведено в консоль?
+
+// const MAX = 10;
+// let amount = 0;
+
+// while (amount++ < MAX) {
+//    let sum = amount;
+// }
+// console.log(sum);
+
+// Ошибка 'ReferenceError: sum is not defined'
+
+// --- 
+
+// 05. Что будет выведено в консоль?
+
+// const person = {
+//   firstName: 'bob',
+//   showName() {
+//     console.log(this.firstName);
+//   },
+// };
+
+// const foo = function(callback) {
+//   callback();
+// };
+
+// foo(person.showName);
+
+// Uncaught TypeError: Cannot read property 'firstName' of undefined (undefined)
+
+// ---
+
+// 06. Что будет выведено в консоль?
+
+// const person = {
+//   age: 10,
+//   setAge(newAge) {
+//     this.age = newAge;
+//   },
+//   refreshAge(userId) {
+//     fetchAgeFromDb(function(newAge) {
+//       this.setAge(newAge);
+//     });
+//   },
+// };
+
+// function fetchAgeFromDb(cb) {
+//  cb(20);
+// }
+
+// person.refreshAge();
+// console.log(person.age);
+
+// Uncaught TypeError: Cannot read property 'setAge' of undefined (Ошибка 'this.setAge is not a function')
+
+// --- 
+
+// 07. Что будет выведено в консоль?
+
+// const add = (a = 0, b = 10) => a + b;
+// const sum = add(10);
+// console.log(sum);
+
+// 20
+
+// ---
+
+// 08. Что будет выведено в консоль?
+
+// const sum = (...numbers) => numbers.reduce((acc, number) => acc + number, 2);
+// const answer = sum(1, 5, 20, 10);
+// console.log(answer);
+
+// 38
+
+// --- 
+
+// 09. Что будет выведено в консоль?
+
+// const multiplyByValue = (value, base, ...numbers) => {
+//   return numbers.map(number => number * value + base);
+// };
+// console.log(multiplyByValue(2, 100, 1, 5, 20, 10));
+
+// (4) [102, 110, 140, 120]
+
+// ---
+
+// 10. Что будет выведено в консоль?
+
+// const names = ['bob', ...['donald'], 'suzy', 'lacy', ...['richard', 'alex']];
+// console.log(names);
+
+// (6) ['bob', 'donald', 'suzy', 'lacy', 'richard', 'alex']
+
+// ---
+
+// 11. Что будет выведено в консоль?
+
+// const min = Math.min(...[1, 5, -1, -10]);
+// console.log(min);
+
+// -10
+
+// ---
+
+// 12. Что будет выведено в консоль?
+
+// const name = 'bob';
+// const age = 20;
+// const obj = { name, age };
+
+// console.log(obj);
+
+// {name: "bob", age: 20}
+
+// ---
+
+// 13. Что будет выведено в консоль?
+
+// const confused = 'no';
+// const myKey = confused;
+
+// const obj = {
+//   [myKey]: false,
+// };
+
+// console.log(obj);
+
+// {no: false}
+
+// 14. Что будет выведено в консоль?
+
+// const piece = {
+//   x: 0,
+//   y: 0,
+//   move(x, y) {
+//     this.x = x;
+//     this.y = y;
+//   },
+// };
+
+// piece.move(10, 10);
+// console.log(piece);
+
+// {x: 10, y: 10, move: ƒ}
+
+// ---
+
+// 15. Что будет выведено в консоль?
+
+// const [first, , third] = 'hello sweet world'.split(' ');
+// console.log(first, third);
+
+// 16. Что будет выведено в консоль?
+
+// const { name, age, gender = 'm', hairColor: color } = {
+//  name: 'bob',
+//  age: 20,
+//  hairColor: 'blue',
+// };
+
+// console.log(name, age, gender, color);
+
+// bob 20 m blue
+
+// --- 
+
+// 17. Что будет выведено в консоль?
+
+// const dog = { name: 'Poly' };
+
+// function showDogName() {
+//   console.log(this.name); // Poly
+// }
+
+// const boundShowDogName = showDogName.bind(dog);
+
+// boundShowDogName();
+
+// ---
+
+// 18. Что будет выведено в консоль?
+
+// const userA = {
+//   name: 'Mango',
+//   age: 5,
+// };
+
+// const userB = {
+//   ...userA,
+//   age: 10,
+//   happy: true,
+// };
+
+// console.log(userB); // {name: "Mango", age: 10, happy: true}
+
+// ---
+
+// 19. Что будет выведено в консоль?
+
+// const fn = (arr, val) => arr.filter(el => el > val);
+
+// console.log(fn([1, 2, 3, 4, 5], 3)); // (2) [4, 5]
+
+// ---
+
+// 20. Что будет выведено в консоль?
+
+// const fn = arr => arr.map(el => {
+//   const item = document.createElement('div');
+//   item.textContent = el;
+
+//   return item;
+//  });
+
+// console.log(fn(['html', 'css', 'js', 'react'])); // (4) [div, div, div, div]
+
+// ---
+
+// Ссылка на результаты теста на курс React:
+// https://docs.google.com/forms/d/e/1FAIpQLSfcz0GiyO5D6ad3cKkkeFJyE3VY0dsLaF1J3yU425auSXazzQ/viewscore?viewscore=AE0zAgDqHIyc-daivLEpj9iYfQFFPlpxl7RjIsCEW2GKbgMBUWR31ITCQ4VczrJEJQoj1cQ
 
 
 
