@@ -704,6 +704,65 @@ myArray_L05.push(i_L05);
 
 console.log("L05--", myArray_L05); // [10]
 
+// =========== Class ===========
+
+// === C01.
+
+class Car_C01 {
+   constructor (speed) {
+      this.fuel = 0
+      this.distance = 0
+      this.topSpeed = Math.round(Math.random())
+
+      this.speed = speed
+   }
+   static isFaster (left, right) {
+      return left.topSpeed > right.topSpeed
+   }
+   move () {
+      if (this.fuel < 1) {
+         throw new RangeError('Fuel tank is depleted')
+      }
+      this.fuel--
+      this.distance += 10
+   }
+   addFuel () {
+      if (this.fuel >= 60) {
+         throw new RangeError('Fuel tank is full')
+      }
+      this.fuel++
+   }
+};
+console.dir(Car_C01);
+const car_C01 = new Car_C01(120)
+car_C01.addFuel()
+car_C01.addFuel()
+car_C01.addFuel()
+car_C01.move()
+car_C01.move()
+
+console.log("C05--", car_C01); // Car_C01 {fuel: 1, distance: 20, topSpeed: 0, speed: 120}
+
+class Tesla_C01 extends Car_C01 {
+   constructor (speed) {
+      super(speed * 2)
+   }
+   move () {
+      super.move()
+      this.distance += 15
+   }
+}
+
+const tesla_C01 = new Tesla_C01(120)
+tesla_C01.addFuel()
+tesla_C01.addFuel()
+tesla_C01.addFuel()
+tesla_C01.move()
+tesla_C01.move()
+
+console.log("C05--", tesla_C01); // Tesla_C01 {fuel: 1, distance: 50, topSpeed: 0, speed: 240}
+console.log("C05--", tesla_C01.distance) // 50
+
 // ==========================================
 
 // Входной тест на курс React

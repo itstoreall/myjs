@@ -562,4 +562,6 @@ console.log("34--", first, third); // 1 5
 const { length: le } = 'Hello';
 console.log("35--", le); // 5
 
+// 
+
 // ------------------------------------------------------ */
