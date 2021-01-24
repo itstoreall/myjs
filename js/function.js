@@ -4,9 +4,6 @@
  *
  */
 
-// /* ======================================================
-// ** Жека фрилансер по жизни
-
 // Вызвать можно до или после объявления
 showMessage_01() // Message
 
@@ -526,9 +523,103 @@ updateRecords_31(collection_31, 5439, 'artist', 'ABBA');
 
 console.log("31--", collection_31[5439]);
 
-// === 32.
+// === 32. Интерполяция
 
-// 
+// Вызывает функцию toUpperCase() прямо из строки интерполяции
+const up_32 = (str_32) => str_32.toUpperCase();
+let str_32 = `this is ${ up_32('sting') } in uppercase`;
+
+console.log("32--", str_32); // this is STRING in uppercase
+
+// === 32_2.
+
+// Получет сумму чисел из строки интерполяции
+const sum_32_2 = (...args) => `Sum is equal ${args.reduce((start, arg) => start + arg, 0)}`;
+
+console.log("32_2", sum_32_2(12, 23, 32)); // Sum is equal 67
+
+// === 32_3.
+
+// Вложенная интерполяция
+const up_32_3 = (str) => str.toUpperCase();
+let user_32_3 = 'user';
+let str_32_3 = `these ${up_32_3(`${user_32_3}s`)} are great`;
+
+console.log("32_3", str_32_3); // these USERS are great
+
+// === 33. Стрелочные функции
+
+// Возвращает сумму двух переданных ей аргументов
+const add_33 = (a, b) => a + b;
+
+console.log("33--", add_33(3, 4)); // 7
+
+// === 33_2.
+
+// function expression: два способа в ES6
+const fn_33_2_a = function () { return 52; };
+const fn_33_2_b = () => 52;
+
+// function declaration: один способ в ES6
+function fn_33_2_с() {
+  return 52;
+};
+
+// =========== This ===========
+
+// === 34.
+
+// В функции-конструктор this относится к вновь созданному экземпляру.
+function Person_34(fn, ln) {
+	this.first_name = fn;
+	this.last_name = ln;
+
+	this.displayName = function() {
+		console.log("34--", `Name: ${this.first_name} ${this.last_name}`);
+	}
+}
+
+let person_34 = new Person_34("Serhii", "Stanislav");
+person_34.displayName();  // Name: Serhii Stanislav
+
+// === 34_2.
+
+// Привязываем контекств при помощи .bind()
+
+function Person_34_2(fn, ln) {
+	this.first_name = fn;
+	this.last_name = ln;
+
+	this.displayName = function() {
+		console.log("34_2", `Name: ${this.first_name} ${this.last_name}`);
+	}
+}
+
+let person_34_2 = new Person_34_2("Serhii", "Stanislav");
+
+let person2Display_34_2 = person_34_2.displayName.bind(person_34_2);  
+person2Display_34_2(); // Name: Serhii Stanislav
+
+// === 34_3.
+
+// Умножает значение элементов и выводит результат в консоль через колбек
+function multiply_34_3(p, q, callback) {
+	callback(p * q);
+}
+
+let user_34_3 = {
+	a: 3,
+	b: 5,
+	findMultiply: function() {
+      multiply_34_3(this.a, this.b,
+         function (total) {
+			   console.log("34_3", total); // 15
+         }
+      )
+	}
+}
+
+user_34_3.findMultiply();
 
 // =========== Loops ===========
 
@@ -602,7 +693,7 @@ console.log("L04--", multiplyAll_L04([[1,2],[3,4],[5,6,7]])); // 5040
 // Do...While
 // Вначале выполняет тело, а потом условие
 
-// Передает 10 в массив и на 11-ти цикл останавливается
+// Передает только 10 в массив и на 11-ти цикл останавливается
 const myArray_L05 = [];
 let i_L05 = 10;
 
@@ -690,16 +781,16 @@ console.log("L05--", myArray_L05); // [10]
 //   setAge(newAge) {
 //     this.age = newAge;
 //   },
-//   refreshAge(userId) {
-//     fetchAgeFromDb(function(newAge) {
-//       this.setAge(newAge);
+//    refreshAge(userId) {
+//       fetchAgeFromDb(function (newAge) {
+//          this.setAge(newAge);
 //     });
 //   },
 // };
 
 // function fetchAgeFromDb(cb) {
 //  cb(20);
-// }
+// };
 
 // person.refreshAge();
 // console.log(person.age);

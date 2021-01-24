@@ -437,6 +437,129 @@ console.log("26--", gloveBoxContents_26); // maps
 
 // === 27.
 
+// Вешает слушателя на первую ссылку на странице и при клике показывает message
+const obj_27 = {
+  btn: document.links[0],
+  log: function(message) {
+    console.log(message);
+    return this;
+  },
+  init: function() {
+    this.btn.addEventListener('click', () => this.log('Button Clicked!'), false);
+    console.log("27--", "Слушатель повесили");
+  }
+};
 
+obj_27.init();
+
+// === 28.
+
+// Заморозка объекта (Ошибка закомментирована)
+const obj_28 = {
+   a: 20,
+   b: 14,
+};
+
+obj_28.a = 36;
+console.log("28--", obj_28);
+
+// Object.freeze(obj_28); // Заморозка
+obj_28.b = 52;
+console.log("28--", obj_28.a); // Cannot assign to read only property 'b' of object '#<Object>'
+
+// === 29.
+
+// Краткие методы объектов
+const obj_29 = {
+   a() {
+      console.log("29--", "a)"); // a)
+   }
+};
+
+obj_29.a(); 
+
+// === 30.
+
+// Объекту proto присваивает второй obj в качестве прототипа
+const proto_30 = { a: 10 };
+const obj_30 = { b: 20 };
+
+Object.setPrototypeOf(proto_30, obj_30);
+
+console.log("30--", proto_30); // {a: 10} a: 10 __proto__: b: 20
+console.log("30--", obj_30);
+
+proto_30.a = 15;
+proto_30.b = 35;
+console.log("30--", proto_30); // {a: 15, b: 35} a: 15 b: 35 __proto__: b: 20
+
+// === 31.
+
+// Super - при вызове proto_31 выводит в консоль "from obj_31"
+const proto_31 = {
+   a: 10,
+   log() {
+      super.log() 
+   },
+};
+
+const obj_31 = {
+   b: 20,
+   log() {
+      console.log("31--", "from obj_31");
+   },
+};
+
+Object.setPrototypeOf(proto_31, obj_31);
+
+proto_31.log();
+
+// === 32.
+
+// Реструктуризация объекта
+const obj_32 = {
+   a: 'Hello',
+   b: 'my',
+   c: 'friend'
+};
+
+const { a, b, c } = obj_32;
+
+console.log("32--", a, b, c); // Hello my friend
+
+// === 33.
+
+// Реструктуризующее присваивание
+const a_33 = 15, b_33 = 25;
+const obj_33 = { x: a_33, y: b_33 };
+const { x: X, y: Y } = obj_33;
+
+console.log("33--", obj_33); // {x: 15, y: 25}
+console.log("33--", X, Y); // 15 25
+
+// === 34.
+
+// Реструктуризующее присваивание с уровнем вложенности свойств
+const obj_34 = {
+   a: [{
+      one: 1,
+      two: 2
+   },
+   {
+      three: 3,
+      four: 4
+   }],
+   b: 5
+};
+
+const { a: [{ one: first }], b: third } = obj_34;
+
+console.log("34--", first, third); // 1 5
+
+// === 35.
+
+// Реструктуризующее присваивание длины строки значению свойства
+const { length: le } = 'Hello';
+console.log("35--", le); // 5
 
 // ------------------------------------------------------ */
