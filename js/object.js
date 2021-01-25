@@ -6,9 +6,6 @@
  *
  */
 
-// /* ======================================================
-// ** Жека фрилансер по жизни
-
 // Синтаксис
 const userInfoLiteral = {}; 
 const userInfoConstructor = new Object(); 
