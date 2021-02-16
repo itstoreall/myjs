@@ -36,6 +36,15 @@ npm install --save gh-pages
 05.4 Деплоим на гитхаб
 npm run deploy
 
+06. Установка modern-normalize
+npm i modern-normalize
+
+06.2 Импортируем стили в index.js 
+import 'modern-normalize/modern-normalize.css';
+
+07. Устанавливаем пакетик sass
+npm install node-sass --save
+
 /* ===========================================
 ** Terminal
 
