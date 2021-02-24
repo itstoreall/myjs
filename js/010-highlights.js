@@ -14,25 +14,11 @@ open -a visual\ studio\ code .
 npm install --save-dev prop-types
 import PropTypes from 'prop-types';
 
-04.1 Eстановка ESLint and Prettier
-npm install -D eslint prettier
+04.1 Установка ESLint and Prettier
+npm install eslint
+npm install prettier -D --save-exact
 
-04.2 Install the Airbnb config
-npx install-peerdeps --dev eslint-config-airbnb
-
-04.3 Install eslint-config-prettier and eslint-plugin-prettier
-npm install -D eslint-config-prettier eslint-plugin-prettier
-
-04.4 Create .eslintrc.json file in your project’s root directory:
-{
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": ["error"]
-  },
-}
-
-04.5 Create .prettierrc:
+04.2 Create .prettierrc:
 {
   "printWidth": 80,
   "tabWidth": 2,
@@ -46,7 +32,7 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
   "proseWrap": "always"
 }
 
-04.6 Проверить User Settings in VSCode
+04.3 Проверить User Settings in VSCode
 - "editor.formatOnSave": true
 - "editor.defaultFormatter": "esbenp.prettier-vscode"
 
