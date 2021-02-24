@@ -2,29 +2,56 @@
 ** React
 
 01. Создаем репо на GitHub и клонируем локально
+cd documents/github
+git clone https://github.com/itstoreall/geri-react.git
+cd geri-react
 
 02. В локальной папке проекта запускаем React app
 npx create-react-app . --use-npm
+open -a visual\ studio\ code .
 
-03. Устанавливаем пакет prop-types
+03. Устанавливаем пакет prop-types и импортировать библиотеку
 npm install --save-dev prop-types
+import PropTypes from 'prop-types';
 
-04. Установка prettier, lint и husky
-npm install --save-dev prettier husky lint-staged
+04.1 Eстановка ESLint and Prettier
+npm install -D eslint prettier
 
-04.2 Создаем три файла в корне проекта
-- .huskyrc 
-- .lintstagedrc
-- .prettierrc.json
+04.2 Install the Airbnb config
+npx install-peerdeps --dev eslint-config-airbnb
 
-04.3 Проверяем в settings.json наличие свойства:
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
+04.3 Install eslint-config-prettier and eslint-plugin-prettier
+npm install -D eslint-config-prettier eslint-plugin-prettier
+
+04.4 Create .eslintrc.json file in your project’s root directory:
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  },
 }
+
+04.5 Create .prettierrc:
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "proseWrap": "always"
+}
+
+04.6 Проверить User Settings in VSCode
+- "editor.formatOnSave": true
+- "editor.defaultFormatter": "esbenp.prettier-vscode"
 
 05. Build and Deploy. Добавляем строку в package.json и выполняем команду
 "homepage": "https://itstoreall.github.io/goit-react-hw-01-components",
-npm run build
 
 05.2 Устанавливаем пакет для публикации
 npm install --save gh-pages
@@ -39,11 +66,15 @@ npm run deploy
 06. Установка modern-normalize
 npm i modern-normalize
 
-06.2 Импортируем стили в index.js 
+06.2 Импортируем стили в index.js
 import 'modern-normalize/modern-normalize.css';
 
 07. Устанавливаем пакетик sass
 npm install node-sass --save
+
+08. Устанавливаем и импортируем JSS
+npm instal react-jss
+import {createUseStyles} from 'react-jss'
 
 /* ===========================================
 ** Terminal
@@ -70,7 +101,7 @@ cd .. (шаг назад)
 cd ~ (вернуться в корень)
 pwd (покывает путь, где мы находимся)
 open . (открывает текущую папку в finder)
-open имя_файла (открывает файл) 
+open имя_файла (открывает файл)
 open -a sublime\ text index.html (открыть файл саблайме)
 
 - Работа с файлами и папками
@@ -102,7 +133,7 @@ cat имя_файла (показывает контент в терминале
 
 - Втянуть изменения с удаленного репо
 
-git checkout main (переключиться на ветку main) 
+git checkout main (переключиться на ветку main)
 git fetch (забирает данные в локальный репозиторий)
 git pull (вливает данные из удалённой ветки в текущую ветку)
 git checkout [branch name] ()
@@ -182,7 +213,7 @@ mv webpack-starter-kit webpack-module-10
 05. Переходим в папку проекта
 cd webpack-module-10
 
-06. Удаляем папку .git связанную с репозиторием сборки 
+06. Удаляем папку .git связанную с репозиторием сборки
 npx rimraf .git
 
 07. Устанавливаем все зависимости
@@ -195,7 +226,7 @@ open -a visual\ studio\ code .
 npm start
 
 10. CSS =-> SCSS
-- Создаем src > sass 
+- Создаем src > sass
 - Переименовуем styles.css в styles.scss
 - В index.js изменяем путь - import './styles.scss';
 - В index.html удаляем лишнее
