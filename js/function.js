@@ -322,23 +322,23 @@ console.log("22--", golfScore_22(4, 3)); // Birdie
 function caseInSwitch_23(val) {
   var answer = "";
 
-  switch(val) {
-   case "one":
-      answer = "alpha";
-      break;
-   case "two":
-      answer = "beta";
-      break;
-   case "three":
-      answer = "gamma";
-      break;
-   case "four":
-      answer = "delta";
-      break;
-   default:
-      answer = 3 + 5;
-      break;
-   };
+   switch(val) {
+      case "one":
+         answer = "alpha";
+         break;
+      case "two":
+         answer = "beta";
+         break;
+      case "three":
+         answer = "gamma";
+         break;
+      case "four":
+         answer = "delta";
+         break;
+      default:
+         answer = 3 + 5;
+         break;
+      };
 
   return answer;
 };

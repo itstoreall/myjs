@@ -1,4 +1,16 @@
 /* ===========================================
+** VSCode commands
+
+01. Открыть терминал
+ctrl + `
+
+02. Переключиться между разными ВСКодами
+cmnd + `
+
+03. Open User Settings
+cmnd + shift + P
+
+/* ===========================================
 ** React
 
 01. Создаем репо на GitHub и клонируем локально
@@ -8,6 +20,9 @@ cd geri-react
 
 02. В локальной папке проекта запускаем React app
 npx create-react-app . --use-npm
+или: npx create-react-app@4.0.3 . (в случае ошибки)
+
+02.2 Открываем в IDE
 open -a visual\ studio\ code .
 
 03. Устанавливаем пакет prop-types и импортировать библиотеку
@@ -61,6 +76,8 @@ npm install node-sass --save
 08. Устанавливаем и импортируем JSS
 npm instal react-jss
 import {createUseStyles} from 'react-jss'
+
+------------------------------------------- */
 
 /* ===========================================
 ** Terminal
