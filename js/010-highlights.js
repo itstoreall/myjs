@@ -77,6 +77,10 @@ npm install node-sass --save
 npm instal react-jss
 import {createUseStyles} from 'react-jss'
 
+09. Eстанавливаем axios
+npm install axios
+import axios from 'axios'
+
 ------------------------------------------- */
 
 /* ===========================================
