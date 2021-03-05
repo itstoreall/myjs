@@ -22,6 +22,9 @@ cd geri-react
 npx create-react-app . --use-npm
 или: npx create-react-app@4.0.3 . (в случае ошибки)
 
+02.1 После перезаливки проекта (если ошибки)
+npm install --save --save-exact react-scripts@4.0.3
+
 02.2 Открываем в IDE
 open -a visual\ studio\ code .
 
