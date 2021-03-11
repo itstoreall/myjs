@@ -54,7 +54,7 @@ npm install prettier -D --save-exact
 - "editor.formatOnSave": true
 - "editor.defaultFormatter": "esbenp.prettier-vscode"
 
-05. Build and Deploy. Добавляем строку в package.json и выполняем команду
+05.] Build and Deploy. Добавляем строку в package.json и выполняем команду
 "homepage": "https://itstoreall.github.io/goit-react-hw-01-components",
 
 05.2 Устанавливаем пакет для публикации
@@ -67,7 +67,7 @@ npm install --save gh-pages
 05.4 Деплоим на гитхаб
 npm run deploy
 
-06. Установка modern-normalize
+06.] Установка modern-normalize
 npm i modern-normalize
 
 06.2 Импортируем стили в index.js
@@ -80,9 +80,22 @@ npm install node-sass --save
 npm instal react-jss
 import {createUseStyles} from 'react-jss'
 
-09. Eстанавливаем axios
+09. Усьанавливаем npm React Router
+npm install react-router-dom
+import { BrowserRouter } from 'react-router-dom'
+
+10. Eстанавливаем axios
 npm install axios
 import axios from 'axios'
+
+11.1 Устанавливаем JSON Server
+npm i json-server
+
+11.2 Добавляем строку в "scripts"
+"server": "json-server --watch server/db.json --port 2223 --delay 500",
+
+11.3 В корне создаем папку с файлом: 
+server > db.json
 
 ------------------------------------------- */
 
