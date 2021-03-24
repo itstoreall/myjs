@@ -128,6 +128,21 @@ export const staticAction = {
   payload: "some value",
 };
 
+04. Create React-Redax:
+npm install react-redux
+
+05.1 Import to index.js
+import { Provider } from 'react-redux';
+
+05.2 Оборачиваем App в Provider с пропсами store
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App initialValue={dataBase} />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
 
 ------------------------------------------- */
 
