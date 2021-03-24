@@ -22,7 +22,7 @@ cd geri-react
 npx create-react-app . --use-npm
 или: npx create-react-app@4.0.3 . (в случае ошибки)
 
-02.1 После перезаливки проекта (если ошибки)
+02.1 После клонирования или перезаливки проекта (если ошибки)
 npm install --save --save-exact react-scripts@4.0.3
 
 02.2 Открываем в IDE
@@ -96,6 +96,38 @@ npm i json-server
 
 11.3 В корне создаем папку с файлом: 
 server > db.json
+
+------------------------------------------- */
+
+/* ===========================================
+** Redux
+
+01. Install the Redux: 
+npm install redux
+
+02.1 Сreate Store:
+В src создаем redux > store.js
+import { createStore } from 'redux';
+const reducer = (state = {}, action) => state;
+const store = createStore(reducer);
+export default store;
+
+02.2 Import store to the index.js:
+import store from './redux/store';
+
+03. Create Actions:
+Создаем в redux > actions.js
+
+export const dinamicAction = value => ({
+  type: "DINAMIC_ACTION",
+  payload: value,
+});
+
+export const staticAction = {
+  type: "STATIC_ACTION",
+  payload: "some value",
+};
+
 
 ------------------------------------------- */
 
