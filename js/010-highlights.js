@@ -18,14 +18,20 @@ cd documents/github
 git clone https://github.com/itstoreall/geri-react.git
 cd geri-react
 
-02. В локальной папке проекта запускаем React app
+02.1 В локальной папке проекта запускаем React app
 npx create-react-app . --use-npm
+
+02.2 if error for example @4.0.2:
+npm uninstall -g create-react-app (uninstall)
+npm i -g npm@latest (install the latest version of the npm)
+npm cache clean -f (clean cache --force)
+npx create-react-app .
 или: npx create-react-app@4.0.3 . (в случае ошибки)
 
-02.1 После клонирования или перезаливки проекта (если ошибки)
+02.3 После клонирования или перезаливки проекта (если ошибки)
 npm install --save --save-exact react-scripts@4.0.3
 
-02.2 Открываем в IDE
+02.4 Открываем в IDE
 open -a visual\ studio\ code .
 
 03. Устанавливаем пакет prop-types и импортировать библиотеку
@@ -84,7 +90,7 @@ import {createUseStyles} from 'react-jss'
 npm install react-router-dom
 import { BrowserRouter } from 'react-router-dom'
 
-10. Eстанавливаем axios
+10. Устанавливаем axios
 npm install axios
 import axios from 'axios'
 
@@ -105,36 +111,23 @@ server > db.json
 01. Install the Redux: 
 npm install redux
 
-02.1 Сreate Store:
+02. Сreate Store:
 В src создаем redux > store.js
 import { createStore } from 'redux';
 const reducer = (state = {}, action) => state;
 const store = createStore(reducer);
 export default store;
 
-02.2 Import store to the index.js:
+03. Import store to the index.js:
 import store from './redux/store';
 
-03. Create Actions:
-Создаем в redux > actions.js
-
-export const dinamicAction = value => ({
-  type: "DINAMIC_ACTION",
-  payload: value,
-});
-
-export const staticAction = {
-  type: "STATIC_ACTION",
-  payload: "some value",
-};
-
-04. Create React-Redax:
+04.1 Create React-Redux:
 npm install react-redux
 
-05.1 Import to index.js
+04.2 Import to index.js
 import { Provider } from 'react-redux';
 
-05.2 Оборачиваем App в Provider с пропсами store
+05.3 Оборачиваем App в Provider с пропсами store
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -143,6 +136,24 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+06. mapState и mapDispatch:
+import { connect } from 'react-redux';
+const mapStateToProps = state => {
+  return {
+    value: state,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  doSomething: value => dispatch(actions.addContact(value)),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+07. Install redux-devtools-extension:
+Установить в Chrome Redux DevTools (единоразово)
+npm install --save-dev redux-devtools-extension
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 ------------------------------------------- */
 
