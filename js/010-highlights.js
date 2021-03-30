@@ -98,7 +98,7 @@ import axios from 'axios'
 npm i json-server
 
 11.2 Добавляем строку в "scripts"
-"server": "json-server --watch server/db.json --port 2223 --delay 500",
+"server": "json-server --watch server/db.json --port 2222 --delay 500",
 
 11.3 В корне создаем папку с файлом: 
 server > db.json
@@ -154,6 +154,19 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 Установить в Chrome Redux DevTools (единоразово)
 npm install --save-dev redux-devtools-extension
 import { composeWithDevTools } from 'redux-devtools-extension';
+
+08.1 Redux Toolkit installation
+npm install @reduxjs/toolkit
+
+08.2 Import to the store.js
+import { configureStore } from '@reduxjs/toolkit';
+
+09.1 Redux Persist installation
+npm install redux-persist
+
+09.2 Import to the store.js
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 ------------------------------------------- */
 
