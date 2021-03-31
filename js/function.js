@@ -4,27 +4,26 @@
  *
  */
 
-   
 // Вызвать можно до или после объявления
-showMessage_01() // Message
+showMessage_01(); // Message
 
 function showMessage_01() {
-   console.log("01--", "Message");
-};
+  console.log('01--', 'Message');
+}
 
-showMessage_01() // Message
+showMessage_01(); // Message
 
 // === 02.
 
 // Передача параметров в функцию
 function calcSum_02(numOne, numTwo) {
-   console.log("02--", `Переменная numOne: ${numOne}`); // Переменная numOne: 1
-   console.log("02--", `Переменная numOne: ${numTwo}`); // Переменная numOne: 2
+  console.log('02--', `Переменная numOne: ${numOne}`); // Переменная numOne: 1
+  console.log('02--', `Переменная numOne: ${numTwo}`); // Переменная numOne: 2
 
-   const numSum = numOne + numTwo;
+  const numSum = numOne + numTwo;
 
-   console.log("02--", `Сумма: ${numSum}`); // Сумма: 3
-};
+  console.log('02--', `Сумма: ${numSum}`); // Сумма: 3
+}
 
 calcSum_02(1, 2);
 
@@ -32,60 +31,59 @@ calcSum_02(1, 2);
 
 // Вызываем колбек с сообщением
 function calcSum_03(numOne, numTwo, more, less) {
-   const numSum_03 = numOne + numTwo;
+  const numSum_03 = numOne + numTwo;
 
-   if (numSum_03 > 3) {
-      more();
-   } else {
-      less();
-   };
-};
+  if (numSum_03 > 3) {
+    more();
+  } else {
+    less();
+  }
+}
 
 function showMoreMessage_03() {
-   console.log("03--", "Больше чем 3");
-};
+  console.log('03--', 'Больше чем 3');
+}
 
 function showLessMessage_03() {
-   console.log("03--", "Меньше чем 3");
-};
+  console.log('03--', 'Меньше чем 3');
+}
 
-calcSum_03(1, 5, showMoreMessage_03, showLessMessage_03)
+calcSum_03(1, 5, showMoreMessage_03, showLessMessage_03);
 
 // === 04.
 
 function calcSum_04(numOne, numTwo) {
-   
-   // Сложение
-   const numSum_04 = numOne + numTwo;
+  // Сложение
+  const numSum_04 = numOne + numTwo;
 
-   // Возврат результата
-   return numSum_04;
-};
+  // Возврат результата
+  return numSum_04;
+}
 
 // Присваиваем результат функции в переменную
 const funcResult_04 = calcSum_04(1, 2);
 
-console.log("04--", `Сумма: ${funcResult_04}`); // 3
+console.log('04--', `Сумма: ${funcResult_04}`); // 3
 
 // === 05.
 
 // Рекурсия
 function calcSum_05(numOne, numTwo) {
-   if (numTwo === 1) {
-      return numOne;
-   } else {
-      return numOne * calcSum_05(numOne, numTwo - 1)
-   };
-};
+  if (numTwo === 1) {
+    return numOne;
+  } else {
+    return numOne * calcSum_05(numOne, numTwo - 1);
+  }
+}
 
-console.log("05--", calcSum_05(2, 3)); // 8
+console.log('05--', calcSum_05(2, 3)); // 8
 
 // === 06.
 
 // Функциональное выражение (function Expression)
 // Вызвать можно только после ее создания
 const showMessage_06 = function () {
-   console.log("06--", "Привет!"); // Привет!
+  console.log('06--', 'Привет!'); // Привет!
 };
 
 showMessage_06();
@@ -93,12 +91,12 @@ showMessage_06();
 // === 07.
 
 // Присвоение переменной раннее объявленной функции
-// позволяет вызывать ее по двум разным именам 
+// позволяет вызывать ее по двум разным именам
 function getSum_07() {
-   const sum = 1 + 2;
+  const sum = 1 + 2;
 
-   console.log("07--", sum);
-};
+  console.log('07--', sum);
+}
 
 const someVar_07 = getSum_07;
 
@@ -109,9 +107,9 @@ getSum_07(); // 3
 // === 08.
 
 // Стрелочные функции
-const getMessage_08 = (text, name) => console.log("08--", `${text} ${name}`);
+const getMessage_08 = (text, name) => console.log('08--', `${text} ${name}`);
 
-getMessage_08("Hi", "Serhii");
+getMessage_08('Hi', 'Serhii');
 
 // === 09.
 
@@ -188,31 +186,31 @@ const timeId_14 = setInterval(showNumber_14, 1000, 1);
 
 // Функция конкатенации
 function createMessage_15(text, name) {
-   return `${text} ${name}`;
-};
+  return `${text} ${name}`;
+}
 
 // Функция вывода в консоль
 function showMessage_15(message) {
-   console.log("15--", message);
-};
+  console.log('15--', message);
+}
 
 // Объединяющая функция (вызывает обе функции)
 function initMessage_15(text, name) {
-   showMessage_15(createMessage_15(text, name));
-};
+  showMessage_15(createMessage_15(text, name));
+}
 
-initMessage_15("Привет", "Фрилансер");
+initMessage_15('Привет', 'Фрилансер');
 
 // === 16.
 
 // Возвращает из функции значение
-function timesFive_16(arg1){
-    return arg1 * 5;
-};
+function timesFive_16(arg1) {
+  return arg1 * 5;
+}
 
 const equal_16 = timesFive_16(10);
 
-console.log("16--", equal_16); // 50
+console.log('16--', equal_16); // 50
 
 // === 17.
 
@@ -220,12 +218,12 @@ console.log("16--", equal_16); // 50
 const sum_17 = 0;
 
 function addFive_17(arg) {
-   let equal = sum_17;
-   equal = arg + 5;
-   return equal;
-};
+  let equal = sum_17;
+  equal = arg + 5;
+  return equal;
+}
 
-console.log("17--", addFive_17(30)); // 35
+console.log('17--', addFive_17(30)); // 35
 
 // === 18.
 
@@ -234,12 +232,12 @@ let processed_18 = 0;
 
 function processArg_18(num) {
   return (num + 17) / 2;
-};
+}
 
 function getEqual_18() {
   processed_18 = processArg_18(7);
-   console.log("18--", processed_18); // 12
-};
+  console.log('18--', processed_18); // 12
+}
 
 getEqual_18();
 
@@ -247,235 +245,243 @@ getEqual_18();
 
 // Boolean - функция возвращает одно из сначений
 function trueOrFalse_19(wasThatTrue) {
-   if(wasThatTrue) {
-      return "Yes, that was true";
-   }; 
+  if (wasThatTrue) {
+    return 'Yes, that was true';
+  }
 
-   return "No, that was false";
+  return 'No, that was false';
 }
 
-console.log("19--", trueOrFalse_19(true)); // Yes, that was true
+console.log('19--', trueOrFalse_19(true)); // Yes, that was true
 
 // === 20.
 
 // if - Выбор диапазона до 10 - между - 100 после
 function testGreaterThan_20(val) {
-  if (val >= 100) { 
-    return "100 or over";
+  if (val >= 100) {
+    return '100 or over';
   }
 
   if (val >= 10) {
-    return "10 or over";
+    return '10 or over';
   }
 
-  return "Under 10";
+  return 'Under 10';
 }
 
-console.log("20--", testGreaterThan_20(27)); // 10 or over
+console.log('20--', testGreaterThan_20(27)); // 10 or over
 
 // === 21.
 
 // if - Проверка величины числа
 function testSize_21(num) {
-  if(num < 5) {
-    return "Tiny";
+  if (num < 5) {
+    return 'Tiny';
   } else if (num < 10) {
-    return "Small";
+    return 'Small';
   } else if (num < 15) {
-    return "Medium";
+    return 'Medium';
   } else if (num < 20) {
-    return "Large";
+    return 'Large';
   } else if (num >= 20) {
-    return "Huge";
-   };
-};
+    return 'Huge';
+  }
+}
 
-console.log("21--", testSize_21(21));
+console.log('21--', testSize_21(21));
 
 // === 22.
 
 // if - Условия с множественными значениями
-const names_22 = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+const names_22 = [
+  'Hole-in-one!',
+  'Eagle',
+  'Birdie',
+  'Par',
+  'Bogey',
+  'Double Bogey',
+  'Go Home!',
+];
 function golfScore_22(par, strokes) {
-   if(strokes === 1) {
-   return names_22[0]; // Hole-in-one!
-   } else if (strokes <= par - 2) {
-   return names_22[1]; // Eagle
-   } else if (strokes == par - 1) {
-   return names_22[2]; // Birdie
-   } else if (strokes === par) {
-   return names_22[3]; // Birdie
-   } else if (strokes == par + 1) {
-   return names_22[4]; // Bogey
-   } else if (strokes == par + 2) {
-   return names_22[5]; // Double Bogey
-   } else if (strokes >= par + 3) {
-   return names_22[6]; // Go Home!
-   };
-};
+  if (strokes === 1) {
+    return names_22[0]; // Hole-in-one!
+  } else if (strokes <= par - 2) {
+    return names_22[1]; // Eagle
+  } else if (strokes == par - 1) {
+    return names_22[2]; // Birdie
+  } else if (strokes === par) {
+    return names_22[3]; // Birdie
+  } else if (strokes == par + 1) {
+    return names_22[4]; // Bogey
+  } else if (strokes == par + 2) {
+    return names_22[5]; // Double Bogey
+  } else if (strokes >= par + 3) {
+    return names_22[6]; // Go Home!
+  }
+}
 
-console.log("22--", golfScore_22(4, 3)); // Birdie
+console.log('22--', golfScore_22(4, 3)); // Birdie
 
 // === 23.
 
 // switch - Результат записываем в answer и возвращаем
 function caseInSwitch_23(val) {
-  var answer = "";
+  var answer = '';
 
-   switch(val) {
-      case "one":
-         answer = "alpha";
-         break;
-      case "two":
-         answer = "beta";
-         break;
-      case "three":
-         answer = "gamma";
-         break;
-      case "four":
-         answer = "delta";
-         break;
-      default:
-         answer = 3 + 5;
-         break;
-      };
+  switch (val) {
+    case 'one':
+      answer = 'alpha';
+      break;
+    case 'two':
+      answer = 'beta';
+      break;
+    case 'three':
+      answer = 'gamma';
+      break;
+    case 'four':
+      answer = 'delta';
+      break;
+    default:
+      answer = 3 + 5;
+      break;
+  }
 
   return answer;
-};
+}
 
-console.log("23--", caseInSwitch_23("qwe")); // 8
+console.log('23--', caseInSwitch_23('qwe')); // 8
 
 // === 24.
 
 // switch - Условия с множественными идентичными параметрами
 function sequentialSizes_24(val) {
-  var answer = "";
+  var answer = '';
 
-  switch(val) {
+  switch (val) {
     case 1:
     case 2:
     case 3:
-      answer = "Low";
+      answer = 'Low';
       break;
     case 4:
     case 5:
     case 6:
-      answer = "Mid";
+      answer = 'Mid';
       break;
     case 7:
     case 8:
     case 9:
-      answer = "High";
+      answer = 'High';
       break;
-   };
- 
-  return answer;
-};
+  }
 
-console.log("24--", sequentialSizes_24(4)); // Mid
+  return answer;
+}
+
+console.log('24--', sequentialSizes_24(4)); // Mid
 
 // === 25.
 
 // Вместо if else можно сразу вернуть результат выражения
 function isLess_25(a, b) {
   return a < b;
-};
+}
 
-console.log("25--", isLess_25(10, 15)); // true
+console.log('25--', isLess_25(10, 15)); // true
 
 // === 26.
 
 // if - Если одно из значений меньше 0 возвращаем undefined
 function abTest_26(a, b) {
-  if(a < 0 || b < 0) {
+  if (a < 0 || b < 0) {
     return undefined;
-   };
+  }
 
   return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
-};
+}
 
-console.log("26--", abTest_26(-3, 2));
+console.log('26--', abTest_26(-3, 2));
 
 // === 27.
 
-// Blackjack - 
+// Blackjack -
 let count_27 = 0;
 
 function cc_27(card) {
-   let holdBet = "Hold";
+  let holdBet = 'Hold';
 
-   switch (card) {
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-      case 6:
-         count_27 += 1;
-         break;
-      case 10:
-      case "J":
-      case "Q":
-      case "K":
-      case "A":
-         count_27 -= 1;
-   }; 
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count_27 += 1;
+      break;
+    case 10:
+    case 'J':
+    case 'Q':
+    case 'K':
+    case 'A':
+      count_27 -= 1;
+  }
 
-   if (count_27 > 0) {
-      holdBet = "Bet";
-   };
-   
-   return count_27 + " " + holdBet
-};
+  if (count_27 > 0) {
+    holdBet = 'Bet';
+  }
 
-console.log("27--", cc_27("K")); // -1 Hold
+  return count_27 + ' ' + holdBet;
+}
+
+console.log('27--', cc_27('K')); // -1 Hold
 
 // === 28.
 
 // .hasOwnProperty() - Проверяет наличие свойства. Возвращает значение
 const obj_28 = {
-   gift: "pony",
-   pet: "kitten",
-   bed: "sleigh",
+  gift: 'pony',
+  pet: 'kitten',
+  bed: 'sleigh',
 };
 
 function checkObj_28(obj, checkProp) {
+  if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  }
 
-   if (obj.hasOwnProperty(checkProp)) {
-      return obj[checkProp];
-   };
+  return 'Not Found';
+}
 
-   return "Not Found"
-};
-
-console.log("28--", checkObj_28(obj_28, "bed"));
+console.log('28--', checkObj_28(obj_28, 'bed'));
 
 // === 29.
 
 // Получает при клике на ссылку #apple из атрибут href
 const refs_29 = {
-   controls_29: document.querySelector(`.controls__item`),
+  controls_29: document.querySelector(`.controls__item`),
 };
 
-refs_29.controls_29.addEventListener('click', e => {
-   e.preventDefault();
+refs_29.controls_29.addEventListener('click', (e) => {
+  e.preventDefault();
 
-   const controlItem = e.target;
-   const paneId = controlItem.getAttribute('href').slice(1);
+  const controlItem = e.target;
+  const paneId = controlItem.getAttribute('href').slice(1);
 
-   console.log("29--", paneId); // apple
+  console.log('29--', paneId); // apple
 });
 
 // === 30.
 
 // Map создает массив домузлов с текстом из массива
-const fn_30 = arr => arr.map(el => {
-  const item = document.createElement('div');
-  item.textContent = el;
+const fn_30 = (arr) =>
+  arr.map((el) => {
+    const item = document.createElement('div');
+    item.textContent = el;
 
-  return item;
- });
+    return item;
+  });
 
-console.log("30--", fn_30(['html', 'css', 'js', 'react'])); // (4) [div, div, div, div]
+console.log('30--', fn_30(['html', 'css', 'js', 'react'])); // (4) [div, div, div, div]
 
 // === 31.
 
@@ -484,60 +490,57 @@ const collection_31 = {
   2548: {
     albumTitle: 'Slippery When Wet',
     artist: 'Bon Jovi',
-    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+    tracks: ['Let It Rock', 'You Give Love a Bad Name'],
   },
   2468: {
     albumTitle: '1999',
     artist: 'Prince',
-    tracks: ['1999', 'Little Red Corvette']
+    tracks: ['1999', 'Little Red Corvette'],
   },
   1245: {
     artist: 'Robert Palmer',
-    tracks: []
+    tracks: [],
   },
   5439: {
     albumTitle: 'ABBA Gold',
-  }
+  },
 };
 
 function updateRecords_31(object, id, prop, value) {
-   const objId = object[id];
+  const objId = object[id];
 
-   if (
-      prop !== "tracks" && value !== "") {
-      objId[prop] = value;
-   } else if (
-      prop === "tracks" && !objId.hasOwnProperty(prop)) {
-      objId[prop] = [value];
-   } else if (
-      prop === "tracks" && value !== "") {
-      object[id][prop].push(value);
-   } else if (
-      value === "") {
-      delete object[id][prop];
-   };
+  if (prop !== 'tracks' && value !== '') {
+    objId[prop] = value;
+  } else if (prop === 'tracks' && !objId.hasOwnProperty(prop)) {
+    objId[prop] = [value];
+  } else if (prop === 'tracks' && value !== '') {
+    object[id][prop].push(value);
+  } else if (value === '') {
+    delete object[id][prop];
+  }
 
   return object;
-};
+}
 
 updateRecords_31(collection_31, 5439, 'artist', 'ABBA');
 
-console.log("31--", collection_31[5439]);
+console.log('31--', collection_31[5439]);
 
 // === 32. Интерполяция
 
 // Вызывает функцию toUpperCase() прямо из строки интерполяции
 const up_32 = (str_32) => str_32.toUpperCase();
-let str_32 = `this is ${ up_32('sting') } in uppercase`;
+let str_32 = `this is ${up_32('sting')} in uppercase`;
 
-console.log("32--", str_32); // this is STRING in uppercase
+console.log('32--', str_32); // this is STRING in uppercase
 
 // === 32_2.
 
 // Получет сумму чисел из строки интерполяции
-const sum_32_2 = (...args) => `Sum is equal ${args.reduce((start, arg) => start + arg, 0)}`;
+const sum_32_2 = (...args) =>
+  `Sum is equal ${args.reduce((start, arg) => start + arg, 0)}`;
 
-console.log("32_2", sum_32_2(12, 23, 32)); // Sum is equal 67
+console.log('32_2', sum_32_2(12, 23, 32)); // Sum is equal 67
 
 // === 32_3.
 
@@ -546,25 +549,27 @@ const up_32_3 = (str) => str.toUpperCase();
 let user_32_3 = 'user';
 let str_32_3 = `these ${up_32_3(`${user_32_3}s`)} are great`;
 
-console.log("32_3", str_32_3); // these USERS are great
+console.log('32_3', str_32_3); // these USERS are great
 
 // === 33. Стрелочные функции
 
 // Возвращает сумму двух переданных ей аргументов
 const add_33 = (a, b) => a + b;
 
-console.log("33--", add_33(3, 4)); // 7
+console.log('33--', add_33(3, 4)); // 7
 
 // === 33_2.
 
 // function expression: два способа в ES6
-const fn_33_2_a = function () { return 52; };
+const fn_33_2_a = function () {
+  return 52;
+};
 const fn_33_2_b = () => 52;
 
 // function declaration: один способ в ES6
 function fn_33_2_с() {
   return 52;
-};
+}
 
 // =========== This ===========
 
@@ -572,53 +577,51 @@ function fn_33_2_с() {
 
 // В функции-конструктор this относится к вновь созданному экземпляру.
 function Person_34(fn, ln) {
-	this.first_name = fn;
-	this.last_name = ln;
+  this.first_name = fn;
+  this.last_name = ln;
 
-	this.displayName = function() {
-		console.log("34--", `Name: ${this.first_name} ${this.last_name}`);
-	}
+  this.displayName = function () {
+    console.log('34--', `Name: ${this.first_name} ${this.last_name}`);
+  };
 }
 
-let person_34 = new Person_34("Serhii", "Stanislav");
-person_34.displayName();  // Name: Serhii Stanislav
+let person_34 = new Person_34('Serhii', 'Stanislav');
+person_34.displayName(); // Name: Serhii Stanislav
 
 // === 34_2.
 
 // Привязываем контекств при помощи .bind()
 
 function Person_34_2(fn, ln) {
-	this.first_name = fn;
-	this.last_name = ln;
+  this.first_name = fn;
+  this.last_name = ln;
 
-	this.displayName = function() {
-		console.log("34_2", `Name: ${this.first_name} ${this.last_name}`);
-	}
+  this.displayName = function () {
+    console.log('34_2', `Name: ${this.first_name} ${this.last_name}`);
+  };
 }
 
-let person_34_2 = new Person_34_2("Serhii", "Stanislav");
+let person_34_2 = new Person_34_2('Serhii', 'Stanislav');
 
-let person2Display_34_2 = person_34_2.displayName.bind(person_34_2);  
+let person2Display_34_2 = person_34_2.displayName.bind(person_34_2);
 person2Display_34_2(); // Name: Serhii Stanislav
 
 // === 34_3.
 
 // Умножает значение элементов и выводит результат в консоль через колбек
 function multiply_34_3(p, q, callback) {
-	callback(p * q);
+  callback(p * q);
 }
 
 let user_34_3 = {
-	a: 3,
-	b: 5,
-	findMultiply: function() {
-      multiply_34_3(this.a, this.b,
-         function (total) {
-			   console.log("34_3", total); // 15
-         }
-      )
-	}
-}
+  a: 3,
+  b: 5,
+  findMultiply: function () {
+    multiply_34_3(this.a, this.b, function (total) {
+      console.log('34_3', total); // 15
+    });
+  },
+};
 
 user_34_3.findMultiply();
 
@@ -631,14 +634,14 @@ user_34_3.findMultiply();
 
 // - Добавляем в массив числа от 5 до 0 включительно
 const myArray_L01 = [];
-let i_L01 = 5
+let i_L01 = 5;
 
 while (i_L01 >= 0) {
-   myArray_L01.push(i_L01);
-   i_L01 -= 1;
-};
+  myArray_L01.push(i_L01);
+  i_L01 -= 1;
+}
 
-console.log("L01--", myArray_L01); // (6) [5, 4, 3, 2, 1, 0]
+console.log('L01--', myArray_L01); // (6) [5, 4, 3, 2, 1, 0]
 
 // === L02.
 
@@ -649,26 +652,26 @@ console.log("L01--", myArray_L01); // (6) [5, 4, 3, 2, 1, 0]
 const myArray_L02 = [];
 
 for (let i = 10; i >= 0; i -= 2) {
-   myArray_L02.push(i);
-};
+  myArray_L02.push(i);
+}
 
-console.log("L02--", myArray_L02); // (6) [10, 8, 6, 4, 2, 0]
+console.log('L02--', myArray_L02); // (6) [10, 8, 6, 4, 2, 0]
 
 // === L03.
 
 // For
 
 // Перебирает массив в цикле for .length раз добавляя элементы в total
-const myArr_L03 = [ 2, 3, 4, 5, 6];
+const myArr_L03 = [2, 3, 4, 5, 6];
 
 let total_L03 = 0;
 
 for (let i = 2; i <= myArr_L03.length + 1; i += 1) {
-    total_L03[i]
-    total_L03 += i;
-};
+  total_L03[i];
+  total_L03 += i;
+}
 
-console.log("L03--", total_L03); // 20
+console.log('L03--', total_L03); // 20
 
 // === L04.
 
@@ -676,18 +679,25 @@ console.log("L03--", total_L03); // 20
 
 // Перебирает массивы в массиве и возвращает произведение всех чисел
 function multiplyAll_L04(arr) {
-   let product_L04 = 1;
+  let product_L04 = 1;
 
-   for (let i = 0; i < arr.length; i += 1){
-      for (let q = 0; q < arr[i].length; q += 1){
-         product_L04 *= arr[i][q];
-      };
-   };
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let q = 0; q < arr[i].length; q += 1) {
+      product_L04 *= arr[i][q];
+    }
+  }
 
-   return product_L04;
-};
+  return product_L04;
+}
 
-console.log("L04--", multiplyAll_L04([[1,2],[3,4],[5,6,7]])); // 5040
+console.log(
+  'L04--',
+  multiplyAll_L04([
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ])
+); // 5040
 
 // === L05
 
@@ -699,70 +709,70 @@ const myArray_L05 = [];
 let i_L05 = 10;
 
 do {
-myArray_L05.push(i_L05);
+  myArray_L05.push(i_L05);
   i_L05 += 1;
 } while (i_L05 < 5);
 
-console.log("L05--", myArray_L05); // [10]
+console.log('L05--', myArray_L05); // [10]
 
 // =========== Class ===========
 
 // === C01.
 
 class Car_C01 {
-   constructor (speed) {
-      this.fuel = 0
-      this.distance = 0
-      this.topSpeed = Math.round(Math.random())
+  constructor(speed) {
+    this.fuel = 0;
+    this.distance = 0;
+    this.topSpeed = Math.round(Math.random());
 
-      this.speed = speed
-   }
-   static isFaster (left, right) {
-      return left.topSpeed > right.topSpeed
-   }
-   move () {
-      if (this.fuel < 1) {
-         throw new RangeError('Fuel tank is depleted')
-      }
-      this.fuel--
-      this.distance += 10
-   }
-   addFuel () {
-      if (this.fuel >= 60) {
-         throw new RangeError('Fuel tank is full')
-      }
-      this.fuel++
-   }
-};
+    this.speed = speed;
+  }
+  static isFaster(left, right) {
+    return left.topSpeed > right.topSpeed;
+  }
+  move() {
+    if (this.fuel < 1) {
+      throw new RangeError('Fuel tank is depleted');
+    }
+    this.fuel--;
+    this.distance += 10;
+  }
+  addFuel() {
+    if (this.fuel >= 60) {
+      throw new RangeError('Fuel tank is full');
+    }
+    this.fuel++;
+  }
+}
 console.dir(Car_C01);
-const car_C01 = new Car_C01(120)
-car_C01.addFuel()
-car_C01.addFuel()
-car_C01.addFuel()
-car_C01.move()
-car_C01.move()
+const car_C01 = new Car_C01(120);
+car_C01.addFuel();
+car_C01.addFuel();
+car_C01.addFuel();
+car_C01.move();
+car_C01.move();
 
-console.log("C05--", car_C01); // Car_C01 {fuel: 1, distance: 20, topSpeed: 0, speed: 120}
+console.log('C05--', car_C01); // Car_C01 {fuel: 1, distance: 20, topSpeed: 0, speed: 120}
 
 class Tesla_C01 extends Car_C01 {
-   constructor (speed) {
-      super(speed * 2)
-   }
-   move () {
-      super.move()
-      this.distance += 15
-   }
+  constructor(speed) {
+    super(speed * 2);
+  }
+  move() {
+    super.move();
+    this.distance += 15;
+  }
 }
 
-const tesla_C01 = new Tesla_C01(120)
-tesla_C01.addFuel()
-tesla_C01.addFuel()
-tesla_C01.addFuel()
-tesla_C01.move()
-tesla_C01.move()
+const tesla_C01 = new Tesla_C01(120);
+tesla_C01.addFuel();
+tesla_C01.addFuel();
+tesla_C01.addFuel();
+tesla_C01.move();
+tesla_C01.move();
 
-console.log("C05--", tesla_C01); // Tesla_C01 {fuel: 1, distance: 50, topSpeed: 0, speed: 240}
-console.log("C05--", tesla_C01.distance) // 50
+console.log('C05--', tesla_C01); // Tesla_C01 {fuel: 1, distance: 50, topSpeed: 0, speed: 240}
+console.log('C05--', tesla_C01.distance); // 50
 
 // ==========================================
 
@@ -813,7 +823,7 @@ console.log("C05--", tesla_C01.distance) // 50
 
 // Ошибка 'ReferenceError: sum is not defined'
 
-// --- 
+// ---
 
 // 05. Что будет выведено в консоль?
 
@@ -857,7 +867,7 @@ console.log("C05--", tesla_C01.distance) // 50
 
 // Uncaught TypeError: Cannot read property 'setAge' of undefined (Ошибка 'this.setAge is not a function')
 
-// --- 
+// ---
 
 // 07. Что будет выведено в консоль?
 
@@ -877,7 +887,7 @@ console.log("C05--", tesla_C01.distance) // 50
 
 // 38
 
-// --- 
+// ---
 
 // 09. Что будет выведено в консоль?
 
@@ -968,7 +978,7 @@ console.log("C05--", tesla_C01.distance) // 50
 
 // bob 20 m blue
 
-// --- 
+// ---
 
 // 17. Что будет выведено в консоль?
 
@@ -1025,6 +1035,73 @@ console.log("C05--", tesla_C01.distance) // 50
 // Ссылка на результаты теста на курс React:
 // https://docs.google.com/forms/d/e/1FAIpQLSfcz0GiyO5D6ad3cKkkeFJyE3VY0dsLaF1J3yU425auSXazzQ/viewscore?viewscore=AE0zAgDqHIyc-daivLEpj9iYfQFFPlpxl7RjIsCEW2GKbgMBUWR31ITCQ4VczrJEJQoj1cQ
 
-
-
 // ------------------------------------------------------ */
+
+// /* ==========================================
+
+console.log('======== Interview ========');
+
+// 01.
+const str = 'Hello';
+console.log('01.', str[0]); // H
+
+// 02.
+const num = 1 + 2;
+console.log('02.', num === 3); // true
+
+// 03.
+const numm = 0.1 + 0.2;
+console.log('03.', numm === 0.3); // false
+
+// 04.
+function calculate(arr) {
+  const res = arr.reduce(
+    (acc, num) => (num > 0 && num % 2 ? acc + num : acc),
+    0
+  );
+  return res;
+}
+console.log('04.', calculate([5, 0, -5, 20, 88, 17, -32]));
+
+// 05.
+let arr1 = [5, 10, 15];
+let arr2 = arr1;
+arr2 = [50, 100, 150];
+console.log('04.', arr1[0]); // 5
+
+// 06. Cумма двух чисел в массиве должна быть равна num
+// Рекурсия
+
+function check(arr, num) {
+  return (
+    arr.reduce((acc, item, _, array) => {
+      const findedNumber = array.find((el) => {
+        return el + item === num;
+      });
+
+      return findedNumber ? (acc += findedNumber) : acc;
+    }, 0) === num
+  );
+}
+
+console.log('06: true ->', check([10, 15, 3, 7], 17)); // true
+console.log('06: false ->', check([10, 15, 3, 7], 20)); // false
+
+// 07. Вернуть сумму всех чисел из переданного числа
+
+function sumDigits(num) {
+  let total = 0;
+  const splitedeNum = [...num.toString()];
+
+  for (let i = 0; i < splitedeNum.length; i += 1) {
+    total += Number(splitedeNum[i]);
+  }
+
+  return total;
+}
+
+console.log('07:', sumDigits(123)); // 6
+console.log('07:', sumDigits(904)); // 13
+console.log('07:', sumDigits(3)); // 3
+
+// ------------------------------------------ */
