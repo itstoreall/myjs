@@ -774,6 +774,124 @@ tesla_C01.move();
 console.log('C05--', tesla_C01); // Tesla_C01 {fuel: 1, distance: 50, topSpeed: 0, speed: 240}
 console.log('C05--', tesla_C01.distance); // 50
 
+// === Free Code Camp 2021
+
+/**
+ * ===== fcc01
+ * Рекурсия
+ * Вернуть сумму первых n чисел из массива
+ */
+
+function sum(arr, n) {
+  if (n <= 0) {
+    return 0;
+  } else {
+    return sum(arr, n - 1) + arr[n - 1];
+  }
+}
+console.log('fcc01:', sum([2, 3, 4, 5], 3));
+
+/**
+ * ======= fcc02
+ * For
+ * Если совпало name, вернуть prop
+ * Если name отсутствует - 'No such contact'
+ * Если совпало name, но нет prop - 'No such property'
+ */
+
+const contacts = [
+  {
+    firstName: 'Akira',
+    lastName: 'Laine',
+    number: '0543236543',
+    likes: ['Pizza', 'Coding', 'Brownie Points'],
+  },
+  {
+    firstName: 'Kristian',
+    lastName: 'Vos',
+    number: 'unknown',
+    likes: ['JavaScript', 'Gaming', 'Foxes'],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  for (let i = 0; i < contacts.length; i += 1) {
+    if (contacts[i].firstName === name) {
+      return contacts[i][prop] || 'No such property';
+    }
+  }
+  return 'No such contact';
+}
+
+console.log('fcc02.1:', lookUpProfile('Akira', 'likes')); // ['Pizza', 'Cod....']
+console.log('fcc02.2:', lookUpProfile('Kristian', 'lastName')); // Vos
+console.log('fcc02.4:', lookUpProfile('Bob', 'number')); // No such contact
+console.log('fcc02.5:', lookUpProfile('Akira', 'address')); // No such property
+
+/**
+ * ======= fcc03
+ * Math.random()
+ * Вернуть рандомное число 0-10
+ * Округлить до целого (вниз)
+ */
+
+function randomWholeNum() {
+  return Math.floor(Math.random() * 10);
+}
+console.log(
+  'fcc03: Math.random - Округляем до целого числа:',
+  randomWholeNum()
+);
+
+/**
+ * ======= fcc04
+ * Math.random()
+ * Устанавливает диапазон рандома от и до
+ */
+
+function randomRange(myMin, myMax) {
+  console.log(
+    `fcc04.1: Устанавливаем диапазон рандома от ${myMin} до ${myMax} `
+  );
+
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+
+console.log(
+  `fcc04.2: Math.random - Получаем рандомное число:`,
+  randomRange(3, 15)
+);
+
+/**
+ * ======= fcc05
+ * parseInt()
+ * Преобразовует строку в число
+ */
+
+function convertToInteger(str) {
+  return parseInt(str);
+}
+
+console.log(
+  'fcc05: parseInt() - Преобразовует строку "56" в ',
+  convertToInteger('56')
+);
+
+/**
+ * ======= fcc06
+ * parseInt(string, radix)
+ * Radix второй аргумент, преобразовывает число в бинарное
+ */
+
+function convertToInteger_fcc06(str) {
+  return parseInt(str, 2);
+}
+
+console.log(
+  'fcc06: parseInt() - Преобразовываем число "10011" в бинарное ',
+  convertToInteger_fcc06('10011')
+);
+
 // ==========================================
 
 // Входной тест на курс React

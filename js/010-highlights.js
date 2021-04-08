@@ -86,7 +86,7 @@ npm install node-sass --save
 npm instal react-jss
 import {createUseStyles} from 'react-jss'
 
-09. Усьанавливаем npm React Router
+09. Устанавливаем npm React Router
 npm install react-router-dom
 import { BrowserRouter } from 'react-router-dom'
 
