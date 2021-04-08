@@ -892,6 +892,56 @@ console.log(
   convertToInteger_fcc06('10011')
 );
 
+/**
+ * ======= fcc07
+ * Ternary
+ * Множественный тернарный оператор
+ */
+
+function checkSign(num) {
+  return num === 0 ? 'zero' : num > 0 ? 'positive' : 'negative';
+}
+
+console.log(
+  'fcc07: Ternary - Множественный тернарный оператор:',
+  checkSign(10)
+);
+
+/**
+ * ======= fcc08.1
+ * Recursion, push, unshift
+ * Возвроащает массив с n кол-вом елементов
+ */
+
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n - 1);
+    countArray.push(n);
+
+    return countArray;
+  }
+}
+console.log('fcc08.1: Recursion, push:', countup(5));
+
+/**
+ * ======= fcc08.2
+ * Возвроащает реверс массива с n кол-вом елементов
+ */
+
+function countdown(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countdown(n - 1);
+    countArray.unshift(n);
+
+    return countArray;
+  }
+}
+console.log('fcc08.2: Recursion, unshift:', countdown(7));
+
 // ==========================================
 
 // Входной тест на курс React
