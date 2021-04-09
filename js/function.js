@@ -909,7 +909,7 @@ console.log(
 
 /**
  * ======= fcc08.1
- * Recursion, push, unshift
+ * Recursion, push
  * Возвроащает массив с n кол-вом елементов
  */
 
@@ -922,11 +922,15 @@ function countup(n) {
 
     return countArray;
   }
-}
-console.log('fcc08.1: Recursion, push:', countup(5));
+} // [1, 2, 3, 4, 5];
+console.log(
+  'fcc08.1: Recursion - Возвроащает массив с n кол-вом елементов:',
+  countup(5)
+);
 
 /**
  * ======= fcc08.2
+ * * Recursion, unshift
  * Возвроащает реверс массива с n кол-вом елементов
  */
 
@@ -939,8 +943,32 @@ function countdown(n) {
 
     return countArray;
   }
-}
-console.log('fcc08.2: Recursion, unshift:', countdown(7));
+} // [7, 6, 5, 4, 3, 2, 1]
+console.log(
+  'fcc08.2: Recursion - Возвроащает реверс массива с n кол-вом елементов:',
+  countdown(7)
+);
+
+/**
+ * ======= fcc09
+ * * Recursion, push
+ * Возвроащает массив чисел в диапазоне startNum - endNum
+ */
+
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum - startNum === 0) {
+    return [startNum];
+  } else {
+    const arr = rangeOfNumbers(startNum, endNum - 1);
+    arr.push(endNum);
+
+    return arr;
+  }
+} // [5, 6, 7, 8, 9, 10]
+console.log(
+  'fcc09: Recursion - Возвроащает массив чисел в диапазоне:',
+  rangeOfNumbers(5, 10)
+);
 
 // ==========================================
 
