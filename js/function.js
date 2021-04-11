@@ -970,6 +970,42 @@ console.log(
   rangeOfNumbers(5, 10)
 );
 
+/**
+ * ======= fcc010
+ * * var with let
+ * can only be declared once
+ */
+
+var camper = 'James';
+var camper = 'David';
+var camper = 'Rik';
+var camper = 'Pony';
+console.log('fcc010.1: var & let - can only be declared once -', camper);
+// ('use strict');
+let camper_fcc010 = 'Rik';
+// let camper_fcc010 = 'Pony'; // ERROR !!! //can only be declared once
+camper_fcc010 = 'Pony'; // <---Do this!
+console.log(
+  'fcc010.2: var & let - I changed let velue after mistake! -->',
+  camper_fcc010
+);
+
+/**
+ * ======= fcc011
+ * * var with let
+ *
+ */
+
+var catName;
+var quote;
+function catTalk() {
+  'use strict';
+
+  catName = 'Oliver';
+  quote = catName + ' says Meow!';
+}
+catTalk();
+
 // ==========================================
 
 // Входной тест на курс React
